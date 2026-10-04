@@ -1,0 +1,1 @@
+import {sources} from '@/lib/sources';export default function SourceList({ids}:{ids:readonly string[]}){return <div className="source-list"><h3>Sources you can check</h3>{sources.filter(s=>ids.includes(s.id)).map(s=><p key={s.id}><a href={s.url}>{s.name} ↗</a><br/><span className="small">{s.scope} · Checked {s.checked}</span></p>)}</div>}

@@ -1,0 +1,8 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {tankPlan,costPlan,serviceWindow,urgency} from '../src/lib/calculations.ts';
+test('Minnesota tiers and disposal/ejector adjustments are not additive',()=>{assert.equal(tankPlan(3,4,70,'MN',false,false).minimum,1000);assert.equal(tankPlan(4,4,70,'MN',true,true).minimum,2250);assert.equal(tankPlan(10,4,70,'MN',false,false).minimum,2750);assert.equal(tankPlan(3,4,70,'other',false,false).minimum,null)});
+test('reject invalid numeric inputs',()=>{assert.throws(()=>tankPlan(NaN,4,70,'MN',false,false));assert.throws(()=>tankPlan(3.5,4,70,'MN',false,false));assert.throws(()=>costPlan(-1,0,0,0,0))});
+test('cost totals extras and tax',()=>{const x=costPlan(400,50,25,100,10);assert.equal(x.subtotal,575);assert.ok(Math.abs(x.total-632.5)<.001)});
+test('date window rejects future and impossible dates',()=>{assert.throws(()=>serviceWindow('2099-01-01',3,5));assert.throws(()=>serviceWindow('2025-02-30',3,5));assert.throws(()=>serviceWindow('2025-01-01',4,3))});
+test('leap-day pumping anniversary clamps to February',()=>{const x=serviceWindow('2024-02-29',3,5,new Date('2026-10-04'));assert.equal(x.from,'2027-02-28');assert.equal(x.to,'2029-02-28')});
+test('expired and current windows classified consistently',()=>{assert.equal(serviceWindow('2018-01-01',3,5,new Date('2026-10-04')).status,'Past planning window');assert.equal(serviceWindow('2022-01-01',3,5,new Date('2026-10-04')).status,'In planning window')});
+test('sewage symptoms always escalate',()=>{assert.equal(urgency('Odor',true,false),'Urgent');assert.equal(urgency('Alarm',false,true),'Urgent');assert.equal(urgency('Alarm',false,false),'Prompt service');assert.equal(urgency('Wet yard',false,false),'Urgent')});

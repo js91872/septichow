@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function PageHead({title,description}:{title:string;description:string}){return <div className="container page-head"><div className="breadcrumbs"><Link href="/">Home</Link> / {title}</div><div className="eyebrow">SEPTICHOW · HOMEOWNER KNOW-HOW</div><h1>{title}</h1><p>{description}</p></div>}
