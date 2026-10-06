@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { tools } from '@/lib/content';
 import { toolGuidance } from '@/lib/toolGuidance';
 import { origin, sources } from '@/lib/sources';
+import ShareButtons from '@/components/ShareButtons';
 import Calculator, { Kind } from '@/components/Calculator';
 import PageHead from '@/components/PageHead';
 import SourceList from '@/components/SourceList';
@@ -24,7 +25,7 @@ export default async function Tool({ params }: { params: Promise<{ slug: string 
   return <>
     <PageHead title={tool.title} description={tool.description} />
     <section className="container page-body"><Calculator kind={tool.kind as Kind} />
-      <div className="tool-reading article rich-article">
+      <div className="tool-reading article rich-article"><ShareButtons title={tool.title} url={url} />
         {guidance.sections.map(section => <section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(text => <p key={text}>{text}</p>)}{section.steps && <ol>{section.steps.map(step => <li key={step}>{step}</li>)}</ol>}</section>)}
         <section className="article-faq"><h2>Frequently asked questions</h2>{guidance.faqs.map(f => <details key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</section>
         <section className="related-reading"><h2>Helpful septic guides and tools</h2><ul>{guidance.related.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul></section>
