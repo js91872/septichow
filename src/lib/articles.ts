@@ -3,6 +3,82 @@ export type ArticleSection = { id: string; title: string; paragraphs: string[]; 
 export type HomeownerArticle = { title: string; description: string; summary: string; keywords: string[]; sourceIds: string[]; sections: ArticleSection[]; faqs: FAQ[]; related: { href: string; label: string }[] };
 
 export const articles: Record<string, HomeownerArticle> = {
+  'guides/signs-septic-tank-is-full': {
+    title: 'How to Tell if Your Septic Tank Is Full: 7 Warning Signs',
+    description: 'Wondering if your septic tank is full? Check 7 warning signs, what is normal after pumping, and when to call a septic professional.',
+    summary: 'Slow drains in several rooms, gurgling, sewage odors, backups and wastewater surfacing can signal septic trouble. But a tank normally contains liquid, so “full of water” alone does not mean it needs pumping. Keep people away from sewage and arrange professional help for backups or surfacing.',
+    keywords: ['how to tell if septic tank is full', 'how to tell septic tank full', 'septic tank full signs', 'signs septic tank needs pumping', 'septic tank full or clogged', 'septic tank full of water'],
+    sourceIds: ['epa-care', 'epa-failure', 'epa-faq'],
+    sections: [
+      { id: 'meaning-of-full', title: 'What does a full septic tank actually mean?', paragraphs: [
+        'A septic tank is not supposed to stay empty. It normally contains wastewater up to its operating level while liquid flows onward to the drain field. The solids accumulating at the bottom and floating near the top are what routine pumping removes. A tank that refills with liquid after pumping is not automatically failing.',
+        'When someone says “my septic tank is full,” they may mean too much sludge and scum, a blocked pipe, an outlet problem, a pump failure or a saturated drain field. These can look similar from inside the house, but the repairs are not the same. A technician can check the tank, measure accumulated solids where appropriate and inspect the flow path.',
+        'The safest approach is to pay attention to symptoms and the last inspection rather than trying to open the tank yourself. Septic tanks contain hazardous gases and unsecured access openings are dangerous.'
+      ] },
+      { id: 'seven-signs', title: '7 signs your septic tank or septic system needs attention', paragraphs: [
+        'One symptom does not prove a tank needs pumping. Several symptoms together, especially across different fixtures, make a prompt inspection more important. Use this table to describe exactly what is happening before calling a provider.',
+        'If raw sewage is entering the home or wastewater is surfacing in the yard, avoid contact, limit water use and request professional help promptly. Keep children and pets away from the affected area.'
+      ], table: { headers: ['Warning sign', 'What it may indicate', 'What to do'], rows: [
+        ['1. Multiple drains are slow', 'A shared drain restriction or septic system problem', 'Note which fixtures are affected; request a check if the issue persists'],
+        ['2. Toilets or drains gurgle', 'Airflow or wastewater movement is being disrupted', 'Record when it happens and whether several fixtures are involved'],
+        ['3. Sewage backs up', 'A blocked or overloaded wastewater path', 'Stop unnecessary water use and arrange urgent professional service'],
+        ['4. Sewage smell indoors', 'A plumbing vent, drain seal or septic issue', 'Identify where the odor is strongest; seek an assessment if persistent'],
+        ['5. Sewage smell outdoors', 'Possible tank, pipe, vent or drain field issue', 'Keep clear of suspicious wet areas and contact a septic professional'],
+        ['6. Wet or unusually lush drain-field area', 'Potential effluent surfacing or abnormal soil moisture', 'Avoid the area, do not dig, and arrange professional evaluation'],
+        ['7. High-water alarm sounds', 'A pump or treatment system may not be moving wastewater properly', 'Reduce water use and contact the service provider; do not bypass controls']
+      ] }, links: [{ href: '/tools/septic-troubleshooter', label: 'Use the septic symptoms troubleshooter' }] },
+      { id: 'full-vs-clogged', title: 'Is your septic tank full or is a pipe clogged?', paragraphs: [
+        'A single slow sink may point to a local plumbing blockage, while trouble in several toilets, showers and sinks deserves investigation of the shared drainage system. Neither pattern is a home diagnosis. A septic professional or plumber can isolate the likely location safely.',
+        'Pumping removes tank contents but does not automatically remove pipe obstructions, repair pumps or restore a failing drain field. Ask the provider what was actually found instead of booking repeated pumping without a diagnosis.'
+      ], table: { headers: ['Observation', 'Possible explanation', 'Next step'], rows: [
+        ['Only one fixture drains slowly', 'Local fixture or branch drain issue', 'Ask a plumber to evaluate the affected fixture'],
+        ['Multiple fixtures back up or drain slowly', 'Shared plumbing or septic system issue', 'Contact an appropriate professional promptly'],
+        ['Tank has liquid after pumping', 'Normal refilling can occur', 'Use the inspection report, not liquid level alone'],
+        ['Alarm sounds at a pumped system', 'Pump, float, power or control issue', 'Contact the system service provider']
+      ] } },
+      { id: 'after-pumping', title: 'Why is my septic tank full again right after pumping?', paragraphs: [
+        'When toilets, sinks and showers are used, the tank fills back to its normal working liquid level. That is expected. The key question is whether wastewater flows normally onward and whether solids have accumulated to a level that calls for another service.',
+        'If sewage backs up or an alarm continues after pumping, contact the provider with the service date and symptoms. The problem might be elsewhere in the system. Ask for the tank observations and any recommended follow-up in writing.'
+      ] },
+      { id: 'when-to-pump', title: 'How do you know when to pump a septic tank?', paragraphs: [
+        'The EPA commonly advises household septic tanks to be inspected about every three years and pumped about every three to five years, depending on tank size, household size, water use and solids accumulation. Some alternative systems require more frequent attention.',
+        'Do not wait for a backup before planning routine service. Keep the last pumping date, inspection findings and contractor recommendation together. A reminder calculator is useful for planning, but it cannot replace inspection measurements or local requirements.'
+      ], links: [{ href: '/tools/septic-pumping-frequency-calculator', label: 'Calculate a septic tank pumping window' }, { href: '/maintenance', label: 'Read the septic maintenance checklist' }] },
+      { id: 'what-to-check', title: 'What to check before calling a septic service company', paragraphs: [
+        'You do not have to open the tank, test gases or uncover buried lines. Instead, collect a few safe observations so the provider can recommend the right visit. Do not walk on or work in areas where sewage may be surfacing.',
+        'Ask whether the quoted visit includes an inspection, pumping, filter cleaning, equipment diagnosis or separate repair charges. A recent pumping receipt may not show that the drain field or pump was inspected.'
+      ], bullets: [
+        'Write down when the symptoms began and which drains are affected.',
+        'Check your records for the last pumping and inspection dates.',
+        'Note recent heavy rain, unusually high household water use or guests.',
+        'Record any visible alarm message without opening electrical equipment.',
+        'Keep people and pets away from suspected wastewater on the ground.',
+        'Ask for a written explanation of findings and recommended next steps.'
+      ], links: [{ href: '/tools/septic-pumping-cost-calculator', label: 'Estimate your quoted pumping charges' }] },
+      { id: 'what-not-to-do', title: 'What NOT to do when you suspect a full septic tank', paragraphs: [
+        'Do not enter a septic tank, lean into an open access hole or remove secured lids yourself. Toxic gases and fall hazards can cause severe injury or death. Never ask a family member to inspect inside.',
+        'Avoid chemical drain cleaners, improvised drain-field treatments and repeated flushing to test whether the problem has disappeared. Do not drive over a wet drain field or divert more water toward it. When wastewater is surfacing or returning into the house, professional assessment takes priority over DIY fixes.'
+      ] },
+      { id: 'service-report', title: 'What a useful septic inspection report should tell you', paragraphs: [
+        'Ask the professional to record the tank condition, pumping details if performed, any measured sludge or scum accumulation, the inspected components and whether additional diagnosis is recommended. If the cause of a backup is unclear, the report should say what still needs investigation.',
+        'Keep this report with your home maintenance records. It is more useful than relying on the phrase “tank was full” because it distinguishes normal liquid level from problems that require repairs.'
+      ] }
+    ],
+    faqs: [
+      { question: 'What is the first sign that a septic tank is full?', answer: 'There is no single reliable first sign. Multiple slow drains, gurgling, sewage smells or backups warrant attention, but only an inspection can establish whether pumping is needed or another fault is responsible.' },
+      { question: 'Can a septic tank be full without backing up?', answer: 'Yes. A healthy tank normally holds liquid, and accumulated solids can increase before a backup occurs. Routine inspections help establish when pumping is appropriate.' },
+      { question: 'Will a septic tank fill with water again after pumping?', answer: 'Yes. The normal operating liquid level returns as the home uses water. Recurring backups, alarms or surface wastewater are not normal and need assessment.' },
+      { question: 'How do I know if my septic tank is full or clogged?', answer: 'You generally cannot tell from symptoms alone. A technician can evaluate the tank, pipes, pump if fitted and drain field to identify what needs attention.' },
+      { question: 'Is it safe to open the septic tank to check?', answer: 'No. Do not open or enter septic tanks yourself. Hazardous gases and unsafe access openings make this dangerous; contact a qualified service provider.' },
+      { question: 'Should I pump the septic tank if it smells?', answer: 'Not automatically. Odors can have several causes, including plumbing vents and drain issues. Have the cause assessed, particularly if smells persist or are accompanied by backups or wet ground.' }
+    ],
+    related: [
+      { href: '/tools/septic-troubleshooter', label: 'Find the next step for septic problems' },
+      { href: '/problems', label: 'Read about septic odors, alarms and slow drains' },
+      { href: '/guides/how-septic-system-works', label: 'Understand how a septic tank and drain field work' },
+      { href: '/tools/septic-pumping-frequency-calculator', label: 'Plan your next septic pumping date' }
+    ]
+  },
   'guides/how-septic-system-works': {
     title: 'How Does a Septic System Work? A Simple Homeowner Guide',
     description: 'Learn how a septic tank and drain field work, where household wastewater goes, why tanks need pumping, and what to check when buying a home with septic.',
