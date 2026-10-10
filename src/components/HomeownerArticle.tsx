@@ -17,7 +17,7 @@ export default function HomeownerArticle({ path }: { path: string }) {
   const feature = articleImages[path];
   const url = origin + '/' + path;
   const wordCount = articleWordCount(article);
-  const isNewGuide = path === 'guides/signs-septic-tank-is-full';
+  const isNewGuide = ["guides/signs-septic-tank-is-full","guides/how-to-fix-septic-drain-field","guides/septic-drain-field-replacement-cost","guides/septic-inspection-cost","guides/septic-tank-alarm-going-off","guides/clogged-septic-drain-field"].includes(path);
   const publishDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
   const modifiedDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-06T00:00:00Z';
   const breadcrumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, ...(path.startsWith('guides/') ? [{ '@type': 'ListItem', position: 2, name: 'Septic guides', item: origin + '/guides' }] : []), { '@type': 'ListItem', position: path.startsWith('guides/') ? 3 : 2, name: article.title, item: url }];
