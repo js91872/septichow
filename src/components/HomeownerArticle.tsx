@@ -17,12 +17,15 @@ export default function HomeownerArticle({ path }: { path: string }) {
   const feature = articleImages[path];
   const url = origin + '/' + path;
   const wordCount = articleWordCount(article);
+  const isNewGuide = path === 'guides/signs-septic-tank-is-full';
+  const publishDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
+  const modifiedDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-06T00:00:00Z';
   const breadcrumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, ...(path.startsWith('guides/') ? [{ '@type': 'ListItem', position: 2, name: 'Septic guides', item: origin + '/guides' }] : []), { '@type': 'ListItem', position: path.startsWith('guides/') ? 3 : 2, name: article.title, item: url }];
   return <>
     <PageHead title={article.title} description={article.description} />
     <div className="container page-body article-shell">
       <article className="article rich-article">
-        <p className="article-meta">By <Link href="/about">SepticHow editorial team</Link> · Updated October 6, 2026 · {Math.ceil(wordCount / 220)} min read</p>
+        <p className="article-meta">By <Link href="/about">SepticHow editorial team</Link> · Updated {isNewGuide ? 'October 10, 2026' : 'October 6, 2026'} · {Math.ceil(wordCount / 220)} min read</p>
         <figure className="article-feature"><img src={feature.src} alt={feature.alt} width={1200} height={630} fetchPriority="high" /><figcaption>{feature.caption}</figcaption></figure>
         <ShareButtons title={article.title} url={url} />
         <div className="quick-answer"><strong>The quick answer</strong><p>{article.summary}</p></div>
@@ -40,7 +43,7 @@ export default function HomeownerArticle({ path }: { path: string }) {
         <SourceList ids={article.sourceIds} />
       </article>
     </div>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Article', '@id': url + '#article', headline: article.title, description: article.description, datePublished: '2026-10-04T00:00:00Z', dateModified: '2026-10-06T00:00:00Z', image: { '@type': 'ImageObject', url: origin + feature.src, width: 1200, height: 630 }, author: { '@type': 'Organization', name: 'SepticHow editorial team', url: origin + '/about' }, publisher: { '@id': origin + '/#organization' }, mainEntityOfPage: { '@type': 'WebPage', '@id': url }, inLanguage: 'en-US', isAccessibleForFree: true, wordCount, keywords: article.keywords.join(', '), articleSection: article.sections.map(s => s.title), citation: sources.filter(s => article.sourceIds.includes(s.id)).map(s => s.url) }} />
+    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Article', '@id': url + '#article', headline: article.title, description: article.description, datePublished: publishDate, dateModified: modifiedDate, image: { '@type': 'ImageObject', url: origin + feature.src, width: 1200, height: 630 }, author: { '@type': 'Organization', name: 'SepticHow editorial team', url: origin + '/about' }, publisher: { '@id': origin + '/#organization' }, mainEntityOfPage: { '@type': 'WebPage', '@id': url }, inLanguage: 'en-US', isAccessibleForFree: true, wordCount, keywords: article.keywords.join(', '), articleSection: article.sections.map(s => s.title), citation: sources.filter(s => article.sourceIds.includes(s.id)).map(s => s.url) }} />
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbs }} />
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', '@id': url + '#faq', mainEntity: article.faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }} />
   </>;
