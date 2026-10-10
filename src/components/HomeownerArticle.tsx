@@ -31,15 +31,16 @@ export default function HomeownerArticle({ path }: { path: string }) {
         <div className="quick-answer"><strong>The quick answer</strong><p>{article.summary}</p></div>
         <nav className="article-toc" aria-label="On this page"><h2>On this page</h2><ul>{article.sections.map(s => <li key={s.id}><a href={'#' + s.id}>{s.title}</a></li>)}<li><a href="#questions">Frequently asked questions</a></li></ul></nav>
         {path === 'guides/how-septic-system-works' && <figure><Diagram /><figcaption>A conventional septic system: house, tank and drain field.</figcaption></figure>}
-        {article.sections.map(section => <section key={section.id} id={section.id}>
+        {article.sections.map((section, sectionIndex) => <section key={section.id} id={section.id}>
           <h2>{section.title}</h2>
           {section.paragraphs.map((text, index) => <p key={index}>{text}</p>)}
           {section.bullets && <ul>{section.bullets.map(text => <li key={text}>{text}</li>)}</ul>}
           {section.table && <div className="article-table" tabIndex={0} role="region" aria-label={section.title + ' table'}><table><caption>{section.title}</caption><thead><tr>{section.table.headers.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, column) => column === 0 ? <th key={column} scope="row">{cell}</th> : <td key={column}>{cell}</td>)}</tr>)}</tbody></table></div>}
           {section.links && <div className="article-next">{section.links.map(link => <Link key={link.href} href={link.href}>{link.label} →</Link>)}</div>}
+          {sectionIndex === 2 && article.related.length > 0 && <nav className="article-next" aria-label="Helpful related septic resources">{article.related.slice(0, 2).map(link => <Link key={link.href} href={link.href}>{link.label} →</Link>)}</nav>}
         </section>)}
         <section id="questions" className="article-faq"><h2>Frequently asked questions</h2>{article.faqs.map(f => <details key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</section>
-        <section className="related-reading"><h2>Keep reading</h2><ul>{article.related.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul></section>
+        <section className="related-reading"><h2>Keep reading</h2><ul>{article.related.slice(2).map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul></section>
         <SourceList ids={article.sourceIds} />
       </article>
     </div>
