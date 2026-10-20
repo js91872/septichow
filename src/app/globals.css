@@ -93,3 +93,16 @@ footer{background:#ecf3ef}
 @media(max-width:1050px){.task-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:clamp(38px,4.7vw,52px)}}
 @media(max-width:760px){.nav-wrap{min-height:70px}.hero{padding-top:34px;padding-bottom:34px}.hero h1{font-size:clamp(35px,8vw,43px)}.task-section{padding-top:0;padding-bottom:38px}.task-heading{display:block}.task-heading h2{font-size:27px}.task-heading p{margin-top:8px}.task-grid{grid-template-columns:1fr;gap:12px}.task-tile{min-height:86px;padding:16px}.tool-card{padding:20px}.hero-note{font-size:11px}.schedule-link{font-size:11px}.form-panel,.result{padding:20px}}
 @media(prefers-reduced-motion:reduce){.task-tile{transition:none}.task-tile:hover{transform:none}}
+
+
+/* Subtle 2026 color polish: preserve SepticHow's forest-green identity. */
+:root{--green:#147858}
+.brand>span:not(.brand-icon):not(.brand-dot){color:#21845f}
+.hero h1 em{color:#187d5d}
+.eyebrow{color:#347c61}
+.card-cta{color:#147858}
+.tool-card,.task-tile,.symptoms a{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.tool-card:hover,.task-tile:hover{border-color:#75b99a;box-shadow:0 12px 28px rgba(20,75,55,.10);transform:translateY(-2px)}
+.symptoms a:hover{border-color:#75b99a;box-shadow:0 7px 18px rgba(20,75,55,.07)}
+.tool-card:focus-visible,.task-tile:focus-visible,.symptoms a:focus-visible{outline:3px solid #ad6c28;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.tool-card,.task-tile,.symptoms a{transition:none}.tool-card:hover,.task-tile:hover,.symptoms a:hover{transform:none}}
