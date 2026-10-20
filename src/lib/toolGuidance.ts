@@ -12,13 +12,14 @@ export const toolGuidance: Record<string, ToolGuidance> = {
       {
         title: 'What size septic tank do I need? Sizing by bedrooms',
         paragraphs: [
-          'In the United States, residential septic tanks are sized primarily by the number of bedrooms in the home, rather than the number of people currently living there. Public health codes and plumbing standards use bedrooms as a legal proxy for potential occupancy, typically assuming two people per bedroom to ensure the system is not undersized when guests visit or when the property is sold.',
-          'General legal sizing benchmarks across most US jurisdictions include:',
-          '• 1 to 3 bedrooms: 1,000 gallons minimum (some older local codes permit 750 or 900 gallons for 1–2 bedrooms, but 1,000 gallons is the modern standard for new construction and replacements).',
-          '• 4 bedrooms: 1,200 to 1,500 gallons minimum.',
-          '• 5 bedrooms: 1,500 to 1,750 gallons minimum.',
-          '• 6 or more bedrooms: Add roughly 250 gallons for each additional bedroom.',
-          'If your home has extra plumbing fixtures (such as jetted bathtubs or multi-head body showers) or an unpermitted bedroom conversion, local health officials may require a larger tank or dual-compartment configuration.'
+          'There is no single universal federal or nationwide minimum septic tank capacity in the United States. Septic tank sizing is strictly established by state, county, and municipal public health codes based on estimated daily wastewater design flow and permitted system design.',
+          'Public health codes and plumbing standards use bedrooms as a regulatory proxy for potential occupancy (typically planning for two people per bedroom at 60–75 gallons per person per day, or 110–150 gallons per day per bedroom) to ensure the system is not undersized when guests visit or when the property is sold.',
+          'While specific regulations vary by state and county, common regulatory benchmarks include:',
+          '• 1 to 3 bedrooms: 1,000 gallons is a common baseline standard in many state codes (such as Minnesota, Ohio, and Pennsylvania), though some jurisdictions allow 750 or 900 gallons for 1- or 2-bedroom homes.',
+          '• 4 bedrooms: 1,200 to 1,500 gallons under most regional sanitary standards.',
+          '• 5 bedrooms: 1,500 to 1,750 gallons.',
+          '• 6 or more bedrooms: Codes commonly require adding 250 gallons for each additional bedroom.',
+          'If your home has extra plumbing fixtures (such as jetted bathtubs or multi-head body showers), garbage disposals, sewage ejectors, or an unpermitted bedroom conversion, local health officials may require a larger tank or dual-compartment configuration.'
         ]
       },
       {
@@ -26,14 +27,14 @@ export const toolGuidance: Record<string, ToolGuidance> = {
         paragraphs: [
           'Understanding your septic sizing requires separating daily wastewater flow from required tank capacity. The EPA estimates that the average individual generates 60 to 75 gallons of wastewater per day (GPD) in modern water-efficient homes, and up to 100 GPD with older fixtures.',
           'For example, a household of 4 people using 70 gallons each produces approximately 280 gallons of wastewater per day. However, you cannot install a 280-gallon septic tank. Septic tanks rely on gravity separation and anaerobic digestion, requiring a minimum 24- to 48-hour hydraulic retention time so that heavy solids (sludge) settle to the bottom and light fats, oils, and grease (scum) float to the top.',
-          'In addition to retaining liquid wastewater for at least 24 to 48 hours, health regulations mandate dedicated reserve volume to accumulate sludge and scum between routine 3- to 5-year pumping cycles. That is why a 4-person family generating 280 GPD legally requires a 1,000- to 1,500-gallon tank capacity.'
+          'In addition to retaining liquid wastewater for at least 24 to 48 hours, health regulations mandate dedicated reserve volume to accumulate sludge and scum between routine 3- to 5-year pumping cycles. That is why health codes establish minimum permitted capacities (commonly 1,000 to 1,500 gallons depending on bedroom count and local jurisdiction) rather than sizing a tank to equal a single day’s water use.'
         ]
       },
       {
         title: 'Septic tank size for a 3-bedroom or 4-bedroom house',
         paragraphs: [
-          'For a 3-bedroom house, standard US design standards anticipate up to 6 occupants generating 360 to 450 GPD of design flow. Most state sanitary codes mandate a minimum 1,000-gallon tank for 3 bedrooms to provide sufficient settling time and sludge storage.',
-          'For a 4-bedroom house, codes plan for up to 8 occupants and 480 to 600 GPD of design wastewater. As a result, 4-bedroom homes generally require a 1,200-gallon or 1,500-gallon tank. If the home includes a garbage disposal or basement sewage ejector pump, many local codes mandate a 1,500-gallon tank or a two-compartment tank regardless of bedroom count.',
+          'For a 3-bedroom house, standard design calculations anticipate up to 6 potential occupants generating 360 to 450 GPD of design wastewater flow. Many state and county sanitary codes establish a 1,000-gallon tank as the permitted baseline for 3 bedrooms to provide sufficient hydraulic settling time and multi-year sludge storage.',
+          'For a 4-bedroom house, codes plan for up to 8 occupants and 480 to 600 GPD of design wastewater. As a result, 4-bedroom homes generally require a 1,200-gallon or 1,500-gallon tank under local health standards. If the home includes a garbage disposal or basement sewage ejector pump, many local codes mandate a 1,500-gallon tank or a two-compartment tank regardless of bedroom count.',
           'Our calculator allows you to test both scenarios: enter your bedroom count and household size to view estimated daily wastewater flow, review the two-day liquid retention illustration, and compare against reference state rules.'
         ],
         steps: [
@@ -63,11 +64,11 @@ export const toolGuidance: Record<string, ToolGuidance> = {
     faqs: [
       {
         question: 'What size septic tank do I need for a 3-bedroom house?',
-        answer: 'Across most US states and county health codes, a 3-bedroom house requires a minimum septic tank capacity of 1,000 gallons. If a garbage disposal or sewage ejector pump is installed, some jurisdictions require 1,250 or 1,500 gallons.'
+        answer: 'Requirements depend on your state and county sanitary regulations. In many jurisdictions, public health codes establish 1,000 gallons as the baseline permitted capacity for a 3-bedroom home to accommodate design flows and sludge accumulation. However, some areas permit 900 gallons, while others require 1,250 or 1,500 gallons if high-flow fixtures, garbage disposals, or sewage ejectors are installed. Always check with your local health department.'
       },
       {
         question: 'What size septic tank do I need for a 4-bedroom house?',
-        answer: 'A 4-bedroom house typically requires a 1,200-gallon to 1,500-gallon septic tank under standard US building codes. In jurisdictions with strict environmental rules or where a garbage disposal is used, 1,500 gallons is the most common requirement.'
+        answer: 'A 4-bedroom house commonly requires a 1,200- to 1,500-gallon septic tank under state and local sanitary codes. In jurisdictions with strict environmental rules, high water tables, or where a garbage disposal is installed, 1,500 gallons (often in a dual-compartment configuration) is standard.'
       },
       {
         question: 'How many gallons per person does a septic tank use per day?',
@@ -164,21 +165,21 @@ export const toolGuidance: Record<string, ToolGuidance> = {
       {
         title: 'How much does septic tank pumping cost? Real quote calculator',
         paragraphs: [
-          'Septic tank pumping typically costs between $350 and $650 for a standard 1,000-gallon residential tank, but actual prices vary considerably based on local labor rates, municipal waste dumping fees, and how easily your tank can be accessed.',
+          'Homeowners commonly encounter routine contractor pumping quotes between $300 and $650 for a standard 1,000-gallon tank with accessible surface lids. However, actual pricing is not set by any national benchmark and varies considerably based on local septage receiving station disposal fees, regional labor rates, travel distance, and physical site access.',
           'This calculator is designed to total your actual written contractor quotes and itemized fee schedules. Unlike generic online estimators that invent unverified regional averages, this tool allows you to plug in your pumper’s specific line items—base pumping, lid digging charges, dumping fees, extra hose runs, emergency surcharges, and sales tax—to see your true out-of-pocket cost.'
         ]
       },
       {
         title: 'Itemized septic pumping quote example & cost breakdown',
         paragraphs: [
-          'A professional septic pumper’s written estimate typically includes several distinct line items. Here is an illustrative walkthrough of common charges:',
-          '• Base Pumping Fee ($350 – $550): Covers the truck trip, driver/technician labor, and pumping and hauling up to 1,000 gallons of septage with accessible surface lids.',
-          '• Lid Locating & Digging Fee ($50 – $175): Billed if your septic tank lids are buried underground and the crew must locate and excavate dirt to reach the access covers.',
-          '• Waste Disposal / Environmental Fee ($40 – $120): Passed on from municipal wastewater treatment facilities or licensed septage receiving stations that charge pumpers by the gallon or load to treat hauled waste.',
-          '• Extended Hose Surcharge ($50 – $100): Applied if the pumping truck cannot park within 50 to 100 feet of the tank, requiring extra vacuum hose sections.',
-          '• Effluent Filter Inspection & Rinsing ($25 – $50): Often included with pumping, but some contractors list it as an optional line item.',
-          '• Emergency / Weekend Surcharge ($150 – $350): Added for same-day emergency calls, weekend service, or holiday dispatch.',
-          '• State / County Sales Tax (0% – 10%): Applied to labor and services depending on state and municipal tax rules.'
+          'A professional septic pumper’s written estimate typically includes several distinct line items. Here is an illustrative walkthrough of common charges observed across regional providers:',
+          '• Base Pumping Fee (Illustrative range: $300 – $550): Covers truck trip, technician labor, and pumping and hauling up to 1,000 gallons of septage with accessible surface lids.',
+          '• Lid Locating & Digging Fee (Illustrative range: $50 – $175): Billed if septic tank access lids are buried underground and require manual excavation.',
+          '• Waste Disposal / Environmental Tipping Fee (Illustrative range: $40 – $120): Passed on from municipal wastewater treatment plants or receiving stations that charge pumpers by the load or gallon.',
+          '• Extended Hose Run Surcharge (Illustrative range: $50 – $100): Applied if the pumping truck cannot park within 50 to 100 feet of the tank.',
+          '• Effluent Filter Inspection & Service (Illustrative range: $25 – $50, or included with base pumping): Covers pulling, inspecting, and spray-cleaning the outlet filter cartridge.',
+          '• Emergency / Weekend Surcharge (Illustrative range: $150 – $350): Added for same-day emergency dispatch, evenings, or holiday service.',
+          '• State / County Sales Tax (0% – 10%): Applied depending on whether wastewater maintenance services are taxable in your state.'
         ],
         steps: [
           'Enter the base pumping price from your written contractor quote.',
@@ -195,7 +196,7 @@ export const toolGuidance: Record<string, ToolGuidance> = {
           '• Ask if the quote covers both compartments: Modern septic tanks have two chambers separated by a dividing wall. Pumping only the primary chamber leaves accumulated solids in the secondary chamber.',
           '• Ask if crust agitation / back-flushing is included: Heavy sludge and hardened scum blankets must be broken up with an agitator tool or back-flushed with effluent to ensure complete removal.',
           '• Inquire about per-gallon overage fees: If your tank is 1,250 or 1,500 gallons, confirm whether the base rate covers the full volume or if there is a surcharge (typically $0.25 to $0.45 per additional gallon).',
-          '• Ask about effluent filter service: If your tank has an outlet filter, make sure the contractor pulls, inspects, and sprays it clean during the visit.'
+          '• Ask about effluent filter service: If your tank has an outlet filter, make sure the technician includes pulling, inspecting, and spray-cleaning the cartridge as part of the service.'
         ]
       },
       {

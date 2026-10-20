@@ -153,19 +153,19 @@ export const articles: Record<string, HomeownerArticle> = {
         id: "what-you-pay-for",
         title: "How much does a drain field replacement cost?",
         paragraphs: [
-          "In the United States, replacing a residential septic drain field typically costs between $5,000 and $15,000 for a conventional gravity trench or plastic chamber system. If challenging soil conditions, shallow bedrock, or high groundwater require an engineered mound system or pressure-dosed sand filter, costs often range from $12,000 to $25,000 or more.",
-          "In contrast, localized component repairs—such as replacing a cracked distribution box, clearing a crushed pipe section, or installing an effluent filter—usually cost between $1,000 and $3,500. This is why obtaining an accurate diagnostic inspection before approving a total replacement is essential."
+          "Drain field replacement represents one of the largest single repair expenses a homeowner can face. Illustrative planning ranges for replacing a residential absorption field generally span from $5,000 to $15,000 for a conventional gravity trench or plastic chamber system in well-draining soil. If challenging site conditions (such as heavy clay, shallow bedrock, or a high water table) require an engineered mound system or pressure-dosed sand filter, project costs frequently range from $12,000 to $25,000 or more.",
+          "In contrast, localized component repairs—such as replacing a cracked distribution box, repairing a crushed pipe section, or having a technician service an effluent filter—usually cost between $800 and $3,000. This is why obtaining an accurate diagnostic inspection from a licensed septic contractor before approving a total replacement is essential."
         ]
       },
       {
         id: "main-factors",
         title: "Seven factors that drive drain field replacement costs",
         paragraphs: [
-          "A replacement quote is driven by site geography and health code standards rather than just pipe materials. An online estimator cannot see your yard's slope, soil percolation rate, or distance to local water bodies.",
+          "A replacement quote is driven by site geography, soil percolation rates, and health code standards rather than just pipe materials. An online estimator cannot see your yard's slope, soil absorption rate, or distance to local water bodies.",
           "The major line items that determine the final contractor bill include:"
         ],
         table: {
-          headers: ["Cost factor", "Typical price range", "Why it matters"],
+          headers: ["Cost factor", "Illustrative fee range", "Why it matters"],
           rows: [
             ["Soil testing & perc test", "$400 – $1,500", "Determines soil absorption rate and legally approved design"],
             ["Engineered site design", "$600 – $2,000", "Required by health departments for non-standard systems"],
@@ -189,7 +189,7 @@ export const articles: Record<string, HomeownerArticle> = {
           rows: [
             ["Broken pipe from vehicle weight", "Targeted pipe repair", "$800 – $2,000"],
             ["Tilted or rotted distribution box", "D-box replacement with levelers", "$1,000 – $2,500"],
-            ["Clogged effluent filter", "Remove and spray clean filter", "$0 (DIY) – $150"],
+            ["Clogged effluent filter", "Technician filter inspection & rinse", "Included in service or $50 – $150"],
             ["Burned-out dosing pump", "Pump and float replacement", "$1,200 – $2,800"],
             ["Biomat-clogged soil trenches", "Full field replacement in reserve area", "$6,000 – $20,000+"]
           ]
@@ -248,7 +248,7 @@ export const articles: Record<string, HomeownerArticle> = {
           "A comprehensive septic inspection (often called a Level 2 or real estate transfer inspection) is conducted by a licensed septic contractor. The inspector uncovers access lids, measures accumulated sludge and scum depths, inspects the structural integrity of the concrete or poly tank, checks that baffles and filters are intact, and conducts a continuous hydraulic load test on the drain field."
         ],
         table: {
-          headers: ["Inspection tier", "Typical cost", "Scope & checks performed", "Recommended use"],
+          headers: ["Inspection tier", "Illustrative fee range", "Scope & checks performed", "Recommended use"],
           rows: [
             ["Visual / Walkthrough", "$150 – $300", "Checks fixture drainage, walks lawn for odors or wet spots", "Routine checkup between service cycles"],
             ["Comprehensive / Level 2", "$400 – $800", "Opens lids, measures solids, inspects baffles & load test", "Buying or selling a home, persistent alarms"],
@@ -346,7 +346,7 @@ export const articles: Record<string, HomeownerArticle> = {
             ["Tripped circuit breaker", "Electrical surge or pump motor overload", "Reset breaker once; if it trips again, call technician"],
             ["Tangled or failed float switch", "Grease buildup or mechanical switch failure", "Clean or replace the high-water or pump float"],
             ["Burned-out effluent pump", "Pump motor reached end-of-life (7–12 years)", "Replace submersible effluent pump"],
-            ["Clogged effluent filter", "Solids blocked flow into the pump chamber", "Remove and rinse filter with garden hose"],
+            ["Clogged effluent filter", "Solids restricting flow at tank outlet", "Technician cleans and services filter"],
             ["Blocked discharge pipe", "Ice freeze-up, tree root crush, or closed check valve", "Clear or repair discharge force main"],
             ["Heavy rain / ground infiltration", "Stormwater flooding through unsealed lids", "Reduce water use until water table recedes"]
           ]
@@ -422,7 +422,7 @@ export const articles: Record<string, HomeownerArticle> = {
           rows: [
             ["One sink or shower drains slowly", "Local branch drain pipe clog", "Plumbing snake or auger clears fixture line"],
             ["All fixtures back up into basement", "Main sewer line between house & tank", "Camera scope through main cleanout pipe"],
-            ["High liquid in tank; house drains slow", "Clogged effluent outlet filter", "Pull and inspect filter at outlet tee"],
+            ["High liquid in tank; house drains slow", "Clogged effluent outlet filter", "Professional inspection of outlet tee filter"],
             ["One trench wet; others dry", "Distribution box unlevel or blocked", "Inspect D-box flow levelers"],
             ["All trenches ponded; foul odor", "Biomat clogging of soil absorption trenches", "Professional soil test and trench probe"]
           ]
@@ -576,8 +576,8 @@ export const articles: Record<string, HomeownerArticle> = {
             ["House Sewer Pipe", "Transports wastewater from home to tank", "Keep non-flushables and grease out"],
             ["Septic Tank", "Separates sludge, scum, and effluent", "Pump every 3 to 5 years"],
             ["Inlet & Outlet Baffles", "Prevents floating scum from blocking pipes", "Inspect during every pumping service"],
-            ["Effluent Filter", "Screens fine solids before liquid leaves tank", "Rinse with garden hose annually"],
-            ["Risers & Secured Lids", "Provides ground-level service access", "Keep securely bolted and unobstructed"],
+            ["Effluent Filter", "Screens fine solids before liquid leaves tank", "Have service provider inspect and clean during routine service"],
+            ["Risers & Secured Lids", "Provides ground-level service access", "Keep securely bolted and unobstructed; do not open yourself"],
             ["Distribution Box (D-Box)", "Distributes effluent evenly to trenches", "Verify level flow during inspections"],
             ["Drain Field Trenches", "Perforated pipes in gravel or chambers", "Protect from vehicles and tree roots"]
           ]
@@ -675,7 +675,7 @@ export const articles: Record<string, HomeownerArticle> = {
             ["Everyday", "Practice strict flushing discipline", "Toilets: human waste and toilet paper only; zero wipes"],
             ["Weekly", "Spread out laundry wash loads", "Wash 1 load per day rather than 5 loads on one weekend day"],
             ["Monthly", "Inspect plumbing for silent leaks", "Check toilet flappers and faucets; verify drain field has no spongy spots"],
-            ["Every 6–12 months", "Clean effluent filter", "Remove and spray clean filter with garden hose over open tank"],
+            ["Every 6–12 months", "Effluent filter inspection & cleaning", "Have technician service filter during routine check or follow certified safety protocol"],
             ["Every 1–3 years", "Professional septic inspection", "Measure sludge/scum; inspect baffles, pump, floats, and D-box"],
             ["Every 3–5 years", "Complete tank pump-out", "Retain disposal manifest, gallons pumped, and condition notes"]
           ]
@@ -715,12 +715,12 @@ export const articles: Record<string, HomeownerArticle> = {
       },
       {
         id: "effluent-filter-care",
-        title: "Annual effluent filter inspection and cleaning",
+        title: "Effluent filter maintenance & professional service",
         paragraphs: [
-          "If your septic tank was installed or updated in the last 20 years, it likely contains an effluent filter inside the outlet tee. This cylindrical filter catches hair, lint, and suspended solids before they can enter the drain field.",
-          "Effluent filters should be pulled and sprayed clean with a garden hose every 6 to 12 months. When cleaning, always hold the filter directly over the open tank riser so that dislodged debris washes right back into the tank."
+          "If your septic tank was installed or updated in the last 20 years, it likely contains an effluent filter inside the outlet tee. This cylindrical slotted cartridge catches hair, lint, and suspended solids before they can migrate out to the drain field.",
+          "Effluent filters require routine servicing every 6 to 12 months. Because accessing the filter requires opening the tank's outlet riser—exposing you to lethal sewer gases (such as hydrogen sulfide and methane) and severe fall hazards—filter inspection and cleaning is safest when conducted by a licensed septic professional or qualified technician. The technician removes the filter, washes trapped solids back into the primary tank compartment (never onto the lawn), inspects the cartridge for damage, and reseats it securely in the outlet tee."
         ],
-        links: [{ href: "/guides/septic-tank-filter-cleaning", label: "Read our step-by-step filter cleaning guide" }]
+        links: [{ href: "/guides/septic-tank-filter-cleaning", label: "Read our complete effluent filter maintenance & safety guide" }]
       },
       {
         id: "service-records-log",
@@ -856,7 +856,7 @@ export const articles: Record<string, HomeownerArticle> = {
         id: "average-pumping-cost",
         title: "How much does septic tank pumping cost on average?",
         paragraphs: [
-          "Nationwide in the United States, pumping a standard 1,000-gallon septic tank costs between $350 and $650 under normal conditions with surface-accessible lids. For larger tanks (1,250 to 1,500 gallons), routine pumping generally runs between $450 and $750.",
+          "Homeowners commonly encounter routine septic pumping estimates between $300 and $650 for a standard 1,000-gallon tank with accessible surface lids. For larger tanks (1,250 to 1,500 gallons), illustrative quotes typically span $400 to $750+. These figures represent illustrative planning estimates rather than nationwide averages or fixed pricing; actual quotes vary widely based on municipal septage disposal fees, travel distances, and local labor markets.",
           "Prices vary based on local labor costs, distance from the pumper's base, and municipal septage disposal fees charged by local wastewater treatment plants. A written quote detailing line items is the only reliable way to know your exact out-of-pocket cost."
         ]
       },
@@ -867,7 +867,7 @@ export const articles: Record<string, HomeownerArticle> = {
           "Most septic pumping companies price routine service based on total tank gallonage. Standard pricing benchmarks include:"
         ],
         table: {
-          headers: ["Tank capacity", "Typical routine cost", "Typical home size", "Pumping frequency"],
+          headers: ["Tank capacity", "Illustrative routine cost", "Typical home size reference", "Typical planning frequency"],
           rows: [
             ["750 – 900 gallons", "$300 – $475", "1 – 2 bedrooms", "Every 2 – 3 years"],
             ["1,000 gallons", "$350 – $550", "3 bedrooms", "Every 3 – 4 years"],
@@ -884,13 +884,13 @@ export const articles: Record<string, HomeownerArticle> = {
           "When comparing quotes from local septic companies, look beyond the advertised headline rate. Contractors frequently charge separately for these common line items:"
         ],
         table: {
-          headers: ["Line item", "Typical fee range", "When it applies"],
+          headers: ["Line item", "Illustrative fee range", "When it applies"],
           rows: [
             ["Base pumping service", "$350 – $550", "Covers truck trip, labor, and pumping up to 1,000 gal"],
             ["Lid locating & digging fee", "$50 – $175", "Billed when access lids are buried under dirt/grass"],
             ["Municipal disposal fee", "$40 – $120", "Fee charged by treatment plant to accept hauled waste"],
             ["Extended hose surcharge", "$50 – $100", "Billed if truck must park >75–100 feet from tank"],
-            ["Effluent filter cleaning", "$25 – $50", "Pulling and spraying clean the outlet baffle filter"],
+            ["Effluent filter service", "$25 – $50", "Technician pulls, evaluates, and spray-cleans the outlet filter"],
             ["Heavy sludge agitation", "$50 – $100", "Required when neglected sludge is hardened/crusted"],
             ["Emergency dispatch fee", "$150 – $350", "Same-day, evening, weekend, or holiday emergency calls"]
           ]
@@ -945,7 +945,7 @@ export const articles: Record<string, HomeownerArticle> = {
         id: "installation-cost-overview",
         title: "How much does a new septic system cost?",
         paragraphs: [
-          "In the United States, installing a complete new septic system (tank, distribution network, and drain field) typically costs between $5,000 and $12,000 for a standard conventional gravity system in permeable soil. However, if your lot has slow-draining clay, high seasonal groundwater, or steep slopes, health codes will mandate an engineered mound, aerobic treatment unit (ATU), or sand filter system, which typically costs $12,000 to $25,000 or more.",
+          "Installing a complete residential septic system (tank, distribution network, and soil absorption area) represents a major capital project. Illustrative homeowner contractor estimates typically range from $5,000 to $12,000 for a conventional gravity gravel or chamber system in permeable, well-percolating soils. On properties with slow-draining clay, shallow bedrock, steep topography, or high seasonal groundwater, health codes mandate engineered mound systems, aerobic treatment units (ATUs), or sand filters, which commonly push total project costs between $12,000 and $25,000 or more.",
           "If you only need to replace a damaged or deteriorating septic tank while retaining an intact, approved drain field, tank-only replacement typically costs between $3,500 and $7,000 including excavation and permits."
         ]
       },
@@ -956,7 +956,7 @@ export const articles: Record<string, HomeownerArticle> = {
           "A complete septic installation involves engineering, regulatory approvals, heavy excavation, and specialized materials. Typical price ranges by project stage include:"
         ],
         table: {
-          headers: ["Project stage", "Typical price range", "What is included"],
+          headers: ["Project stage", "Illustrative fee range", "What is included"],
           rows: [
             ["Soil testing & perc test", "$400 – $1,500", "Deep hole soil profile & percolation rate analysis"],
             ["Engineering & site plan", "$800 – $2,500", "Certified engineered layout and system specifications"],
@@ -976,7 +976,7 @@ export const articles: Record<string, HomeownerArticle> = {
           "Your soil percolation test and county sanitary code determine which system type is legally permitted for your property:"
         ],
         table: {
-          headers: ["System type", "Average installed cost", "Soil & site requirements", "Maintenance profile"],
+          headers: ["System type", "Illustrative installed cost", "Soil & site requirements", "Maintenance profile"],
           rows: [
             ["Conventional Gravity", "$5,000 – $10,000", "Deep, permeable, well-draining soil with low water table", "Lowest maintenance; pump every 3–5 yrs"],
             ["Plastic Chamber System", "$6,000 – $12,000", "Permeable soil; 25–40% smaller footprint than gravel", "Low maintenance; pump every 3–5 yrs"],
@@ -1018,75 +1018,79 @@ export const articles: Record<string, HomeownerArticle> = {
   },
 
   'guides/septic-tank-filter-cleaning': {
-    title: "How to Clean a Septic Tank Filter: Step-by-Step DIY Guide",
-    description: "Learn how to locate, remove, clean and inspect your septic tank effluent filter safely. Step-by-step instructions, tools needed, frequency and safety rules.",
-    summary: "An effluent filter protects your septic drain field by catching suspended solids before liquid leaves the tank. Clean your filter every 6 to 12 months with a garden hose directly over the open tank riser. Wear waterproof gloves and eye protection.",
-    keywords: ["how to clean septic tank filter", "septic tank filter cleaning", "how often to clean septic filter", "septic effluent filter maintenance", "clogged septic filter signs"],
+    title: "Septic Tank Effluent Filter Maintenance: Inspection, Cleaning & Safety",
+    description: "Understand how septic tank effluent filters work, recommended service frequency (every 6–12 months), professional cleaning procedures and critical safety rules.",
+    summary: "An effluent filter protects your septic drain field by catching suspended solids before wastewater leaves the tank. Filters require inspection and cleaning every 6 to 12 months. Because opening septic tanks involves hazardous sewer gases and fall risks, servicing is safest when conducted by a qualified septic technician during routine maintenance.",
+    keywords: ["septic tank filter cleaning", "septic effluent filter maintenance", "how often to clean septic filter", "septic filter service", "clogged septic filter signs"],
     sourceIds: ["purdue-filter", "epa-care", "epa-works"],
     sections: [
       {
         id: "what-is-filter",
         title: "What is a septic tank effluent filter and what does it do?",
         paragraphs: [
-          "An effluent filter (or septic tank filter) is a cylindrical slotted plastic cartridge inserted inside the outlet tee of your septic tank. Its critical job is to act as a physical strainer, trapping suspended hair, lint, and fine solid particles before wastewater flows into your drain field.",
-          "Without an effluent filter, fine solids gradually migrate out into the underground absorption trenches, forming a waterproof biomat layer that clogs soil pores and causes thousands of dollars in premature drain field failure."
+          "An effluent filter (or septic tank filter) is a cylindrical slotted plastic screening cartridge installed inside the outlet tee of your septic tank. Its essential function is to serve as a physical barrier, capturing suspended hair, laundry lint, and fine solid particles before clarified liquid wastewater exits into your soil absorption field (drain field).",
+          "Without an effluent filter, fine suspended particles gradually migrate past the outlet baffle into the underground distribution lines and absorption trenches. Over time, these solids settle into soil pores and accelerate the growth of a dense, waterproof anaerobic biomat layer, causing premature drain field failure that can cost $10,000 to $25,000 to replace.",
+          "According to Purdue University Extension (HENV-105-W) and EPA onsite wastewater guidelines, effluent filters are now standard in modern sanitary codes for new and repaired systems to dramatically extend drain field lifespan."
+        ]
+      },
+      {
+        id: "safety-hazards",
+        title: "Critical safety warnings: Why opening septic tanks is dangerous",
+        paragraphs: [
+          "While cleaning an effluent filter may sound like a simple household maintenance chore, accessing a septic tank presents severe, potentially fatal hazards that require professional training and specialized safety protocols:",
+          "• Lethal sewer gases: Anaerobic decomposition inside septic tanks produces toxic gases, primarily hydrogen sulfide (H2S) and methane (CH4). Hydrogen sulfide paralyzes the human olfactory nerve at concentrations as low as 100 parts per million (ppm), meaning you lose the ability to smell the gas right before losing consciousness. Inhaling high concentrations can cause immediate collapse and asphyxiation within seconds.",
+          "• Deep fall and drowning risks: Access risers can be 2 to 5 feet deep leading directly into several feet of liquid waste. Stepping onto an unsecured lid or leaning over an open hatch presents severe fall, blunt injury, and drowning hazards for adults, children, and household pets.",
+          "• Pathogen exposure: Untreated residential septage contains hazardous biological pathogens, bacteria, and viruses that can cause severe illness through skin contact or aerosolized droplets.",
+          "Because of these life safety risks, homeowners should never lean their heads into an open tank, enter a tank under any circumstances, or perform work around open risers without proper equipment. Effluent filter servicing is safest when delegated to a licensed septic contractor or trained service technician."
         ]
       },
       {
         id: "how-often-to-clean",
-        title: "How often should you clean an effluent filter?",
+        title: "How often does an effluent filter require maintenance?",
         paragraphs: [
-          "Most wastewater engineers and manufacturers (such as Polylok, Zabel, or Sim/Tech) recommend cleaning your effluent filter every 6 to 12 months for a standard single-family home.",
-          "Clean it more frequently (every 3 to 6 months) if you have a large family, wash heavy loads of laundry, or use a kitchen garbage disposal. At an absolute minimum, ensure your septic pumper pulls and washes the filter during every routine 3- to 5-year pumping service."
+          "Wastewater engineers, extension publications, and filter manufacturers (such as Polylok, Zabel, and Sim/Tech) recommend that effluent filters be inspected and cleaned every 6 to 12 months under standard single-family residential use.",
+          "Several household factors accelerate solids loading and require more frequent servicing (every 3 to 6 months):",
+          "• Large household occupancy or frequent houseguests generating elevated daily wastewater volumes.",
+          "• Heavy weekly laundry use, which sheds millions of non-biodegradable synthetic textile microfibers.",
+          "• Kitchen garbage disposal use, which introduces ground organic food scraps that do not settle readily and increase solids loading by 30% to 50%.",
+          "At an absolute minimum, homeowners must ensure their service contractor pulls, evaluates, and thoroughly cleans the effluent filter during every routine 3- to 5-year septic tank pumping service."
         ]
       },
       {
-        id: "tools-and-safety",
-        title: "Required tools and critical safety precautions",
+        id: "professional-procedure",
+        title: "How qualified professionals inspect and service an effluent filter",
         paragraphs: [
-          "Cleaning an effluent filter is a straightforward 15-minute DIY task, but because you are handling raw wastewater, observe strict hygiene precautions:"
-        ],
-        bullets: [
-          "Wear heavy-duty waterproof rubber gloves (elbow length preferred) and safety goggles.",
-          "Wear old clothes or coveralls and wash your hands thoroughly with soap afterward.",
-          "Never lean into or enter the septic tank. Lethal sewer gases (hydrogen sulfide, methane) can cause immediate loss of consciousness.",
-          "Keep children and pets away from open risers at all times.",
-          "Have a garden hose with an adjustable spray nozzle ready beside the tank before opening the lid."
-        ]
-      },
-      {
-        id: "step-by-step-instructions",
-        title: "Step-by-step instructions: How to clean your septic filter",
-        paragraphs: [
-          "Follow these step-by-step directions:"
+          "Understanding how a certified septic technician services an effluent filter helps homeowners verify that their system is being maintained correctly:",
+          "A licensed contractor typically follows these structured service steps:"
         ],
         steps: [
-          "1. Locate and remove the outlet riser lid: Find the access cover positioned directly over the outlet end of your tank (the side closest to the drain field). Unscrew or unbolt the safety lid.",
-          "2. Check the operating liquid level: Shine a flashlight into the riser. The wastewater level should be resting at or below the bottom of the outlet pipe. If liquid is sitting high above the filter, the filter is completely clogged—be prepared for liquid to surge down as you lift it.",
-          "3. Turn off effluent pump power (if equipped): If your system uses a secondary pump chamber, switch off its breaker so the pump does not dry-cycle while servicing.",
-          "4. Pull the filter straight up: Grip the filter handle or pull-rod and pull the filter straight up out of the outlet tee. CRUCIAL RULE: Keep the filter positioned directly over the open septic tank opening while lifting.",
-          "5. Spray clean with a garden hose: Holding the filter over the open hatch, spray it thoroughly with the garden hose from top to bottom. Wash all dislodged sludge, hair, and scum directly back into the tank where it belongs. Never spray the filter over your lawn or driveway.",
-          "6. Inspect the cartridge: Look through the plastic bristles or mesh slots. Verify there are no tears, warped fins, or broken bypass seals. If damaged, replace the filter immediately.",
-          "7. Reseat the filter firmly: Lower the clean filter back into the outlet tee. Ensure any alignment arrows or 'TOP' markings point upward, and push it firmly into place so wastewater cannot bypass the mesh.",
-          "8. Fasten the access lid securely: Replace the riser cover and tighten all safety bolts to prevent accidental child or pet entry."
+          "1. Secure the work perimeter: The technician ensures bystanders, children, and pets remain well away from the service area.",
+          "2. Remove the riser cover safely: Using appropriate tools, the technician unbolts the safety lid while standing upwind to allow trapped volatile sewer gases to dissipate into outdoor air.",
+          "3. Inspect the liquid operating level: Before moving the filter, the technician evaluates the liquid level in the tank. If effluent is standing higher than the outlet tee pipe, the filter is occluded with solids.",
+          "4. Extract the filter with an extended reach tool: Standing firmly on stable ground outside the riser, the technician uses a pull rod or retrieval handle to lift the filter cartridge straight up, keeping it positioned directly over the open tank.",
+          "5. Wash solids back into the primary compartment: Using a garden hose with a controlled nozzle, the technician sprays the filter thoroughly, directing all dislodged solids, lint, and hair back into the septic tank where it can settle. Solids are never washed onto the lawn, flowerbeds, or driveway.",
+          "6. Inspect the cartridge for damage: The technician examines the plastic mesh or bristle elements for tears, distortion, or bypass gaps. If the cartridge is damaged, it is replaced immediately.",
+          "7. Reseat the filter firmly: The clean cartridge is lowered back into the outlet tee and pushed firmly into its locking collar to ensure wastewater cannot bypass the filter.",
+          "8. Re-secure the safety lid: The technician reinstalls the riser cover and tightens all tamper-resistant safety screws to eliminate fall hazards."
         ]
       },
       {
         id: "signs-of-clogged-filter",
-        title: "Signs of a clogged septic effluent filter",
+        title: "Warning signs of a clogged septic effluent filter",
         paragraphs: [
-          "When an effluent filter becomes completely plugged with debris, wastewater cannot exit the tank. This produces clear warning signs:",
-          "• Slow drainage or gurgling in ground-floor toilets and showers.",
-          "• High liquid levels in the primary septic tank.",
-          "• High-water alarm sounding (on systems equipped with an effluent filter alarm float).",
-          "If your drains suddenly slow down across the entire house, checking and rinsing your effluent filter is the fastest, cheapest troubleshooting step before calling an emergency plumber."
+          "When an effluent filter becomes occluded with trapped lint and solids, liquid wastewater cannot exit into the drain field. This produces distinct household warning signs:",
+          "• Sluggish drainage or gurgling in ground-floor toilets, shower pans, and sinks across the entire home.",
+          "• Abnormally high liquid levels inside the septic tank upon opening.",
+          "• Audible high-water alarm activation on septic systems equipped with an effluent filter float switch.",
+          "If your plumbing suddenly slows down across multiple rooms, never dump caustic chemical drain openers into your toilets. Contact a licensed septic professional to inspect the effluent filter and outlet line."
         ]
       }
     ],
     faqs: [
-      { question: "Where is the septic tank filter located?", answer: "The effluent filter is located inside the outlet tee (the exit pipe) of the septic tank, under the access riser lid closest to the drain field." },
-      { question: "Can I run my septic system without an effluent filter?", answer: "Never remove a filter and leave the outlet open. Doing so allows suspended solids to flow directly into your drain field, leading to rapid and permanent soil clogging." },
-      { question: "How much does a replacement septic filter cost?", answer: "Standard residential replacement effluent filter cartridges cost between $35 and $85 online or from local plumbing supply houses." }
+      { question: "Where is the septic tank filter located?", answer: "The effluent filter is installed inside the outlet tee (the exit pipe) of the septic tank, located beneath the access riser closest to the drain field." },
+      { question: "Can I run my septic system without an effluent filter?", answer: "Never remove an effluent filter and leave the outlet open. Running a system without a filter allows suspended solids to flow directly into the absorption trenches, which rapidly causes catastrophic biomat clogging and drain field failure." },
+      { question: "How much does a replacement septic filter cost?", answer: "Replacement filter cartridges typically cost between $35 and $85 for parts, plus service technician labor if installed during a routine inspection or maintenance call." },
+      { question: "Why should homeowners not clean the filter themselves?", answer: "Opening septic tank lids exposes you to toxic sewer gases like hydrogen sulfide, which can cause sudden unconsciousness and death, as well as severe fall and drowning hazards. Licensed professionals have the proper safety equipment and training to service the filter without risk." }
     ],
     related: [
       { href: "/maintenance", label: "Complete septic maintenance checklist" },

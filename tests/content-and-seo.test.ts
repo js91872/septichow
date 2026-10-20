@@ -98,6 +98,10 @@ test('tool guidance contains necessary legal/state distinctions and quote walkth
     tankGuide.sections.some((s) => s.paragraphs.some((p) => p.toLowerCase().includes('wastewater flow') && p.toLowerCase().includes('capacity'))),
     'Tank size guide must distinguish estimated daily flow from required tank capacity'
   );
+  assert.ok(
+    tankGuide.sections.some((s) => s.paragraphs.some((p) => p.toLowerCase().includes('no single universal federal') || p.toLowerCase().includes('state, county, and municipal public health codes'))),
+    'Tank size guide must clarify that tank sizing is set by state/local codes, not a universal federal minimum'
+  );
 
   const costGuide = toolGuidance['septic-pumping-cost-calculator'];
   assert.ok(costGuide, 'Missing pumping cost calculator guidance');
@@ -105,4 +109,25 @@ test('tool guidance contains necessary legal/state distinctions and quote walkth
     costGuide.sections.some((s) => s.paragraphs.some((p) => p.toLowerCase().includes('written contractor quotes') || p.toLowerCase().includes('line items'))),
     'Cost guide must clarify that calculator totals user-entered figures'
   );
+});
+
+test('filter cleaning guide emphasizes professional service and safety warnings rather than DIY tank entry', () => {
+  const filterGuide = articles['guides/septic-tank-filter-cleaning'];
+  assert.ok(filterGuide, 'Missing filter cleaning guide');
+  assert.ok(!filterGuide.title.toLowerCase().includes('diy'), 'Filter guide title must not promote DIY');
+  assert.ok(
+    filterGuide.sections.some((s) => s.title.toLowerCase().includes('safety') || s.paragraphs.some((p) => p.includes('Hydrogen sulfide') || p.includes('sewer gases'))),
+    'Filter guide must highlight sewer gas and safety hazards'
+  );
+  assert.ok(
+    filterGuide.sections.some((s) => s.title.toLowerCase().includes('qualified professionals') || s.title.toLowerCase().includes('professional')),
+    'Filter guide must guide readers to qualified professional service'
+  );
+});
+
+test('all sources have valid HTTPS URLs and clear scopes', () => {
+  for (const s of sources) {
+    assert.ok(s.url.startsWith('https://'), `Source ${s.id} does not use HTTPS: ${s.url}`);
+    assert.ok(s.name && s.scope && s.checked, `Source ${s.id} missing required fields`);
+  }
 });
