@@ -1,401 +1,1170 @@
 export type FAQ = { question: string; answer: string };
-export type ArticleSection = { id: string; title: string; paragraphs: string[]; bullets?: string[]; table?: { headers: string[]; rows: string[][] }; links?: { href: string; label: string }[] };
-export type HomeownerArticle = { title: string; description: string; summary: string; keywords: string[]; sourceIds: string[]; sections: ArticleSection[]; faqs: FAQ[]; related: { href: string; label: string }[] };
+export type ArticleSection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+  steps?: string[];
+  table?: { headers: string[]; rows: string[][] };
+  links?: { href: string; label: string }[];
+};
+export type HomeownerArticle = {
+  title: string;
+  description: string;
+  summary: string;
+  keywords: string[];
+  sourceIds: string[];
+  sections: ArticleSection[];
+  faqs: FAQ[];
+  related: { href: string; label: string }[];
+};
 
 export const articles: Record<string, HomeownerArticle> = {
   'guides/how-to-fix-septic-drain-field': {
     title: "How to Fix a Septic Drain Field: Problems, Repair Options and Costs",
     description: "Learn the signs of septic drain field failure, what a technician checks, when repair might work and when replacement is necessary.",
     summary: "A failing septic drain field cannot be fixed with a single universal treatment. Reduce water use if wastewater backs up or surfaces, avoid the affected area and get a qualified septic professional to identify whether the problem involves a pipe, distribution box, pump, overloaded soil or the field itself.",
-    keywords: ["fix septic drain field","how to fix a septic drain field","septic drain field repair","drain field failure symptoms"], sourceIds: ["epa-failure","epa-works","epa-care"],
-    sections: [{ id: "warning-signs", title: "Signs your septic drain field may be failing", paragraphs: ["Sewage pooling or surfacing above the field, foul odors, repeated backups and chronically slow drains can be warning signs. A wet patch after rain alone does not prove failure, but wastewater surfacing is a reason to keep people and pets away.","Note where and when symptoms occur, recent rain and whether multiple fixtures are affected. Do not drive or dig over the treatment area while the cause is being evaluated."] },
-{ id: "check-first", title: "What a septic professional should check first", paragraphs: ["An evaluation may start with service history, tank levels, baffles, effluent filter, pumps and the distribution components. A blocked line or failed pump can resemble field failure, so diagnosis matters before authorizing replacement.","Ask for findings in writing: which components were inspected, what evidence supports the diagnosis and whether further tests or permits are required."] },
-{ id: "repair-options", title: "Can a septic drain field be repaired?", paragraphs: ["A contractor might repair damaged piping, correct distribution problems or service a failed pump when the soil treatment area remains functional. Actual soil absorption failure may require an engineered solution or replacement, depending on site conditions and local regulations.","Be wary of products that promise to restore every failed leach field. Chemical treatments and unverified DIY methods are not a substitute for evaluating soil, hydraulics and equipment."] },
-{ id: "repair-vs-replace", title: "Drain field repair versus replacement", paragraphs: ["A targeted repair addresses a verified fault, such as a broken line. Replacement may be needed when suitable soil treatment capacity is no longer available. Cost depends on excavation, soil testing, property access, system type, permits and the replacement area.","Obtain an itemized written proposal and confirm local permitting before work begins. A cheaper quote is not necessarily comparable if it excludes design, inspection or restoration."], table: {"headers":["Situation","Possible professional response"],"rows":[["Blocked or broken pipe","Inspect and repair the affected section"],["Distribution box problem","Inspect and correct flow distribution"],["Pump or electrical fault","Qualified equipment service"],["Soil absorption failure","Site evaluation and possible replacement"]]} },
-{ id: "what-homeowners-can-do", title: "Safe steps while you arrange service", paragraphs: ["Minimize laundry and other unnecessary water use when the system is struggling. Keep surface runoff away from the area only through approved drainage arrangements; do not redirect wastewater or excavate the field yourself.","Take photos from a safe distance and collect previous pumping and inspection reports. If sewage reaches the house or ground surface, seek prompt professional help."] },
-      { id: 'further-guidance', title: "How contractors identify the correct repair", paragraphs: ["A professional should review the system plans, pumping history, household water use and site conditions before deciding that the soil treatment area has failed. Accessible filters, pipes, pumps and distribution devices may need inspection. A correctable component problem can look like field failure from the house.","Ask for written findings that explain the proposed repair, which alternatives were ruled out and whether permits are required. Avoid products promising guaranteed drain field restoration. Keep vehicles and construction equipment away from the field until the issue is assessed."] },
-      { id: 'deep-dive-1', title: "Repair options depend on what failed", paragraphs: ["A cracked or displaced pipe may be repairable without replacing the entire treatment area. A clogged outlet filter, malfunctioning pump or distribution box could also produce symptoms attributed to the field. When the soil itself can no longer accept effluent, a permitted replacement or alternative treatment design may be necessary.","The distinction is important: paying to pump the tank repeatedly will not permanently correct a broken distribution component or unsuitable soil. Ask for evidence behind a proposed repair rather than buying a generic drain field cleaning product."] },
-      { id: 'deep-dive-2', title: "What makes a replacement necessary", paragraphs: ["The feasibility of rebuilding a field depends on the approved design, remaining space, groundwater, slopes, setbacks and soil properties. Some sites require engineered treatment options rather than repeating the original layout. Local authorities determine acceptable methods, so internet diagrams are not installation instructions.","Before major excavation, ask whether a site evaluation and permit are needed, how long approval may take and what temporary restrictions apply. A professional quote should distinguish evaluation, construction and restoration."] },
-      { id: 'deep-dive-3', title: "Preventing another failure", paragraphs: ["Spread water-intensive chores when practical and repair leaking toilets or faucets promptly. Keep structures, heavy vehicles and stored material off the field and any reserved replacement area. Protect surface drainage so roof and driveway runoff does not concentrate over the treatment soil.","Schedule inspections and tank pumping based on actual system requirements and provider guidance. Keep a simple service history including dates, invoices, photographs and any changes to household occupancy or yard layout."] },
-      { id: 'drain-field-diagnosis-checklist', title: 'Drain field repair checklist: what to ask before paying', paragraphs: ["If you searched for drain field repair, septic drain field help or leach field repair, begin with a diagnosis rather than a treatment product. Write down whether the trouble began after heavy rain, whether several drains are slow, whether an alarm is sounding and when the tank was last inspected.", "Ask the licensed septic professional to distinguish a tank outlet or filter problem, pump failure, broken distribution pipe and actual soil absorption failure. Request photos or test findings, a written repair scope, permit requirements and a separate price for any recommended replacement. Do not enter a septic tank or open buried components yourself."], table: { headers: ['What you notice', 'What to ask the professional'], rows: [['Sewage backing up indoors', 'Is the tank, outlet, line or downstream field restricting flow?'], ['Wet or unusually green patch', 'Is wastewater surfacing, or could rain and drainage explain it?'], ['Pump or high-water alarm', 'Have the pump, floats, power supply and discharge line been checked?'], ['Repeated problems after pumping', 'What evidence confirms the field needs repair or replacement?']] }, links: [{ href: '/guides/septic-drain-field-replacement-cost', label: 'Compare drain field replacement costs' }, { href: '/tools/septic-troubleshooter', label: 'Check septic symptoms step by step' }] }],
-    faqs: [{"question":"Can pumping fix a failed drain field?","answer":"Pumping removes tank solids and may be part of maintenance, but it does not by itself restore soil absorption capacity or repair buried distribution faults."},{"question":"Can I unclog a drain field myself?","answer":"Avoid digging, pressure-jetting or adding chemicals to buried field lines yourself. Have a professional diagnose the actual restriction and local requirements."},{"question":"How long does repair take?","answer":"It depends on diagnosis, weather, permits, access and whether the work is a component repair or full replacement. Get a written work plan."}],
-    related: [{"href":"/problems","label":"Check common septic problems"},{"href":"/guides/septic-drain-field-replacement-cost","label":"Compare drain field replacement cost factors"},{"href":"/tools/septic-troubleshooter","label":"Use the septic troubleshooter"}]
-  },
-  'guides/septic-drain-field-replacement-cost': {
-    title: "Septic Drain Field Replacement Cost: What Changes the Price?",
-    description: "Understand drain field replacement and repair cost factors, what estimates should include and how to compare contractor quotes.",
-    summary: "The cost to replace a septic drain field depends heavily on soil conditions, system type, permits, excavation and site access. Do not treat a national average as a quote. Ask for a site evaluation and compare itemized local proposals that clearly separate repair from full replacement.",
-    keywords: ["replace septic drain field cost","septic drain field replacement cost","septic drain field repair cost","cost of new septic drain field"], sourceIds: ["epa-failure","epa-types","epa-faq"],
-    sections: [{ id: "what-you-pay-for", title: "What does a drain field replacement quote cover?", paragraphs: ["A full replacement may involve site evaluation, soil testing, design, permits, excavation, piping, distribution components, inspections and final grading. Alternative systems may need pumps or added treatment equipment.","An online price estimate cannot account for every site's soil, slope, groundwater level or available replacement area. Ask the provider to identify assumptions before treating a preliminary range as a fixed price."] },
-{ id: "main-factors", title: "Seven factors that change drain field replacement cost", paragraphs: ["The biggest differences usually come from site suitability and scope rather than the length of pipe alone. A small repair to one damaged line and a complete replacement field are different projects.","Access limitations, required engineered treatment and soil conditions may drive the job more than household size."], table: {"headers":["Cost factor","Why it matters"],"rows":[["Soil and drainage","Controls feasible treatment design"],["System design","Gravity, mound and other systems differ"],["Excavation and access","Affects equipment and labor"],["Permits and testing","Local requirements and inspections"],["Field size","Depends on approved design and site"],["Existing system repairs","Tank, pump and distribution work may add scope"],["Restoration","Landscaping and grading may be separate"]]} },
-{ id: "repair-or-replace", title: "Can you repair the existing drain field instead?", paragraphs: ["Sometimes the problem is a cracked line, blocked outlet, distribution box or malfunctioning pump, and a targeted repair may be appropriate. An actual failed soil absorption area may need replacement or a different permitted design.","Ask the contractor to explain what proves the field itself has failed. Request the inspection report, proposed design and exclusions before approving major work."] },
-{ id: "compare-quotes", title: "How to compare two drain field replacement estimates", paragraphs: ["Check whether design fees, soil testing, permits, inspections, disposal, restoration and warranties are included. Ask what happens if unexpected soil or groundwater conditions are found during excavation.","Request proof of licensing where required and confirm that the contractor will coordinate with the local health or environmental authority. Do not select a bid based only on its headline number."] },
-{ id: "after-installation", title: "How to protect a new drain field", paragraphs: ["Keep vehicles, structures and compacting activity off the approved area. Control household water use, divert roof drainage away from the field where permitted, and follow the inspection and pumping schedule recommended for your system.","Retain the as-built drawing and permit records for future owners and service providers."] },
-      { id: 'further-guidance', title: "How to compare replacement quotes", paragraphs: ["A replacement estimate may include soil assessment, design, permits, excavation, piping or chambers, inspections and landscaping restoration. Confirm which items are included and which are billed separately. A low headline price may not cover engineering, site access or unexpected soil conditions.","Compare local bids for the same approved scope. Ask contractors to identify the system type, warranty, payment milestones, inspection responsibility and exclusions. A repair to a damaged pipe is not comparable to an entirely new treatment area."] },
-      { id: 'deep-dive-1', title: "Repair compared with replacement cost", paragraphs: ["A localized repair to a pipe, filter, pump or distribution component is not the same project as installing a new absorption area. A contractor must identify the failed component and explain what work is necessary. Ask for separate pricing where a smaller compliant repair is a genuine alternative.","A full replacement may need new soil evaluation, design, excavation, materials, inspections and restoration. Costs rise when site access is difficult or a conventional field is unsuitable. These site factors are why one online national price is a poor substitute for estimates."] },
-      { id: 'deep-dive-2', title: "Budget items homeowners forget", paragraphs: ["The field installation is only part of the potential bill. Testing, local permit fees, engineering, utility location, excavation access, removal of unsuitable material, temporary property protection and final yard restoration may be separate charges. Read the inclusions and exclusions carefully.","Ask whether tax, disposal, imported fill, electrical work or a new pump are needed for the approved design. Require written change-order approval before additional work proceeds whenever possible."] },
-      { id: 'deep-dive-3', title: "After the contractor finishes", paragraphs: ["Request a copy of the final approved design, inspection sign-off, as-built drawing and warranties. Ask where the new field and reserve area are located and what vehicles or landscaping must stay away. Keep these documents with your home's records.","Protect the investment with scheduled inspection, appropriate tank pumping and water conservation. A replacement field can still be damaged by compaction, excessive inflow or neglected equipment."] }],
-    faqs: [{"question":"Is drain field repair cheaper than replacement?","answer":"A localized pipe or component repair can be less extensive than replacement, but the right solution depends on diagnosis and local permitting."},{"question":"Does insurance cover septic drain field replacement?","answer":"Coverage depends on your policy and cause of damage. Ask your insurer to review the specific event and exclusions."},{"question":"Can I replace a drain field in the same location?","answer":"Only a site evaluation and local permitting authority can determine whether the existing area can be reused."}],
-    related: [{"href":"/guides/how-to-fix-septic-drain-field","label":"Understand drain field repair options"},{"href":"/tools/septic-pumping-cost-calculator","label":"Calculate a separate septic pumping quote"},{"href":"/guides/how-septic-system-works","label":"Understand the tank and drain field"}]
-  },
-  'guides/septic-inspection-cost': {
-    title: "Septic Inspection Cost: What Is Included and Who Pays?",
-    description: "Learn what affects septic inspection cost, the difference between a visual check and detailed inspection and what to ask before booking.",
-    summary: "Septic inspection prices vary by location, inspection scope and system type. A visual check is different from a more involved assessment with access, pumping, flow checks or testing. Request an itemized local quote and a written report stating what was and was not inspected.",
-    keywords: ["septic inspection cost","how much does a septic inspection cost","well and septic inspection cost","septic inspection before buying house"], sourceIds: ["epa-care","epa-faq","epa-failure"],
-    sections: [{ id: "inspection-types", title: "What kind of septic inspection do you need?", paragraphs: ["Routine maintenance checks may review service history, accessible tank components and evidence of unusual wastewater levels. A home sale, persistent alarm or repeated sewage backup may need a more detailed evaluation.","Ask what the provider means by a basic, full or real-estate inspection. Those labels are not standardized across every state and contractor."] },
-{ id: "cost-factors", title: "What affects the price of a septic inspection?", paragraphs: ["Price changes with travel distance, access to buried lids, number of tanks or pumps, required testing, pumping, property size and local requirements. Work on systems with advanced treatment equipment may involve additional checks.","The quote should distinguish the inspection fee from optional pumping, excavation, repairs and laboratory or permit fees."], table: {"headers":["Quoted item","Question to ask"],"rows":[["Inspection visit","Which components will be evaluated?"],["Tank access","Is lid location or excavation included?"],["Pumping","Is pumping necessary and priced separately?"],["Report","Will findings and limitations be written down?"],["Additional tests","What triggers extra charges?"]]} },
-{ id: "buyers-sellers", title: "Septic inspection when buying or selling a house", paragraphs: ["Ask for the permit, installed system type, pumping history, repairs, service contract and the location of the drain field. A standard home inspection does not always provide a detailed septic assessment.","Who pays for an inspection depends on the contract and local practice. Put the scope and responsibility in writing before scheduling the visit."] },
-{ id: "prepare", title: "How to prepare for a septic inspection", paragraphs: ["Gather maintenance records and any as-built drawings. Make safe access available, disclose known backups or alarms, and tell the inspector about recent rain or unusually high water use.","Do not dig up or open the tank yourself. Professionals should handle tank access and confined-space hazards."] },
-{ id: "report", title: "What should a septic inspection report include?", paragraphs: ["A useful report identifies inspected components, observations, limitations, repairs recommended and whether further evaluation is required. Ask for photos where appropriate and retain the report with your home records.","An inspection is a snapshot, not a guarantee that no future problem will occur."] },
-      { id: 'further-guidance', title: "What an inspection report should include", paragraphs: ["A useful written septic inspection report identifies accessible components, observed condition, measurements or tests performed, limitations and recommended follow-up. A visual-only inspection does not necessarily cover underground piping, pump operation or field performance. Ask about the scope before paying.","For a home purchase, obtain available permits, drawings, pumping receipts and repair records. Confirm whether the inspection meets local transaction rules. Extra charges can apply for buried access lids, pumping or additional tests, so request itemized costs in advance."] },
-      { id: 'deep-dive-1', title: "Routine maintenance inspection or real-estate inspection", paragraphs: ["A routine visit may focus on tank maintenance and accessible components, while a property transfer may require a more formally documented evaluation. Requirements differ by state and sometimes county. Ask your local authority or qualified inspector what applies to the transaction.","Some alternative septic systems need more frequent professional oversight than conventional gravity systems. Confirm the system type before assuming a standard household inspection schedule fits."] },
-      { id: 'deep-dive-2', title: "How to read the quoted inspection fee", paragraphs: ["Ask whether the base rate includes locating and safely opening access lids, sludge measurements when relevant, checks on accessible filters, alarm or pump evaluation, field observations and a written report. Request separate pricing for digging, camera checks, pumping and specialized testing.","Clarify travel fees, after-hours charges, report delivery dates and what happens if the system cannot be accessed. Avoid accepting a low price without knowing the inspection scope."] },
-      { id: 'deep-dive-3', title: "Questions to ask after an inspection", paragraphs: ["Which components were actually inspected? Was anything inaccessible? Were observed conditions normal for the system type? Is pumping recommended based on measurements or simply because records are missing? Does any finding need further specialist evaluation?","The inspector should distinguish a confirmed problem from a limitation in the review. Keep all findings, photos and maintenance recommendations with the permit and installation drawing so future contractors can understand the history."] }],
-    faqs: [{"question":"Is a septic inspection included in a home inspection?","answer":"Not necessarily. Verify the home inspector's scope and whether a qualified septic specialist is needed."},{"question":"Do you have to pump the tank for an inspection?","answer":"Requirements vary with inspection type, access and local rules. Ask the inspector before booking."},{"question":"How often should a septic system be inspected?","answer":"The EPA commonly recommends evaluating conventional household systems about every three years; some alternative systems need more frequent service."}],
-    related: [{"href":"/maintenance","label":"Review regular septic maintenance"},{"href":"/guides/signs-septic-tank-is-full","label":"Know warning signs before service"},{"href":"/guides/how-septic-system-works","label":"Learn the parts of a septic system"}]
-  },
-  'guides/septic-tank-alarm-going-off': {
-    title: "Septic Tank Alarm Going Off? What to Do First",
-    description: "Find out why a septic alarm may sound, what to check safely, how rain or power outages affect it and when to call for service.",
-    summary: "A septic high-water alarm can indicate that wastewater is not moving as expected. Reduce household water use, note the alarm light or message, and contact the system's service provider. Do not bypass controls, open electrical panels or enter the tank.",
-    keywords: ["septic tank alarm went off","septic tank alarm repair","septic tank alarm troubleshooting","septic tank alarm going off after rain"], sourceIds: ["epa-types","epa-failure","epa-care"],
-    sections: [{ id: "first-steps", title: "What to do when your septic tank alarm goes off", paragraphs: ["Reduce laundry, long showers and other unnecessary water use. Identify whether there is wastewater backing up or surfacing; if there is, avoid contact and arrange urgent service.","Look at any external indicator or user-facing display without opening electrical equipment. Follow your equipment manual for safe acknowledgement procedures and record whether the alarm returns."] },
-{ id: "why-alarm", title: "Why does a septic high-water alarm sound?", paragraphs: ["Depending on the system, possible causes include a failed pump, float switch, electrical supply, control malfunction, blocked line or unusually high inflow. Rainwater or groundwater entering the system can also contribute.","Only equipment inspection can determine which condition triggered the alarm. A silent buzzer does not prove the system has recovered."], table: {"headers":["What you notice","What to report"],"rows":[["Alarm after heavy rain","Rain duration, pooling and current water use"],["Alarm after power outage","When power returned and alarm status"],["Alarm with slow drains","Which fixtures are affected"],["Alarm returns after reset","How long before it returned"]]} },
-{ id: "rain", title: "Septic alarm going off after heavy rain", paragraphs: ["A saturated area or unwanted groundwater entry can interfere with some systems. Reduce water use and contact the service provider, especially if the alarm persists or wastewater is surfacing.","Do not pump a tank during flood conditions without expert advice; high groundwater can create additional hazards."] },
-{ id: "reset", title: "Should you reset a septic tank alarm?", paragraphs: ["You can follow the manufacturer’s user instructions for acknowledging the audible alarm if they permit it. Do not disable the alarm, force a pump to run, alter wiring or assume that pressing silence corrects the cause.","If the light or message remains, or the alarm sounds again, report it to a qualified service provider."] },
-{ id: "call", title: "When should you call a septic professional?", paragraphs: ["Contact your service provider promptly for a persistent alarm, recurring high-water warning, poor drainage or signs of sewage. Explain the system type, indicator and the timeline.","If sewage is backing up into living spaces or surfacing outdoors, limit use and keep people away from exposure while arranging urgent help."] },
-      { id: 'further-guidance', title: "What to do after rain or a power failure", paragraphs: ["An electrically powered system may stop moving wastewater during an outage. Heavy rain or groundwater entering the system can also contribute to a high-level warning. Reduce household water use and record whether the alarm started after the storm, outage or high water use.","Follow only the safe user steps in your equipment manual. Silencing the buzzer does not fix the underlying problem. Never bypass the alarm, open electrical panels or enter the tank. If the alarm persists or sewage backs up, contact a qualified service provider promptly."] },
-      { id: 'deep-dive-1', title: "Alarm types and why they differ", paragraphs: ["A high-water alert usually means a level sensor detected an unexpected condition, but equipment may also signal pump, aeration or control issues. What lights and buzzers mean varies by manufacturer. A system with multiple chambers or treatment stages may have more than one alert.","Use the equipment model or paperwork to identify the correct instructions. Do not assume advice for one alarm applies to a different panel. Contact the servicing contractor if the indicator is unfamiliar."] },
-      { id: 'deep-dive-2', title: "Can you keep using water during an alarm?", paragraphs: ["Minimize water use until the reason is understood. Avoid running multiple laundry loads, long showers or other heavy-water tasks. If wastewater is backing up or surfacing, stop unnecessary wastewater generation and seek urgent professional help.","The safe amount of use depends on the system and fault; an online article cannot determine your available reserve capacity. Ask the servicing company for specific guidance instead of relying on an arbitrary number of hours."] },
-      { id: 'deep-dive-3', title: "Preventing recurring septic alarms", paragraphs: ["Keep the service contract and system manual available, check visible indicators according to manufacturer guidance and record past alarms with dates and weather conditions. Have qualified technicians maintain pumps, floats and controls as recommended.","Do not obstruct tank access or allow roof drainage to enter system openings. If storms repeatedly trigger the same warning, request investigation of unwanted inflow and field conditions rather than repeatedly silencing the alarm."] }],
-    faqs: [{"question":"Can I use the toilet if my septic alarm is on?","answer":"Minimize wastewater use until you have guidance from the service provider; urgency increases if drains are backing up or wastewater is surfacing."},{"question":"Does a septic alarm mean the tank needs pumping?","answer":"Not always. It may indicate pump, float, power, flow or inflow issues requiring diagnosis."},{"question":"Why does the alarm keep beeping after I silence it?","answer":"Silencing a buzzer often does not resolve a high-water condition. Follow the manual and arrange service if it persists or returns."}],
-    related: [{"href":"/tools/septic-troubleshooter","label":"Check alarm and backup symptoms"},{"href":"/guides/signs-septic-tank-is-full","label":"Check septic system warning signs"},{"href":"/problems","label":"Read septic problem guidance"}]
-  },
-  'guides/clogged-septic-drain-field': {
-    title: "Clogged Septic Drain Field: Signs, Causes and Next Steps",
-    description: "Learn how a clogged or failing septic drain field can appear, how it differs from a blocked pipe and what homeowners should do safely.",
-    summary: "Slow drains, odors, backups and wet soil can point to a septic drain field problem, but the cause may also be a clogged house pipe, blocked outlet or pump failure. Avoid DIY chemicals and digging; a professional needs to identify the restriction and check the soil treatment area.",
-    keywords: ["clogged septic drain field","septic drain field clogged","clogged leach field signs","septic drain field failure"], sourceIds: ["epa-failure","epa-works","epa-care"],
-    sections: [{ id: "signs", title: "Signs a septic drain field may be clogged or overloaded", paragraphs: ["Watch for repeated sewage backups, gurgling, wastewater odors, surface wetness and unusual grass growth above a known field. These signs do not diagnose one component by themselves.","Wet grass after a storm may have several explanations. Sewage surfacing or entering the house is more urgent: reduce water use and keep people and pets away."] },
-{ id: "causes", title: "What causes septic drain field problems?", paragraphs: ["Possible causes include excessive solids escaping the tank, blocked distribution components, unsuitable or saturated soil, heavy water loads and physical damage from traffic or construction.","A missing maintenance record is not proof that the field has failed. Ask for a system assessment rather than relying on a single symptom or an online remedy."] },
-{ id: "pipe-vs-field", title: "Blocked septic pipe or failed leach field?", paragraphs: ["A restriction in a house drain or sewer line can create slow drains and backups. A pump malfunction can produce similar symptoms in pressure-dosed systems. Field failure concerns the soil treatment area's ability to accept and treat wastewater.","A professional may examine tank liquid levels, pumping equipment, accessible distribution points and field conditions to determine the next step."], table: {"headers":["Possible fault","Typical professional check"],"rows":[["House drain blockage","Fixture and shared drain assessment"],["Tank outlet restriction","Accessible outlet and filter inspection"],["Pump failure","Pump, float and control diagnosis"],["Drain field malfunction","Site and soil treatment evaluation"]]} },
-{ id: "avoid", title: "What NOT to pour into a clogged septic drain field", paragraphs: ["Avoid drain cleaners, solvents or additives marketed as guaranteed field restorers. Such products are not a substitute for professional diagnosis and may harm system performance or the environment.","Do not dig into the field or attempt pressure cleaning buried lines without qualified help. Buried utilities, wastewater and unsafe tank openings present hazards."] },
-{ id: "next-steps", title: "What to do before scheduling drain field repairs", paragraphs: ["Gather the system drawing, last pumping date, recent repair history and notes about heavy rain or household occupancy. Ask the contractor to itemize recommended work and explain whether permits are needed.","If replacement is suggested, ask whether a correctable component fault has been ruled out and obtain a local, site-specific design and quote."] },
-      { id: 'further-guidance', title: "Clogged pipe versus failing soil treatment", paragraphs: ["Slow drainage may be caused by a fixture clog, house sewer blockage, septic tank outlet restriction, pump malfunction or a failing drain field. Symptoms alone cannot determine which one is responsible. A technician should examine the tank, accessible distribution parts and field conditions before recommending treatment.","Avoid chemical drain cleaners, improvised additives and digging into the field. Keep heavy vehicles away and record recent rain, water use and which fixtures are affected. After service, request written findings and ask what signs would mean further evaluation is needed."] },
-      { id: 'deep-dive-1', title: "Why wet grass and slow drains need context", paragraphs: ["Lush grass above a drain field can have several explanations and does not alone prove failure. However, wastewater odors, persistent soggy soil and backups together make professional evaluation more urgent. Keep people and animals away if wastewater may be present.","Slow drains may originate inside the house or at the tank outlet. Describe whether one fixture or multiple fixtures are affected and whether the symptoms change with rain, laundry or other high water use."] },
-      { id: 'deep-dive-2', title: "What a contractor may inspect", paragraphs: ["The contractor may review the service record, inspect tank access points and filters where appropriate, test pumps or alarms on equipped systems, evaluate distribution components and examine site conditions. Different faults require different repairs.","Request an explanation of the diagnosis and whether the soil treatment area itself has failed. If replacement is recommended, discuss the local approval process and ask for an itemized scope."] },
-      { id: 'deep-dive-3', title: "Things that do not reliably unclog a failed field", paragraphs: ["Household chemicals and advertised bacteria additives cannot be assumed to restore a damaged or overloaded soil treatment system. Excavating, injecting fluids or pressure-cleaning buried pipes without qualified evaluation can create safety and environmental problems.","The most useful homeowner actions are limiting water use when symptoms occur, keeping vehicles off the field and arranging a professional evaluation. Continue regular inspections and pumping after any repair."] }],
-    faqs: [{"question":"Can pumping a tank unclog the drain field?","answer":"Pumping removes solids from the tank but does not necessarily restore blocked distribution lines or saturated soil."},{"question":"Will a clogged drain field dry out on its own?","answer":"Surface moisture may change with weather, but recurring sewage or drainage failures require assessment; do not assume a failed system has repaired itself."},{"question":"Should I use septic additives to unclog the field?","answer":"Do not rely on additives as a repair. Ask a qualified professional to identify the cause."}],
-    related: [{"href":"/guides/how-to-fix-septic-drain-field","label":"Review field repair options"},{"href":"/guides/septic-drain-field-replacement-cost","label":"Understand replacement cost factors"},{"href":"/tools/septic-troubleshooter","label":"Evaluate symptoms"}]
-  },
-  'guides/signs-septic-tank-is-full': {
-    title: 'How to Tell if Your Septic Tank Is Full: 7 Warning Signs',
-    description: 'Wondering if your septic tank is full? Check 7 warning signs, what is normal after pumping, and when to call a septic professional.',
-    summary: 'Slow drains in several rooms, gurgling, sewage odors, backups and wastewater surfacing can signal septic trouble. But a tank normally contains liquid, so “full of water” alone does not mean it needs pumping. Keep people away from sewage and arrange professional help for backups or surfacing.',
-    keywords: ['how to tell if septic tank is full', 'how to tell septic tank full', 'septic tank full signs', 'signs septic tank needs pumping', 'septic tank full or clogged', 'septic tank full of water'],
-    sourceIds: ['epa-care', 'epa-failure', 'epa-faq'],
+    keywords: ["fix septic drain field", "how to fix a septic drain field", "septic drain field repair", "drain field failure symptoms", "leach field repair"],
+    sourceIds: ["epa-failure", "epa-works", "epa-care"],
     sections: [
-      { id: 'meaning-of-full', title: 'What does a full septic tank actually mean?', paragraphs: [
-        'A septic tank is not supposed to stay empty. It normally contains wastewater up to its operating level while liquid flows onward to the drain field. The solids accumulating at the bottom and floating near the top are what routine pumping removes. A tank that refills with liquid after pumping is not automatically failing.',
-        'When someone says “my septic tank is full,” they may mean too much sludge and scum, a blocked pipe, an outlet problem, a pump failure or a saturated drain field. These can look similar from inside the house, but the repairs are not the same. A technician can check the tank, measure accumulated solids where appropriate and inspect the flow path.',
-        'The safest approach is to pay attention to symptoms and the last inspection rather than trying to open the tank yourself. Septic tanks contain hazardous gases and unsecured access openings are dangerous.'
-      ] },
-      { id: 'seven-signs', title: '7 signs your septic tank or septic system needs attention', paragraphs: [
-        'One symptom does not prove a tank needs pumping. Several symptoms together, especially across different fixtures, make a prompt inspection more important. Use this table to describe exactly what is happening before calling a provider.',
-        'If raw sewage is entering the home or wastewater is surfacing in the yard, avoid contact, limit water use and request professional help promptly. Keep children and pets away from the affected area.'
-      ], table: { headers: ['Warning sign', 'What it may indicate', 'What to do'], rows: [
-        ['1. Multiple drains are slow', 'A shared drain restriction or septic system problem', 'Note which fixtures are affected; request a check if the issue persists'],
-        ['2. Toilets or drains gurgle', 'Airflow or wastewater movement is being disrupted', 'Record when it happens and whether several fixtures are involved'],
-        ['3. Sewage backs up', 'A blocked or overloaded wastewater path', 'Stop unnecessary water use and arrange urgent professional service'],
-        ['4. Sewage smell indoors', 'A plumbing vent, drain seal or septic issue', 'Identify where the odor is strongest; seek an assessment if persistent'],
-        ['5. Sewage smell outdoors', 'Possible tank, pipe, vent or drain field issue', 'Keep clear of suspicious wet areas and contact a septic professional'],
-        ['6. Wet or unusually lush drain-field area', 'Potential effluent surfacing or abnormal soil moisture', 'Avoid the area, do not dig, and arrange professional evaluation'],
-        ['7. High-water alarm sounds', 'A pump or treatment system may not be moving wastewater properly', 'Reduce water use and contact the service provider; do not bypass controls']
-      ] }, links: [{ href: '/tools/septic-troubleshooter', label: 'Use the septic symptoms troubleshooter' }] },
-      { id: 'full-vs-clogged', title: 'Is your septic tank full or is a pipe clogged?', paragraphs: [
-        'A single slow sink may point to a local plumbing blockage, while trouble in several toilets, showers and sinks deserves investigation of the shared drainage system. Neither pattern is a home diagnosis. A septic professional or plumber can isolate the likely location safely.',
-        'Pumping removes tank contents but does not automatically remove pipe obstructions, repair pumps or restore a failing drain field. Ask the provider what was actually found instead of booking repeated pumping without a diagnosis.'
-      ], table: { headers: ['Observation', 'Possible explanation', 'Next step'], rows: [
-        ['Only one fixture drains slowly', 'Local fixture or branch drain issue', 'Ask a plumber to evaluate the affected fixture'],
-        ['Multiple fixtures back up or drain slowly', 'Shared plumbing or septic system issue', 'Contact an appropriate professional promptly'],
-        ['Tank has liquid after pumping', 'Normal refilling can occur', 'Use the inspection report, not liquid level alone'],
-        ['Alarm sounds at a pumped system', 'Pump, float, power or control issue', 'Contact the system service provider']
-      ] } },
-      { id: 'after-pumping', title: 'Why is my septic tank full again right after pumping?', paragraphs: [
-        'When toilets, sinks and showers are used, the tank fills back to its normal working liquid level. That is expected. The key question is whether wastewater flows normally onward and whether solids have accumulated to a level that calls for another service.',
-        'If sewage backs up or an alarm continues after pumping, contact the provider with the service date and symptoms. The problem might be elsewhere in the system. Ask for the tank observations and any recommended follow-up in writing.'
-      ] },
-      { id: 'when-to-pump', title: 'How do you know when to pump a septic tank?', paragraphs: [
-        'The EPA commonly advises household septic tanks to be inspected about every three years and pumped about every three to five years, depending on tank size, household size, water use and solids accumulation. Some alternative systems require more frequent attention.',
-        'Do not wait for a backup before planning routine service. Keep the last pumping date, inspection findings and contractor recommendation together. A reminder calculator is useful for planning, but it cannot replace inspection measurements or local requirements.'
-      ], links: [{ href: '/tools/septic-pumping-frequency-calculator', label: 'Calculate a septic tank pumping window' }, { href: '/maintenance', label: 'Read the septic maintenance checklist' }] },
-      { id: 'what-to-check', title: 'What to check before calling a septic service company', paragraphs: [
-        'You do not have to open the tank, test gases or uncover buried lines. Instead, collect a few safe observations so the provider can recommend the right visit. Do not walk on or work in areas where sewage may be surfacing.',
-        'Ask whether the quoted visit includes an inspection, pumping, filter cleaning, equipment diagnosis or separate repair charges. A recent pumping receipt may not show that the drain field or pump was inspected.'
-      ], bullets: [
-        'Write down when the symptoms began and which drains are affected.',
-        'Check your records for the last pumping and inspection dates.',
-        'Note recent heavy rain, unusually high household water use or guests.',
-        'Record any visible alarm message without opening electrical equipment.',
-        'Keep people and pets away from suspected wastewater on the ground.',
-        'Ask for a written explanation of findings and recommended next steps.'
-      ], links: [{ href: '/tools/septic-pumping-cost-calculator', label: 'Estimate your quoted pumping charges' }] },
-      { id: 'what-not-to-do', title: 'What NOT to do when you suspect a full septic tank', paragraphs: [
-        'Do not enter a septic tank, lean into an open access hole or remove secured lids yourself. Toxic gases and fall hazards can cause severe injury or death. Never ask a family member to inspect inside.',
-        'Avoid chemical drain cleaners, improvised drain-field treatments and repeated flushing to test whether the problem has disappeared. Do not drive over a wet drain field or divert more water toward it. When wastewater is surfacing or returning into the house, professional assessment takes priority over DIY fixes.'
-      ] },
-      { id: 'service-report', title: 'What a useful septic inspection report should tell you', paragraphs: [
-        'Ask the professional to record the tank condition, pumping details if performed, any measured sludge or scum accumulation, the inspected components and whether additional diagnosis is recommended. If the cause of a backup is unclear, the report should say what still needs investigation.',
-        'Keep this report with your home maintenance records. It is more useful than relying on the phrase “tank was full” because it distinguishes normal liquid level from problems that require repairs.'
-      ] },
-      { id: 'further-guidance', title: "After rain and after pumping", paragraphs: ["A septic tank normally returns to its operating liquid level after pumping. If drains continue to back up or a high-water alarm returns, the cause may be a blocked pipe, failed pump or drain field problem rather than an overdue pumping visit. Share the service report with the technician and explain which symptoms remain.","During heavy rain, soil saturation can expose existing drainage limits. Note the weather and the timing of symptoms, but avoid walking through wet areas that may contain wastewater. If sewage is surfacing or entering the house, reduce water use and get urgent professional help."] },
-      { id: 'deep-dive-1', title: "Septic symptoms checklist by location", paragraphs: ["If only one sink drains slowly, the fault may be local to that fixture. If several bathrooms and the washing machine are affected, tell your provider because a shared drain or septic issue becomes more plausible. Gurgling, repeated odors or wastewater coming back through a fixture should be recorded along with the time and frequency.","Check whether the same issue happens after laundry, during rain or throughout the day. Avoid repeatedly flushing to test an overflowing toilet. A short timeline with affected fixtures can save diagnostic time and help the technician identify which part of the system needs attention."] },
-      { id: 'deep-dive-2', title: "What pumping does and does not fix", paragraphs: ["Routine pumping removes accumulated sludge and scum. It does not automatically repair a damaged pipe, a failed pump or a drain field that cannot accept effluent. Ask the contractor to explain whether the visit is preventive maintenance, emergency pumping or diagnosis of a separate malfunction.","An inspection can use actual observations and professional measurements to decide whether accumulated solids require removal. Online pumping interval estimates are reminders, not proof that a particular tank is full of solids. Follow the provider's recommended service plan and local requirements."] },
-      { id: 'deep-dive-3', title: "Safe actions while waiting for help", paragraphs: ["Reduce unnecessary water use if drainage is poor and stop use where sewage is backing up. Keep pets and children away from wet areas suspected of containing wastewater. Do not lift secured septic lids, enter tanks, reach into inspection openings or tamper with electrical control boxes.","Gather your last service invoice, system drawing and details about any alarm. When you call, ask what the first visit includes, how emergency fees work and whether a written diagnosis will be supplied."] }
+      {
+        id: "warning-signs",
+        title: "Signs your septic drain field may be failing",
+        paragraphs: [
+          "Sewage pooling or surfacing above the field, foul odors, repeated backups and chronically slow drains can be warning signs. A wet patch after rain alone does not prove failure, but wastewater surfacing is a reason to keep people and pets away.",
+          "Note where and when symptoms occur, recent rain and whether multiple fixtures are affected. Do not drive or dig over the treatment area while the cause is being evaluated."
+        ]
+      },
+      {
+        id: "check-first",
+        title: "What a septic professional should check first",
+        paragraphs: [
+          "An evaluation may start with service history, tank levels, baffles, effluent filter, pumps and the distribution components. A blocked line or failed pump can resemble field failure, so diagnosis matters before authorizing replacement.",
+          "Ask for findings in writing: which components were inspected, what evidence supports the diagnosis and whether further tests or permits are required."
+        ]
+      },
+      {
+        id: "repair-options",
+        title: "Can a septic drain field be repaired?",
+        paragraphs: [
+          "A contractor might repair damaged piping, correct distribution problems or service a failed pump when the soil treatment area remains functional. Actual soil absorption failure may require an engineered solution or replacement, depending on site conditions and local regulations.",
+          "Be wary of products that promise to restore every failed leach field. Chemical treatments and unverified DIY methods are not a substitute for evaluating soil, hydraulics and equipment."
+        ]
+      },
+      {
+        id: "repair-vs-replace",
+        title: "Drain field repair versus replacement",
+        paragraphs: [
+          "A targeted repair addresses a verified fault, such as a broken line. Replacement may be needed when suitable soil treatment capacity is no longer available. Cost depends on excavation, soil testing, property access, system type, permits and the replacement area.",
+          "Obtain an itemized written proposal and confirm local permitting before work begins. A cheaper quote is not necessarily comparable if it excludes design, inspection or restoration."
+        ],
+        table: {
+          headers: ["Situation", "Possible professional response"],
+          rows: [
+            ["Blocked or broken pipe", "Inspect and repair the affected section"],
+            ["Distribution box problem", "Inspect and correct flow distribution"],
+            ["Pump or electrical fault", "Qualified equipment service"],
+            ["Soil absorption failure", "Site evaluation and possible replacement"]
+          ]
+        }
+      },
+      {
+        id: "what-homeowners-can-do",
+        title: "Safe steps while you arrange service",
+        paragraphs: [
+          "Minimize laundry and other unnecessary water use when the system is struggling. Keep surface runoff away from the area only through approved drainage arrangements; do not redirect wastewater or excavate the field yourself.",
+          "Take photos from a safe distance and collect previous pumping and inspection reports. If sewage reaches the house or ground surface, seek prompt professional help."
+        ]
+      },
+      {
+        id: "further-guidance",
+        title: "How contractors identify the correct repair",
+        paragraphs: [
+          "A professional should review the system plans, pumping history, household water use and site conditions before deciding that the soil treatment area has failed. Accessible filters, pipes, pumps and distribution devices may need inspection. A correctable component problem can look like field failure from the house.",
+          "Ask for written findings that explain the proposed repair, which alternatives were ruled out and whether permits are required. Avoid products promising guaranteed drain field restoration. Keep vehicles and construction equipment away from the field until the issue is assessed."
+        ]
+      },
+      {
+        id: "deep-dive-1",
+        title: "Repair options depend on what failed",
+        paragraphs: [
+          "A cracked or displaced pipe may be repairable without replacing the entire treatment area. A clogged outlet filter, malfunctioning pump or distribution box could also produce symptoms attributed to the field. When the soil itself can no longer accept effluent, a permitted replacement or alternative treatment design may be necessary.",
+          "The distinction is important: paying to pump the tank repeatedly will not permanently correct a broken distribution component or unsuitable soil. Ask for evidence behind a proposed repair rather than buying a generic drain field cleaning product."
+        ]
+      },
+      {
+        id: "deep-dive-2",
+        title: "What makes a replacement necessary",
+        paragraphs: [
+          "The feasibility of rebuilding a field depends on the approved design, remaining space, groundwater, slopes, setbacks and soil properties. Some sites require engineered treatment options rather than repeating the original layout. Local authorities determine acceptable methods, so internet diagrams are not installation instructions.",
+          "Before major excavation, ask whether a site evaluation and permit are needed, how long approval may take and what temporary restrictions apply. A professional quote should distinguish evaluation, construction and restoration."
+        ]
+      },
+      {
+        id: "deep-dive-3",
+        title: "Preventing another failure",
+        paragraphs: [
+          "Spread water-intensive chores when practical and repair leaking toilets or faucets promptly. Keep structures, heavy vehicles and stored material off the field and any reserved replacement area. Protect surface drainage so roof and driveway runoff does not concentrate over the treatment soil.",
+          "Schedule inspections and tank pumping based on actual system requirements and provider guidance. Keep a simple service history including dates, invoices, photographs and any changes to household occupancy or yard layout."
+        ]
+      },
+      {
+        id: "drain-field-diagnosis-checklist",
+        title: "Drain field repair checklist: what to ask before paying",
+        paragraphs: [
+          "If you searched for drain field repair, septic drain field help or leach field repair, begin with a diagnosis rather than a treatment product. Write down whether the trouble began after heavy rain, whether several drains are slow, whether an alarm is sounding and when the tank was last inspected.",
+          "Ask the licensed septic professional to distinguish a tank outlet or filter problem, pump failure, broken distribution pipe and actual soil absorption failure. Request photos or test findings, a written repair scope, permit requirements and a separate price for any recommended replacement. Do not enter a septic tank or open buried components yourself."
+        ],
+        table: {
+          headers: ["What you notice", "What to ask the professional"],
+          rows: [
+            ["Sewage backing up indoors", "Is the tank, outlet, line or downstream field restricting flow?"],
+            ["Wet or unusually green patch", "Is wastewater surfacing, or could rain and drainage explain it?"],
+            ["Pump or high-water alarm", "Have the pump, floats, power supply and discharge line been checked?"],
+            ["Repeated problems after pumping", "What evidence confirms the field needs repair or replacement?"]
+          ]
+        },
+        links: [
+          { href: "/guides/septic-drain-field-replacement-cost", label: "Compare drain field replacement costs" },
+          { href: "/tools/septic-troubleshooter", label: "Check septic symptoms step by step" }
+        ]
+      }
     ],
     faqs: [
-      { question: 'What is the first sign that a septic tank is full?', answer: 'There is no single reliable first sign. Multiple slow drains, gurgling, sewage smells or backups warrant attention, but only an inspection can establish whether pumping is needed or another fault is responsible.' },
-      { question: 'Can a septic tank be full without backing up?', answer: 'Yes. A healthy tank normally holds liquid, and accumulated solids can increase before a backup occurs. Routine inspections help establish when pumping is appropriate.' },
-      { question: 'Will a septic tank fill with water again after pumping?', answer: 'Yes. The normal operating liquid level returns as the home uses water. Recurring backups, alarms or surface wastewater are not normal and need assessment.' },
-      { question: 'How do I know if my septic tank is full or clogged?', answer: 'You generally cannot tell from symptoms alone. A technician can evaluate the tank, pipes, pump if fitted and drain field to identify what needs attention.' },
-      { question: 'Is it safe to open the septic tank to check?', answer: 'No. Do not open or enter septic tanks yourself. Hazardous gases and unsafe access openings make this dangerous; contact a qualified service provider.' },
-      { question: 'Should I pump the septic tank if it smells?', answer: 'Not automatically. Odors can have several causes, including plumbing vents and drain issues. Have the cause assessed, particularly if smells persist or are accompanied by backups or wet ground.' }
+      { question: "Can pumping fix a failed drain field?", answer: "Pumping removes tank solids and may buy temporary time, but it does not by itself restore soil absorption capacity or repair buried distribution faults." },
+      { question: "Can I unclog a drain field myself?", answer: "Avoid digging, pressure-jetting or adding chemicals to buried field lines yourself. Have a professional diagnose the actual restriction and local requirements." },
+      { question: "How long does repair take?", answer: "It depends on diagnosis, weather, permits, access and whether the work is a component repair or full replacement. Get a written work plan." }
     ],
     related: [
-      { href: '/tools/septic-troubleshooter', label: 'Find the next step for septic problems' },
-      { href: '/problems', label: 'Read about septic odors, alarms and slow drains' },
-      { href: '/guides/how-septic-system-works', label: 'Understand how a septic tank and drain field work' },
-      { href: '/tools/septic-pumping-frequency-calculator', label: 'Plan your next septic pumping date' }
+      { href: "/problems", label: "Check common septic problems" },
+      { href: "/guides/septic-drain-field-replacement-cost", label: "Compare drain field replacement cost factors" },
+      { href: "/tools/septic-troubleshooter", label: "Use the septic troubleshooter" }
     ]
   },
+
+  'guides/septic-drain-field-replacement-cost': {
+    title: "Septic Drain Field Replacement Cost: Repair vs Replace Guide",
+    description: "Understand drain field replacement costs ($5,000–$20,000+), component repairs ($1,000–$3,500), soil testing, permits and contractor quotes.",
+    summary: "The cost to replace a septic drain field depends heavily on soil conditions, system type, permits, excavation and site access. Do not treat a national average as a quote. Ask for a site evaluation and compare itemized local proposals that clearly separate minor component repair from full absorption field replacement.",
+    keywords: ["replace septic drain field cost", "septic drain field replacement cost", "septic drain field repair cost", "cost of new septic drain field", "leach field replacement cost"],
+    sourceIds: ["epa-failure", "epa-types", "epa-faq"],
+    sections: [
+      {
+        id: "what-you-pay-for",
+        title: "How much does a drain field replacement cost?",
+        paragraphs: [
+          "In the United States, replacing a residential septic drain field typically costs between $5,000 and $15,000 for a conventional gravity trench or plastic chamber system. If challenging soil conditions, shallow bedrock, or high groundwater require an engineered mound system or pressure-dosed sand filter, costs often range from $12,000 to $25,000 or more.",
+          "In contrast, localized component repairs—such as replacing a cracked distribution box, clearing a crushed pipe section, or installing an effluent filter—usually cost between $1,000 and $3,500. This is why obtaining an accurate diagnostic inspection before approving a total replacement is essential."
+        ]
+      },
+      {
+        id: "main-factors",
+        title: "Seven factors that drive drain field replacement costs",
+        paragraphs: [
+          "A replacement quote is driven by site geography and health code standards rather than just pipe materials. An online estimator cannot see your yard's slope, soil percolation rate, or distance to local water bodies.",
+          "The major line items that determine the final contractor bill include:"
+        ],
+        table: {
+          headers: ["Cost factor", "Typical price range", "Why it matters"],
+          rows: [
+            ["Soil testing & perc test", "$400 – $1,500", "Determines soil absorption rate and legally approved design"],
+            ["Engineered site design", "$600 – $2,000", "Required by health departments for non-standard systems"],
+            ["County permits & inspections", "$250 – $1,200", "Mandatory regulatory review and sign-off"],
+            ["Excavation & site prep", "$1,500 – $4,500", "Clearing vegetation, digging trenches, hauling heavy equipment"],
+            ["Piping, chambers & gravel", "$2,500 – $7,500", "Distribution media (perforated pipe & gravel or plastic chambers)"],
+            ["Distribution box & valves", "$500 – $1,200", "Distributes effluent evenly among trench lines"],
+            ["Final backfill & yard grading", "$1,000 – $2,500", "Covering system, establishing positive runoff, reseeding grass"]
+          ]
+        }
+      },
+      {
+        id: "repair-or-replace",
+        title: "Can you repair the existing drain field instead?",
+        paragraphs: [
+          "Before committing to a multi-thousand-dollar replacement, ask the technician to confirm whether the soil absorption area has failed or if an upstream component is causing the issue. A blocked outlet baffle, clogged effluent filter, or failed effluent pump can cause identical backups.",
+          "If the soil itself has become clogged by biomat (a dense organic slime layer caused by years of grease and solids escaping the tank), physical resting or shock aeration may sometimes restore marginal flow, but heavily saturated or hydraulically compacted soil typically requires a permitted replacement."
+        ],
+        table: {
+          headers: ["Symptom or fault", "Likely solution", "Typical scope"],
+          rows: [
+            ["Broken pipe from vehicle weight", "Targeted pipe repair", "$800 – $2,000"],
+            ["Tilted or rotted distribution box", "D-box replacement with levelers", "$1,000 – $2,500"],
+            ["Clogged effluent filter", "Remove and spray clean filter", "$0 (DIY) – $150"],
+            ["Burned-out dosing pump", "Pump and float replacement", "$1,200 – $2,800"],
+            ["Biomat-clogged soil trenches", "Full field replacement in reserve area", "$6,000 – $20,000+"]
+          ]
+        }
+      },
+      {
+        id: "compare-quotes",
+        title: "How to compare two contractor replacement quotes",
+        paragraphs: [
+          "When comparing contractor bids, make sure both proposals are based on the same approved county design. A lower headline quote often omits essential items such as permit fees, soil testing, utility line marking, tree stump removal, or final lawn restoration.",
+          "Require contractors to specify whether they are installing traditional gravel-and-pipe trenches or proprietary plastic chambers (such as Infiltrator chambers), which can reduce trench length requirements by 25% to 40% in many jurisdictions."
+        ]
+      },
+      {
+        id: "timeline-permitting",
+        title: "Typical drain field replacement timeline & permitting",
+        paragraphs: [
+          "A full drain field replacement is not an overnight project. The entire process typically takes between 2 to 6 weeks from initial site evaluation to final county sign-off.",
+          "The process begins with a certified soil scientist or sanitarian performing a percolation (perc) test or deep soil borings to determine soil depth, seasonal high water table, and permeability. Next, an engineered site plan is submitted to your local public health or environmental agency.",
+          "Once the permit is granted, physical excavation and installation usually take 2 to 4 days, depending on weather and equipment access. The health inspector conducts an open-trench inspection before backfilling is permitted. Knowing this timeline helps homeowners plan temporary water conservation measures or alternative living arrangements while excavation is underway."
+        ]
+      },
+      {
+        id: "after-installation",
+        title: "How to protect your new drain field investment",
+        paragraphs: [
+          "Once your new drain field is installed, protecting it requires strict adherence to simple habits: never drive, park, or place heavy structures (sheds, pools, driveways) over the field. Compacted soil permanently ruins percolation capacity.",
+          "Divert all gutter downspouts and surface runoff away from the absorption trenches, plant only grass over the lines, and pump your septic tank every 3 to 5 years to keep solids from damaging the new soil."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Is drain field repair cheaper than replacement?", answer: "Yes. Targeted repairs to broken pipes, distribution boxes, or pumps typically cost $1,000 to $3,500, whereas complete replacement of the absorption area ranges from $5,000 to $20,000+." },
+      { question: "Does homeowners insurance cover septic drain field replacement?", answer: "Standard policies generally exclude wear-and-tear, age, and biomat clogging. Coverage is occasionally available if sudden, accidental external physical damage occurred (e.g., an unauthorized vehicle crushing a pipe), subject to your policy terms." },
+      { question: "Can a new drain field be installed in the exact same spot?", answer: "Generally no, unless the old contaminated soil and gravel are completely excavated and replaced with clean fill under an approved engineering variance. Most county health codes require the new field to be installed in the designated 'reserve area' on the property." }
+    ],
+    related: [
+      { href: "/guides/how-to-fix-septic-drain-field", label: "Understand drain field repair options" },
+      { href: "/guides/septic-system-installation-cost", label: "Compare complete septic system installation costs" },
+      { href: "/tools/septic-pumping-cost-calculator", label: "Calculate septic pumping quotes" }
+    ]
+  },
+
+  'guides/septic-inspection-cost': {
+    title: "Septic Inspection Cost: What It Costs, Scope & Buyer Guide",
+    description: "Learn what affects septic inspection cost ($200–$900), the difference between visual and Level 2 inspections, homebuyer contingencies and who pays.",
+    summary: "Septic inspection prices typically range from $200 to $450 for a routine maintenance check, and $400 to $900 for a comprehensive real estate transfer inspection. Video camera line scoping or load tests can add $250 to $500. Always demand a written report detailing what was and was not inspected.",
+    keywords: ["septic inspection cost", "how much does a septic inspection cost", "well and septic inspection cost", "septic inspection before buying house", "septic camera inspection cost"],
+    sourceIds: ["epa-care", "epa-faq", "psu-buying"],
+    sections: [
+      {
+        id: "inspection-types",
+        title: "Visual check vs comprehensive Level 2 septic inspection",
+        paragraphs: [
+          "When budgeting for an inspection, you must understand the distinction between a basic visual check and a comprehensive professional septic evaluation. A standard home inspector often only flushes a toilet and walks the yard looking for standing puddles. This visual-only check does NOT verify the health of the underground tank, baffles, or absorption field.",
+          "A comprehensive septic inspection (often called a Level 2 or real estate transfer inspection) is conducted by a licensed septic contractor. The inspector uncovers access lids, measures accumulated sludge and scum depths, inspects the structural integrity of the concrete or poly tank, checks that baffles and filters are intact, and conducts a continuous hydraulic load test on the drain field."
+        ],
+        table: {
+          headers: ["Inspection tier", "Typical cost", "Scope & checks performed", "Recommended use"],
+          rows: [
+            ["Visual / Walkthrough", "$150 – $300", "Checks fixture drainage, walks lawn for odors or wet spots", "Routine checkup between service cycles"],
+            ["Comprehensive / Level 2", "$400 – $800", "Opens lids, measures solids, inspects baffles & load test", "Buying or selling a home, persistent alarms"],
+            ["Camera Pipe Scope", "$250 – $500", "Feeds fiber-optic camera down main sewer line to tank", "Older homes, suspected root invasion, bellies"],
+            ["Combined Well & Septic", "$550 – $1,100", "Inspects septic system plus well pump, pressure tank & water purity", "Rural home purchase real estate contingency"]
+          ]
+        }
+      },
+      {
+        id: "cost-factors",
+        title: "What factors change the septic inspection price?",
+        paragraphs: [
+          "Inspection fees vary based on tank accessibility, system design, and required laboratory tests. Key price drivers include:",
+          "• Buried lids & manual digging: If the septic tank lids are buried 1 to 3 feet below the lawn, contractors charge $50 to $200 for electronic locating and manual excavation.",
+          "• Mandatory pumping during inspection: Many county health departments and mortgage lenders require the tank to be pumped dry during the inspection so the inspector can examine the bottom and walls for cracks or ground water infiltration. Pumping adds $350 to $600 to the bill.",
+          "• Alternative or engineered systems: Aerobic units, mound systems, and drip irrigation systems have electrical control panels, air compressors, and effluent pumps that take longer to test."
+        ]
+      },
+      {
+        id: "buyers-sellers",
+        title: "Septic inspection before buying a house: The buyer's checklist",
+        paragraphs: [
+          "If you are buying a home with a septic system, never waive the dedicated septic inspection contingency. Replacing a failed drain field or cracked tank can cost $10,000 to $25,000 immediately after closing.",
+          "Before the inspection, demand that the seller provide the original county installation permit, the as-built diagram showing the exact location of the tank and drain field, and at least 3 to 5 years of pumping receipts. If the seller cannot prove when the tank was last pumped, treat that as a red flag."
+        ],
+        bullets: [
+          "Verify the system is legally permitted for the number of bedrooms listed on the MLS.",
+          "Require a hydraulic load test to verify the drain field accepts water under sustained flow.",
+          "Ensure both tank compartments and the distribution box are opened and inspected.",
+          "Ask for video camera scoping of the main sewer line if mature trees grow between the house and tank.",
+          "Confirm the existence of an approved, undisturbed reserve drain field area on the property drawing."
+        ]
+      },
+      {
+        id: "who-pays",
+        title: "Who pays for a septic inspection: Buyer or seller?",
+        paragraphs: [
+          "In most standard real estate transactions, the buyer hires and pays for the independent septic inspector to ensure an unbiased assessment. However, who pays is negotiable in the purchase contract.",
+          "If the inspection reveals significant defects (such as deteriorated baffles, roots in the line, or drain field saturation), the buyer can use the written report to negotiate seller-paid repairs, an escrow holdback, or a reduction in purchase price prior to closing."
+        ]
+      },
+      {
+        id: "report",
+        title: "What a certified septic inspection report should include",
+        paragraphs: [
+          "A valid inspection report should clearly list: tank capacity, material, operating liquid level, measured sludge and scum depths, physical condition of inlet and outlet baffles, effluent filter status, pump and float operation, distribution box condition, and drain field observations.",
+          "The report must clearly distinguish confirmed component defects from temporary conditions or limitations (such as frozen ground or inaccessible buried components). Keep this document in your permanent home records."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Is a septic inspection included in a standard home inspection?", answer: "No. Standard home inspectors perform only a basic visual check of plumbing fixtures. You must hire a licensed septic inspector or certified wastewater specialist for a true evaluation." },
+      { question: "Do you have to pump the tank for an inspection?", answer: "Many lenders and comprehensive inspection standards require pumping so the inspector can examine the interior tank walls and floor for cracks, root intrusion, or groundwater infiltration." },
+      { question: "How long does a thorough septic inspection take?", answer: "A comprehensive inspection typically takes 1.5 to 3 hours, depending on whether lids need excavation, whether a hydraulic load test is performed, and system complexity." }
+    ],
+    related: [
+      { href: "/maintenance", label: "Review regular septic maintenance plans" },
+      { href: "/guides/signs-septic-tank-is-full", label: "7 warning signs a septic tank needs attention" },
+      { href: "/guides/how-septic-system-works", label: "Learn the parts of a septic system" }
+    ]
+  },
+
+  'guides/septic-tank-alarm-going-off': {
+    title: "Septic Tank Alarm Going Off? Immediate Steps, Causes & Fixes",
+    description: "Why is your septic alarm buzzing or flashing red? Immediate steps to stop water, how to silence it safely, heavy rain causes and pump troubleshooting.",
+    summary: "A septic high-water alarm sounds when liquid in the pump chamber exceeds its normal operating level. Cut household water use immediately, silence the exterior buzzer, and do NOT flip off the circuit breaker if it powers the pump. Call your service provider for diagnostic assistance.",
+    keywords: ["septic tank alarm went off", "septic tank alarm troubleshooting", "septic tank alarm going off after rain", "how to silence septic alarm", "septic high water alarm"],
+    sourceIds: ["epa-types", "epa-failure", "epa-care", "clemson-rain"],
+    sections: [
+      {
+        id: "first-steps",
+        title: "What to do right now when your septic alarm sounds",
+        paragraphs: [
+          "When a septic alarm begins buzzing or flashing a red beacon, your pump chamber has reached a high-water condition. Wastewater is entering the chamber faster than the pump is removing it, or the pump has stopped working entirely.",
+          "Take these immediate steps:"
+        ],
+        bullets: [
+          "Stop all non-essential water use immediately: pause laundry, stop dishwashers, take quick sponge baths, and avoid flushing toilets unnecessarily.",
+          "Silence the audible buzzer: Go to the exterior control panel and press the 'Silence' or 'Acknowledge' button on the outside of the box. This mutes the horn while leaving the red warning light illuminated.",
+          "DO NOT turn off the main circuit breaker if the breaker supplies power to the pump itself. Shutting off the breaker prevents the pump from running if it recovers.",
+          "Check lowest household fixtures: Inspect basement floor drains, utility sinks, and ground-floor toilets for any sign of sluggishness or wastewater backup.",
+          "Call your licensed septic service provider: Report the alarm, visible panel lights, and any recent heavy rain or high water use."
+        ]
+      },
+      {
+        id: "why-alarm",
+        title: "Why did your septic high-water alarm trigger?",
+        paragraphs: [
+          "In a pumped or alternative septic system, wastewater flows from the primary settling tank into a secondary pump chamber. A series of float switches control pump operation. The alarm triggers when liquid reaches the top high-level float switch.",
+          "Common mechanical, electrical, and hydraulic causes include:"
+        ],
+        table: {
+          headers: ["Underlying cause", "Why it occurs", "Typical fix"],
+          rows: [
+            ["Tripped circuit breaker", "Electrical surge or pump motor overload", "Reset breaker once; if it trips again, call technician"],
+            ["Tangled or failed float switch", "Grease buildup or mechanical switch failure", "Clean or replace the high-water or pump float"],
+            ["Burned-out effluent pump", "Pump motor reached end-of-life (7–12 years)", "Replace submersible effluent pump"],
+            ["Clogged effluent filter", "Solids blocked flow into the pump chamber", "Remove and rinse filter with garden hose"],
+            ["Blocked discharge pipe", "Ice freeze-up, tree root crush, or closed check valve", "Clear or repair discharge force main"],
+            ["Heavy rain / ground infiltration", "Stormwater flooding through unsealed lids", "Reduce water use until water table recedes"]
+          ]
+        }
+      },
+      {
+        id: "rain",
+        title: "Septic alarm going off after heavy rain or storms",
+        paragraphs: [
+          "During severe rainstorms or rapid snowmelt, ground surrounding the septic system becomes saturated. If stormwater seeps into unsealed riser lids, damaged electrical conduit, or inspection caps, hundreds of gallons of rainwater can flood the pump chamber in hours.",
+          "CRITICAL SAFETY WARNING: Do NOT pump your septic tank while the yard is submerged or saturated with floodwater. An empty tank in saturated soil can act like a boat hull—hydrostatic groundwater pressure can literally pop the tank out of the ground, snapping underground pipes and destroying the system. Wait until floodwaters recede."
+        ]
+      },
+      {
+        id: "reset",
+        title: "Can you keep using water while the alarm is silenced?",
+        paragraphs: [
+          "Most pump chambers have approximately 24 to 48 hours of emergency reserve storage capacity above the high-water float switch under normal, minimal water use. However, running a single load of laundry (30–45 gallons) or taking a long shower can completely exhaust that remaining reserve capacity and cause raw sewage to back up into your home.",
+          "Limit water strictly to essential toilet flushes until the technician arrives to inspect the pump and controls."
+        ]
+      },
+      {
+        id: "safety",
+        title: "Critical safety warnings: High voltage and toxic gas",
+        paragraphs: [
+          "Never open the interior electrical panel enclosure if you see bare wires, water pooling inside the box, or smelling burning plastic. Pump control panels carry 120V to 240V electricity that can deliver a fatal shock in damp outdoor conditions.",
+          "Never remove secured tank covers or lean into the pump chamber. Septic tanks generate fatal concentrations of hydrogen sulfide and methane that can cause immediate unconsciousness."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Can I use the toilet if my septic alarm is buzzing?", answer: "You can use the toilet for essential flushes, but eliminate all laundry, showers, and dishwasher runs until the pump is checked, as reserve tank capacity is limited." },
+      { question: "Does a septic alarm mean the tank needs pumping?", answer: "Not necessarily. Alarms signal high water in the pump chamber, usually caused by a tripped breaker, stuck float, or failed pump. Emergency pumping lowers liquid temporarily, but the mechanical fault must still be fixed." },
+      { question: "Why does the alarm keep sounding after I pressed reset?", answer: "Pressing silence only mutes the buzzer. The red warning light stays on and the buzzer may re-trigger after a timer cycle until the high water level drops below the float switch." }
+    ],
+    related: [
+      { href: "/tools/septic-troubleshooter", label: "Check alarm and backup symptoms" },
+      { href: "/guides/septic-tank-backing-up-after-rain", label: "Septic issues after heavy rain" },
+      { href: "/problems", label: "Read general septic troubleshooting guidance" }
+    ]
+  },
+
+  'guides/clogged-septic-drain-field': {
+    title: "Clogged Septic Drain Field: Warning Signs, Causes & Solutions",
+    description: "Learn how a clogged or failing septic drain field can appear, how it differs from a blocked pipe and what homeowners should do safely.",
+    summary: "Slow drains, odors, backups and wet soil can point to a septic drain field problem, but the cause may also be a clogged house pipe, blocked outlet or pump failure. Avoid DIY chemicals and digging; a professional needs to identify the restriction and check the soil treatment area.",
+    keywords: ["clogged septic drain field", "septic drain field clogged", "clogged leach field signs", "septic drain field failure", "unclog septic drain field"],
+    sourceIds: ["epa-failure", "epa-works", "epa-care"],
+    sections: [
+      {
+        id: "signs",
+        title: "Signs a septic drain field may be clogged or overloaded",
+        paragraphs: [
+          "A clogged septic drain field (or leach field) cannot disperse treated effluent into the surrounding soil. When the soil trenches fill up with water, effluent backs up toward the tank and home.",
+          "Common warning signs of a clogged absorption field include:"
+        ],
+        bullets: [
+          "Multiple drains running slowly across different bathrooms, kitchens, and utility sinks simultaneously.",
+          "Toilets gurgling when the washing machine drains or shower runs.",
+          "Foul sewage odors hovering outdoors directly over the drain field lawn, especially on humid evenings.",
+          "Patches of spongy, soggy ground or unusually bright green, fast-growing stripes of grass over the trenches.",
+          "Black, foul-smelling wastewater pooling on the lawn surface during dry weather."
+        ]
+      },
+      {
+        id: "pipe-vs-field",
+        title: "Is it a clogged sewer pipe, clogged filter, or failed drain field?",
+        paragraphs: [
+          "Before assuming your drain field has failed, have a licensed plumber or septic contractor isolate where the restriction is located. Many homeowners spend thousands on unnecessary drain field replacements when the real culprit was an inexpensive pipe clog."
+        ],
+        table: {
+          headers: ["Observed symptom", "Probable restriction point", "How to confirm"],
+          rows: [
+            ["One sink or shower drains slowly", "Local branch drain pipe clog", "Plumbing snake or auger clears fixture line"],
+            ["All fixtures back up into basement", "Main sewer line between house & tank", "Camera scope through main cleanout pipe"],
+            ["High liquid in tank; house drains slow", "Clogged effluent outlet filter", "Pull and inspect filter at outlet tee"],
+            ["One trench wet; others dry", "Distribution box unlevel or blocked", "Inspect D-box flow levelers"],
+            ["All trenches ponded; foul odor", "Biomat clogging of soil absorption trenches", "Professional soil test and trench probe"]
+          ]
+        }
+      },
+      {
+        id: "causes",
+        title: "What causes a septic drain field to clog?",
+        paragraphs: [
+          "The most common cause of drain field failure is biomat buildup. Biomat is a naturally occurring anaerobic biological slime layer that forms on the bottom and sidewalls of absorption trenches. Under normal conditions, biomat helps filter pathogens.",
+          "However, when homeowners neglect routine tank pumping, or when garbage disposals send excess organic matter down the drain, suspended solids and grease wash out into the field. This causes the biomat to grow excessively thick and waterproof, completely sealing soil pores."
+        ]
+      },
+      {
+        id: "avoid",
+        title: "What NOT to pour into a clogged drain field (Chemical myths)",
+        paragraphs: [
+          "Never pour sulfuric acid, caustic lye, chemical solvents, or advertised 'miracle septic restorers' down your toilets. The EPA and state university extension programs warn that chemical additives do not restore soil porosity and can kill the beneficial bacteria breaking down waste in your tank.",
+          "Furthermore, caustic chemicals can corrode concrete tank baffles, destroy plastic distribution pipes, and contaminate local groundwater drinking wells."
+        ]
+      },
+      {
+        id: "remediation",
+        title: "Genuine professional repair and remediation options",
+        paragraphs: [
+          "If a licensed technician diagnoses a clogged drain field, several legitimate engineering solutions may be available:",
+          "• Hydro-jetting distribution pipes: High-pressure water jetting clears silt, roots, and sludge from perforated pipes.",
+          "• Terralift pneumatic soil fracturing: A specialized probe injects compressed air into the soil to fracture compacted hardpan and inject polystyrene beads to maintain porosity.",
+          "• Installing an effluent filter: Catches fine particles before they reach the restored field.",
+          "• Alternating trench resting: If your property has a dual-field layout with a diversion valve, resting the clogged field for 6 to 12 months allows oxygen to enter and aerobic bacteria to naturally digest the biomat.",
+          "• Replacement field installation: If the soil has reached the end of its functional lifespan, a new absorption field in the designated reserve area is required."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Can pumping a septic tank unclog the drain field?", answer: "No. Pumping removes solids from the septic tank, but it does not restore soil porosity or dissolve biomat already clogging the underground absorption trenches." },
+      { question: "Will a clogged drain field dry out on its own?", answer: "Temporary surface moisture may dry during hot weather, but structural biomat clogging will cause wastewater to resurface as soon as normal household water use resumes." },
+      { question: "How long does a septic drain field typically last?", answer: "A properly sized, well-maintained drain field typically lasts 20 to 30 years or more. Neglecting tank pumping or flushing non-biodegradable items can cause premature failure in under 10 years." }
+    ],
+    related: [
+      { href: "/guides/how-to-fix-septic-drain-field", label: "Review drain field repair options" },
+      { href: "/guides/septic-drain-field-replacement-cost", label: "Understand replacement cost factors" },
+      { href: "/tools/septic-troubleshooter", label: "Evaluate symptoms with the troubleshooter" }
+    ]
+  },
+
+  'guides/signs-septic-tank-is-full': {
+    title: "How to Tell if Your Septic Tank Is Full: 7 Warning Signs",
+    description: "Wondering if your septic tank is full? Check 7 warning signs, what is normal after pumping, and when to call a septic professional.",
+    summary: "Slow drains in several rooms, gurgling, sewage odors, backups and wastewater surfacing can signal septic trouble. But a tank normally contains liquid, so 'full of water' alone does not mean it needs pumping. Keep people away from sewage and arrange professional help for backups or surfacing.",
+    keywords: ["how to tell if septic tank is full", "how to tell septic tank full", "septic tank full signs", "signs septic tank needs pumping", "septic tank full or clogged", "septic tank full of water"],
+    sourceIds: ["epa-care", "epa-failure", "epa-faq"],
+    sections: [
+      {
+        id: "meaning-of-full",
+        title: "What does a 'full' septic tank actually mean?",
+        paragraphs: [
+          "A septic tank is designed to hold liquid at all times up to its operating level (just below the invert of the outlet pipe). Seeing water in the tank does not mean it is overdue for pumping. When homeowners say 'my septic tank is full,' they usually mean that solid waste (sludge at the bottom and scum at the top) has accumulated to the point where wastewater retention time is severely compromised.",
+          "A tank full of accumulated solids requires pumping to prevent sludge from washing into and destroying the drain field. Never open or lean into a tank to check levels yourself; toxic sewer gases are lethal."
+        ]
+      },
+      {
+        id: "seven-signs",
+        title: "7 warning signs your septic tank needs attention",
+        paragraphs: [
+          "Look for these seven common warning signs across your property to determine whether a service call is warranted:"
+        ],
+        table: {
+          headers: ["Warning sign", "What it indicates", "Recommended action"],
+          rows: [
+            ["1. Multiple drains running slowly", "Shared main line blockage or excessive solids in tank", "Record affected fixtures; schedule inspection"],
+            ["2. Gurgling toilets and sink traps", "Air trapped in plumbing from restricted wastewater exit", "Check roof vent pipe and arrange septic check"],
+            ["3. Wastewater backing up into showers", "Severe drainage restriction or flooded system", "Stop all water use immediately; call emergency service"],
+            ["4. Rotten-egg sewage odors indoors", "Dry P-traps, faulty wax rings, or full system", "Pour water in floor traps; call pumper if persistent"],
+            ["5. Sewage odors outside near tank/field", "Surfacing effluent, leaking lid, or saturated field", "Keep people/pets away; schedule professional evaluation"],
+            ["6. Spongy, wet lawn over drain field", "Treated effluent unable to perk into saturated soil", "Do not drive over yard; arrange drain field check"],
+            ["7. High-water alarm activation", "Pump failure or liquid level above high-water float", "Silence buzzer; cut water use; call technician"]
+          ]
+        },
+        links: [{ href: "/tools/septic-troubleshooter", label: "Use the septic symptoms troubleshooter" }]
+      },
+      {
+        id: "full-vs-clogged",
+        title: "Is your septic tank full or is a pipe clogged?",
+        paragraphs: [
+          "If only a single sink or toilet drains slowly, the issue is almost certainly an isolated plumbing clog within that fixture's branch line. If multiple fixtures on the ground floor or basement back up simultaneously, the issue is downstream in the main building sewer, the tank, or the drain field."
+        ]
+      },
+      {
+        id: "after-pumping",
+        title: "Why is my septic tank full of water again right after pumping?",
+        paragraphs: [
+          "Within 3 to 7 days of normal household water use, a freshly pumped septic tank naturally refills with liquid up to its operating level. That is completely normal. The key indicator of health is not liquid level, but whether effluent flows freely out the outlet pipe into the drain field without ponding."
+        ]
+      },
+      {
+        id: "what-not-to-do",
+        title: "What NOT to do when you suspect a full septic tank",
+        paragraphs: [
+          "Never enter a septic tank. Even leaning over an open hatch can cause asphyxiation from toxic hydrogen sulfide or methane gases. Keep children and pets away from open risers.",
+          "Never pour gallons of chemical drain openers, chlorine bleach, or solvents into the toilets to 'clear' the tank. Chemicals kill natural bacteria and compound the problem."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "What is the very first sign a septic tank is full?", answer: "Sluggish drainage in lower-level fixtures and faint gurgling sounds after flushing are often the earliest subtle warning signs of solids restricting flow." },
+      { question: "Can a septic tank be full without backing up?", answer: "Yes. Sludge and scum layers can reach dangerous levels near the outlet baffle without causing a backup, which is why routine 3- to 5-year pumping is critical." },
+      { question: "Is it safe to open the tank lid to look inside?", answer: "No. Opening tank lids exposes you to toxic gases and dangerous fall hazards. Leave lid access and inspections to licensed professionals." }
+    ],
+    related: [
+      { href: "/tools/septic-troubleshooter", label: "Find the next step for septic problems" },
+      { href: "/problems", label: "Read about septic odors, alarms and slow drains" },
+      { href: "/maintenance", label: "Septic maintenance checklist and schedule" }
+    ]
+  },
+
   'guides/how-septic-system-works': {
-    title: 'How Does a Septic System Work? A Simple Homeowner Guide',
-    description: 'Learn how a septic tank and drain field work, where household wastewater goes, why tanks need pumping, and what to check when buying a home with septic.',
-    summary: 'A septic system treats wastewater on your property. The tank separates solids from liquid, and the drain field handles further treatment in the soil. Pumping removes the solids that build up over time.',
-    keywords: ['how does a septic system work', 'how does a septic tank work', 'septic tank vs drain field', 'buying a house with a septic tank', 'septic system parts'],
-    sourceIds: ['epa-works', 'epa-types', 'epa-faq'],
+    title: "How Does a Septic System Work? A Simple Homeowner Guide",
+    description: "Learn how a septic tank and drain field work, where household wastewater goes, why tanks need pumping, and what to check when buying a home with septic.",
+    summary: "A septic system treats wastewater on your property. The tank separates solids from liquid, and the drain field handles further treatment in the soil. Pumping removes the solids that build up over time.",
+    keywords: ["how does a septic system work", "how does a septic tank work", "septic tank vs drain field", "buying a house with a septic tank", "septic system parts"],
+    sourceIds: ["epa-works", "epa-types", "epa-faq"],
     sections: [
-      { id: 'the-basic-idea', title: 'How does a septic system work in a house?', paragraphs: [
-        'When you flush a toilet, take a shower or run the washing machine, the used water leaves through the house drains. In a home connected to a public sewer, it travels to a community treatment plant. In a home with a septic system, treatment takes place on the property. That is why your everyday water habits and the condition of the yard both matter.',
-        'A conventional septic system has two main working parts: a buried septic tank and a drain field. The tank separates the wastewater. The drain field receives the liquid coming out of the tank and allows it to move through suitable soil. Think of the tank as the first stage and the soil as another essential stage, rather than thinking of the tank as a container that stores every gallon forever.',
-        'You do not need to learn every plumbing term to look after the system. Start with four questions: Where is the tank? Where is the drain field? When was the tank last pumped? Does the system have a pump, alarm or treatment unit? The answers make service calls easier and help you avoid accidentally damaging equipment hidden under the lawn.'
-      ] },
-      { id: 'inside-the-tank', title: 'What happens inside a septic tank?', paragraphs: [
-        'Household wastewater contains liquid and material that behaves differently in water. Heavier solids settle at the bottom. Grease and other lighter material can collect near the top. The liquid between these layers flows onward through the outlet. You may hear a service technician call the bottom layer sludge, the floating layer scum and the liquid effluent.',
-        'Those words describe where the waste is, not three separate tanks you need to buy. Bacteria break down some organic material, but they do not make all of the accumulated solids disappear. The tank still needs periodic pumping. A tank that seems quiet from the outside can be overdue for service inside.',
-        'A useful question after a pumping visit is: “What did you find, and what interval do you recommend next time?” Ask the provider to include observations in the service report. A dated receipt that only says “pumped” is less helpful than a record identifying the tank, the work completed and anything that needs follow-up.'
-      ] },
-      { id: 'normal-water-level', title: 'Is a septic tank supposed to be full of water?', paragraphs: [
-        'A working septic tank normally contains liquid. Seeing water in a tank does not, by itself, tell you that pumping is overdue. Normal operating liquid level and excessive solids buildup are different things. A tank is not meant to stay empty between service visits.',
-        'This distinction explains a common worry: “My septic tank is full again after pumping.” As the home uses water, liquid returns. The more useful questions are whether drains work normally, whether the professional found unusual levels, and whether the liquid can leave through the intended outlet.',
-        'Do not remove a tank lid to judge the level yourself. Ask the technician to explain the findings in plain language while keeping the access area secure. If symptoms continue after a service visit, tell the provider exactly what changed and what did not. A repeat symptom deserves follow-up rather than a guess based on the word full.'
-      ] },
-      { id: 'drain-field', title: 'What is a septic drain field or leach field?', paragraphs: [
-        'Drain field, leach field and soil absorption field are names you may hear for the area that receives liquid from a septic tank. In a conventional system, buried distribution components spread the liquid into the soil treatment area. The tank and field need to work together; pumping the tank does not replace the field’s job.',
-        'The part that looks like ordinary lawn may therefore be one of the most valuable working areas of your property. Keep its location marked on your property sketch. Before arranging a shed, driveway, patio, pool or major landscaping project, check that the proposed work stays clear of the system and any reserved replacement area.',
-        'For a new homeowner, an easy habit is to keep the septic drawing with the home’s other important documents. Give a copy of the relevant layout to anyone planning heavy work in the yard. “The tank is somewhere behind the house” leaves too much room for expensive mistakes.'
-      ], links: [{ href: '/maintenance', label: 'See the septic maintenance checklist and drain field care tips' }] },
-      { id: 'parts-explained', title: 'Septic system parts explained without the jargon', paragraphs: [
-        'Your installation drawing may use terms that sound more complicated than the equipment itself. Use the list below to follow a service conversation. The exact arrangement depends on the system installed at your property, so keep the drawing alongside this general explanation.',
-        'Not every system has every part listed here. For example, a gravity system may not need a wastewater pump. If an invoice mentions a component you cannot identify, ask the provider to point out where it appears on the drawing and explain what it does. You should leave the conversation knowing what was serviced, not just recognizing a new technical word.'
-      ], table: { headers: ['Part', 'Plain-language job', 'Useful homeowner question'], rows: [
-        ['House drain pipe', 'Carries wastewater out of the home', 'Which fixtures connect to this line?'],
-        ['Septic tank', 'Separates solids and liquid', 'What capacity and number of compartments do I have?'],
-        ['Baffle or outlet tee', 'Helps retain solids in the tank', 'Was its condition checked during service?'],
-        ['Outlet filter, if fitted', 'Catches some particles before liquid leaves', 'Who services it, and when?'],
-        ['Distribution box, if fitted', 'Directs liquid toward field lines', 'Is it shown on my layout?'],
-        ['Pump and alarm, if fitted', 'Moves wastewater and signals a problem', 'Who do I call when the alarm sounds?'],
-        ['Drain field', 'Provides soil treatment for the liquid', 'Which part of the yard must stay protected?'],
-        ['Riser and secured lid', 'Provides access for service', 'Are the lids secure and accessible?']
-      ] } },
-      { id: 'system-types', title: 'Conventional, aerobic and mound systems: what is the difference?', paragraphs: [
-        'A conventional system uses a tank followed by a soil treatment area. Other installations may need pumps, raised soil treatment areas or additional treatment equipment. An aerobic treatment unit adds air as part of its treatment process. A mound system uses a raised treatment area. These names describe different arrangements, not a simple ranking from good to bad.',
-        'If you are buying a house with a septic tank, ask for the actual system type rather than accepting “it has septic” as the whole answer. A system with mechanical parts can come with a service contract, scheduled checks and equipment instructions. Put those obligations into your home budget alongside heating and other maintenance.',
-        'Do not apply a neighbor’s service routine automatically. Two homes on the same road can have different equipment, soil conditions and household use. Ask for the manufacturer’s manual where applicable, the installation records and the contact details of the company that last serviced your system.'
-      ] },
-      { id: 'tank-size', title: 'What size septic tank does my house need?', paragraphs: [
-        'Homeowners often search for a septic tank size for a three-bedroom or four-bedroom house. Bedroom count can be part of local sizing requirements, but a single nationwide chart cannot settle every property’s needs. The approved design and the local permitting office are the starting points when selecting or replacing equipment.',
-        'For an existing home, look for the capacity in the permit, installation drawing or pumping report. Do not assume the number of people living there today proves what tank was installed. A previous renovation, an added bedroom or a change in use may also make the records worth reviewing.',
-        'Our tank size calculator helps you explore household wastewater use and includes a Minnesota bedroom-based rule reference. Its general water-use calculation is useful for understanding the effect of more household members or higher water use. It is not a universal minimum-size formula. Keep the reference mode visible when discussing a result with a contractor.'
-      ], links: [{ href: '/tools/septic-tank-size-calculator', label: 'Try the septic tank size and household water-use calculator' }] },
-      { id: 'pumping', title: 'Why does a septic tank need pumping?', paragraphs: [
-        'Pumping removes accumulated material from the tank. It is different from clearing a blocked house drain, repairing a pump or replacing a drain field. These jobs may be discussed during the same visit, but they answer different problems. Ask what is included before agreeing to a service price.',
-        'Keep the last pumping date and the provider’s recommended next interval together. If you have just bought the property and the records are missing, arrange a review instead of assigning an imaginary service date. Starting with a known condition gives you a better maintenance plan.',
-        'Use our pumping schedule calculator once you have a reliable last-service date. You can enter the interval recommended for your household and save a reminder. Treat the reminder as a prompt to arrange service, not as a reason to wait when you already have a problem.'
-      ], links: [{ href: '/tools/septic-pumping-frequency-calculator', label: 'Work out when to plan your next septic pumping visit' }] },
-      { id: 'homebuyer-checklist', title: 'Buying a house with a septic tank: what should you ask?', paragraphs: [
-        'A home inspection and a septic inspection may cover different things. Ask the seller and your inspector what septic work has actually been completed, who did it and what records support it. “The toilets flush” is a useful observation, but it is not the same as a documented system evaluation.',
-        'Gather the information before the sale is complete wherever possible. It is easier to ask about an unexplained invoice while the seller can still answer than to discover the question months after moving in. Keep original reports rather than relying on a verbal summary.',
-        'For example, a seller may provide a recent pumping receipt but no layout. Your next question is where the tank, field and access lids are located. Another seller may have a service contract but no recent pumping date. Ask what work the contract includes. These are separate pieces of information, and each helps you plan a different part of ownership.'
-      ], bullets: ['Request the permit, layout and available inspection reports.', 'Confirm tank capacity and system type.', 'Find the last pumping date and any repair history.', 'Ask whether there is an active service contract.', 'Locate the drain field and replacement area on the property drawing.', 'Keep the alarm instructions and service provider’s phone number.', 'Ask the inspector to explain unresolved findings before budgeting for repairs.'] },
-      { id: 'your-first-month', title: 'Your first month in a home with septic', paragraphs: [
-        'Start by making one simple septic folder, either on paper or on your phone. Add the property drawing, service receipts, equipment manuals and provider’s contact details. Write the tank capacity and system type on the first page so you can find them during a call.',
-        'Next, agree on the household basics. Explain that toilets are not a disposal route for wipes or other trash, and make sure everyone knows where the drain field is. If visitors park in the yard, choose a parking area that stays clear of the system. These small arrangements are easier than trying to change habits after something goes wrong.',
-        'Finally, put the recommended service dates into a calendar. Keep the inspection reminder separate from the pumping reminder if they happen on different schedules. Our saved septic schedule is a convenient place to start, while the original service reports remain your detailed record.'
-      ], links: [{ href: '/my-septic-schedule', label: 'Create your septic tank maintenance reminder' }] }
+      {
+        id: "the-basic-idea",
+        title: "How does a septic system work in a house?",
+        paragraphs: [
+          "When you flush a toilet, run the washing machine, or take a shower, wastewater flows down your drains into a single main sewer line leading outside to your septic tank.",
+          "A conventional onsite wastewater treatment system consists of two primary components: a watertight underground septic tank and a subsurface soil absorption area (drain field). The tank separates solids from liquid, while the soil provides biological treatment before purified water re-enters the groundwater table."
+        ]
+      },
+      {
+        id: "inside-the-tank",
+        title: "What happens inside the septic tank?",
+        paragraphs: [
+          "Inside the tank, wastewater naturally separates by gravity into three distinct layers over a 24- to 48-hour settling period:",
+          "• Sludge (Bottom layer): Heavy solid particles, human waste, and organic matter settle to the floor of the tank. Anaerobic bacteria digest some solids, but the remaining sludge must be pumped out periodically.",
+          "• Scum (Top layer): Fats, oils, grease, and floating soap suds float to the surface, creating an airtight blanket that supports anaerobic bacterial breakdown.",
+          "• Clarified Effluent (Middle layer): The relatively clear liquid between the scum and sludge layers exits the tank through the outlet tee and flows to the drain field."
+        ]
+      },
+      {
+        id: "parts-explained",
+        title: "Septic system parts explained in plain English",
+        paragraphs: [
+          "Understanding your system layout helps you communicate clearly with service technicians and avoid costly landscaping mistakes:"
+        ],
+        table: {
+          headers: ["Component", "Plain-English function", "Homeowner maintenance task"],
+          rows: [
+            ["House Sewer Pipe", "Transports wastewater from home to tank", "Keep non-flushables and grease out"],
+            ["Septic Tank", "Separates sludge, scum, and effluent", "Pump every 3 to 5 years"],
+            ["Inlet & Outlet Baffles", "Prevents floating scum from blocking pipes", "Inspect during every pumping service"],
+            ["Effluent Filter", "Screens fine solids before liquid leaves tank", "Rinse with garden hose annually"],
+            ["Risers & Secured Lids", "Provides ground-level service access", "Keep securely bolted and unobstructed"],
+            ["Distribution Box (D-Box)", "Distributes effluent evenly to trenches", "Verify level flow during inspections"],
+            ["Drain Field Trenches", "Perforated pipes in gravel or chambers", "Protect from vehicles and tree roots"]
+          ]
+        }
+      },
+      {
+        id: "drain-field",
+        title: "What is a septic drain field or leach field?",
+        paragraphs: [
+          "The drain field receives liquid effluent from the septic tank. In a conventional system, effluent trickles through perforated pipes into gravel trenches or plastic chambers and percolates downward into natural soil.",
+          "Soil microbes, oxygen, and soil particles filter out harmful bacteria, viruses, and excessive nutrients before the purified water rejoins the groundwater table."
+        ]
+      },
+      {
+        id: "locating-system",
+        title: "How to locate your underground septic tank and drain field",
+        paragraphs: [
+          "Many new homeowners have never seen their septic tank or drain field because all components are buried beneath lawn or mulch. Locating your system is essential before landscaping, building a fence, or scheduling service:",
+          "• Obtain your county as-built diagram: Visit or contact your county environmental health department. Most jurisdictions maintain the original installation permit and site sketch showing exact distances from the foundation, well, and property lines.",
+          "• Trace the main plumbing exit: Head down to your basement or crawl space to identify where the 3- to 4-inch main sewer pipe exits through the foundation wall. The septic tank is usually located 10 to 25 feet straight out from that exit point.",
+          "• Look for ground clues: Look for slight depressions in the lawn, circular green grass rings, or green plastic or concrete riser lids flush with the lawn. During dry summer months, grass directly over the drain field trenches often stays greener than the rest of the lawn.",
+          "• Use a soil probe rod: A professional contractor uses an insulated T-handle soil probe to gently tap into the soil until feeling the solid concrete or fiberglass lid roughly 12 to 36 inches deep."
+        ]
+      },
+      {
+        id: "homebuyer-tips",
+        title: "Buying a house with a septic system: Essential rules",
+        paragraphs: [
+          "If you are purchasing a home with an onsite septic system, treat the septic system with the same scrutiny you would give the roof or foundation:",
+          "• Never rely solely on a standard home inspection: General home inspectors typically only run water and confirm fixtures drain. Hire a licensed septic technician to open the lids, inspect baffles, measure sludge depths, and conduct a hydraulic flow test.",
+          "• Demand proof of recent pumping: Require the seller to provide written pumping receipts from a licensed pumper within the past 12 months, or make professional pumping a condition of the sale.",
+          "• Verify bedroom capacity matches marketing: In some listings, a home is advertised as having 4 or 5 bedrooms, but the county septic permit was only approved for a 3-bedroom design. Undersized systems are prone to early failure and costly legal complications."
+        ]
+      }
     ],
     faqs: [
-      { question: 'Does shower water go into the septic tank?', answer: 'In a typical home septic arrangement, shower water joins the household wastewater going to the system. Your plumbing and installation records show the actual connections at your property.' },
-      { question: 'What is the difference between a septic tank and a septic system?', answer: 'The tank is one part. The whole septic system also includes the pipes, soil treatment area and any pumps or additional treatment equipment used at the property.' },
-      { question: 'Does a septic tank empty itself?', answer: 'Liquid flows onward through the system, but accumulated solids still need to be removed by pumping. Normal drainage does not eliminate the need for maintenance.' },
-      { question: 'Can I use the washing machine with a septic tank?', answer: 'Yes, household laundry is normally part of the system’s wastewater load. Spread loads out, use the appropriate load setting and avoid treating a service problem as a reason to keep adding water.' },
-      { question: 'Should I open my septic tank to see how it works?', answer: 'No. Keep lids secure and leave tank access and inspection to trained professionals. Use your layout, service report and the diagram on this page to understand the system.' }
+      { question: "Does shower and laundry water go into the septic tank?", answer: "Yes. In standard residential systems, all household greywater (sinks, showers, laundry) and blackwater (toilets) discharge into the septic tank." },
+      { question: "Does a septic tank empty itself?", answer: "Liquid effluent exits naturally into the drain field, but accumulated solid sludge and scum do not empty themselves and must be mechanically pumped out." },
+      { question: "Can you pour bleach or drain cleaners down a septic system?", answer: "Normal, moderate household cleaning using diluted bleach is acceptable. However, avoid dumping concentrated chemicals, solvents, or chemical drain openers that kill beneficial tank bacteria." }
     ],
-    related: [{ href: '/maintenance', label: 'How to maintain a septic tank' }, { href: '/problems', label: 'Septic tank problems and warning signs' }, { href: '/tools/septic-pumping-cost-calculator', label: 'Compare the total cost of a pumping quote' }]
+    related: [
+      { href: "/maintenance", label: "Septic maintenance checklist and care plan" },
+      { href: "/problems", label: "Troubleshoot smells, slow drains and alarms" },
+      { href: "/tools/septic-tank-size-calculator", label: "Estimate required septic tank sizing" }
+    ]
   },
-  maintenance: {
-    title: 'Septic Tank Maintenance: Pumping Schedule & Care Checklist',
-    description: 'Learn how often to pump a septic tank, what to flush, how to protect your drain field, and how to make a simple septic maintenance schedule.',
-    summary: 'Keep the service records, follow your recommended pumping and inspection schedule, use water sensibly, and protect the drain field. A short routine is easier to maintain than waiting for a backup.',
-    keywords: ['septic tank maintenance', 'how often to pump septic tank', 'septic maintenance checklist', 'septic tank pumping schedule', 'how to take care of a septic tank'],
-    sourceIds: ['epa-care', 'umn-care'],
+
+  'maintenance': {
+    title: "Septic Tank Maintenance Plan & Checklist: How Often to Pump",
+    description: "Complete homeowner septic system maintenance plan. Practical inspection checklist, EPA 3–5 year pumping schedule, record-keeping guide and warning signs.",
+    summary: "A reliable septic maintenance plan combines routine 3- to 5-year pumping with regular inspections, mindful water habits, and drain field protection. Never wait for sewage to back up before scheduling service.",
+    keywords: ["septic maintenance plan", "septic system maintenance plan", "septic tank maintenance checklist", "how often to pump septic tank", "septic system maintenance schedule", "how to maintain a septic tank"],
+    sourceIds: ["epa-care", "umn-care", "epa-faq", "purdue-filter"],
     sections: [
-      { id: 'simple-routine', title: 'How to take care of a septic tank without overcomplicating it', paragraphs: [
-        'Good septic tank maintenance starts with a routine you can actually follow. You need to know when service is due, what belongs down the drains and which part of the yard is the drain field. You do not need to inspect underground equipment every weekend or buy a cupboard full of septic products.',
-        'If you have inherited a system without clear records, make getting those records your first task. Ask the previous owner, the last service company or the local permitting office for the layout and available reports. A known tank capacity and a reliable last pumping date are more useful than guessing from the age of the house.',
-        'Build your plan around the system installed at your property. A basic conventional system and a home with an aerobic treatment unit may need different service routines. Keep the provider’s recommendation and any equipment service contract together so you are following one clear plan rather than a collection of conflicting tips.'
-      ] },
-      { id: 'pumping-frequency', title: 'How often should you pump a septic tank?', paragraphs: [
-        'EPA guidance describes pumping every three to five years as typical for household septic tanks. The right timing depends on the system and how it is used. Inspection findings can call for an earlier visit. A pumping schedule is therefore a starting point for planning, not a promise that nothing needs attention before the date.',
-        'For a practical example, suppose your last pumping visit was in October 2023 and your provider recommended a three-year interval. October 2026 becomes your next planned service month. If the recommendation changes after an inspection, update the reminder and keep the reason in the service folder. The date should follow the advice, rather than the other way around.',
-        'A frequent question is how often to pump a 1,000-gallon septic tank. The gallon number alone does not provide the whole answer. Tell the provider how many people use the home, whether occupancy has changed and what the previous service report says. A larger family moving in is a good reason to review the plan instead of copying the previous owner’s routine.',
-        'Do not wait for sewage to back up before arranging maintenance. If you do not know when the tank was last pumped, schedule a professional assessment and establish a new record. Entering a made-up date into a calculator creates a tidy calendar but leaves the original uncertainty unresolved.'
-      ], links: [{ href: '/tools/septic-pumping-frequency-calculator', label: 'Calculate your septic pumping schedule from the last service date' }] },
-      { id: 'inspection-vs-pumping', title: 'Septic inspection vs pumping: do you need both?', paragraphs: [
-        'Pumping removes accumulated material. An inspection looks at the condition and operation of the system. A visit may include both, but the invoice should say what was included. Ask before booking rather than assuming that every pumping company provides the same checks.',
-        'For equipment with pumps, controls or other mechanical parts, follow the specified inspection and service routine. Set a separate reminder if that routine is more frequent than pumping. In your calendar, “annual equipment service” and “tank pumping” should be recognizable as different appointments.',
-        'After any visit, ask for a written report that you can use next time. Record whether additional work was recommended, who will handle it and when it should be completed. A small follow-up task is easy to lose when it is only mentioned at the driveway as the truck leaves.'
-      ] },
-      { id: 'maintenance-checklist', title: 'A septic tank maintenance checklist for homeowners', paragraphs: [
-        'Use this checklist as a place to organize your routine. The dates belong in your calendar; the details belong in the service folder. Adapt the equipment checks to your own installation and let the service provider handle tank access and technical work.',
-        'Make the routine easy for other household members to follow. A short note near the laundry area can be more effective than a long explanation no one remembers. Keep the emergency contact in the same place as the normal service number so a family member can find it while you are away.'
-      ], table: { headers: ['When', 'Homeowner task', 'What to record'], rows: [
-        ['During everyday use', 'Keep trash and grease out of the drains; use water sensibly', 'Any recurring slow drain or unusual smell'],
-        ['When household use changes', 'Tell the provider about more occupants or new equipment', 'Date of the change and revised advice'],
-        ['Before the planned service date', 'Book the visit and confirm access and included work', 'Appointment and written quote'],
-        ['After each service visit', 'Save the report and arrange recommended follow-up', 'Work done and next recommended dates'],
-        ['Before work in the yard', 'Check the septic layout with the contractor', 'Protected tank, pipes and field areas'],
-        ['When an alarm or backup appears', 'Contact the appropriate service provider promptly', 'Symptoms and visible alarm details']
-      ] } },
-      { id: 'toilet-and-sink', title: 'What can you flush with a septic tank?', paragraphs: [
-        'Keep the household rule simple: toilets are for human waste and toilet paper. Put wipes, paper towels and other trash in a bin. At the kitchen sink, keep cooking grease and food scraps out of the drain. A visible bin and a grease container make the preferred habit easier for everyone.',
-        'Read product labels instead of assuming that every item labeled convenient for bathrooms belongs in your septic system. If guests use the home, a polite “please do not flush wipes” note removes guesswork. In a rental or vacation property, include the same instruction in the welcome information.',
-        'You do not have to turn the home into a chemistry laboratory. Use household products as directed and ask your provider about any system-specific restrictions. If a drain is blocked, explain that the home has septic before arranging plumbing work so the person handling the blockage has the right context.'
-      ], bullets: ['Keep wipes and paper towels out of toilets.', 'Collect cooking grease for appropriate disposal rather than pouring it into the sink.', 'Keep paint, solvents and hazardous waste out of household drains.', 'Ask about a recurring blockage instead of repeatedly adding a drain treatment.', 'Give visitors the same simple flushing rules as the household.'] },
-      { id: 'water-and-laundry', title: 'Laundry, showers and water use with a septic system', paragraphs: [
-        'Think about the pattern of water use as well as the total. Spreading laundry across the week avoids putting every wash load into one busy day. Choose the appropriate machine setting and keep an eye on toilets or taps that run continuously. A quiet leak can become an everyday load you did not plan for.',
-        'As a household exercise, list the jobs that use substantial water: laundry, baths, long showers and dishwasher cycles. See whether they all happen on the same morning. You may be able to spread them out without reducing convenience. The aim is a manageable routine, not making everyone afraid to turn on a tap.',
-        'Tell the provider if use changes significantly. A home that was occupied only at weekends may be used full time later. Hosting several guests for an extended stay is another useful piece of context. Keeping these notes helps the next service conversation focus on what has changed since the previous visit.'
-      ] },
-      { id: 'drain-field-care', title: 'How to protect your septic drain field', paragraphs: [
-        'Keep vehicles and heavy loads off the soil treatment area, and check proposed landscaping or construction against the system layout. Surface runoff also deserves attention: the drain field should not become the convenient destination for roof or yard drainage. Ask your provider about the arrangement at your property before changing it.',
-        'Make the location clear to anyone working in the yard. If a delivery driver needs to turn around, give a safe route. If you hire a landscaper, show the drawing before machinery arrives. These conversations take a few minutes and avoid relying on someone to recognize a buried septic system from the grass.',
-        'Do not decide that an area is available for building just because there is no visible lid there. Pipes, field lines and a reserved replacement area may all be shown on the installation records. Keep the original drawing available when discussing a fence, patio or driveway.'
-      ] },
-      { id: 'pumping-visit', title: 'What to ask before a septic tank pumping visit', paragraphs: [
-        'When you call a service company, have the address, tank details and last report ready. Explain any access issues and whether the lids are buried. Ask what the quoted price includes: pumping, access work, disposal charges, inspection items and taxes. A clear written quote makes comparisons much easier.',
-        'Before the appointment, arrange the access requested by the company and keep children and pets away from the work area. Leave lids secured until the provider handles them. If you have more than one tank, confirm that the quote covers the required work rather than assuming one price includes every component.',
-        'Afterward, ask what was found and whether the service interval should change. Keep any repair recommendations with the report. If the report uses a term you do not understand, ask for a plain-language explanation before filing it away. You should know the next action and who is responsible for it.'
-      ], links: [{ href: '/tools/septic-pumping-cost-calculator', label: 'Add up a septic pumping quote and extra charges' }] },
-      { id: 'products-and-additives', title: 'Do septic tank additives replace pumping?', paragraphs: [
-        'No. Do not replace a scheduled pumping visit with a bottle of septic treatment. A normally operating household system does not need additives to perform its basic job. Keep attention on service dates, household habits and any specific equipment instructions.',
-        'When comparing products, ask what problem you are trying to solve. If the problem is an overdue tank, arrange service. If the problem is an alarm or repeated backup, describe the symptoms to a professional. Buying a product before identifying the problem can delay the visit that actually matters.',
-        'Keep any product-specific question with the model information for your equipment. Advice for a conventional system may not answer a question about a treatment unit’s service requirements. The provider who knows the installation can help you distinguish routine use from something that needs a closer look.'
-      ] },
-      { id: 'records-and-reminders', title: 'Make a septic maintenance schedule you will remember', paragraphs: [
-        'A useful septic maintenance schedule has a small number of clear entries. Record the last pumping date, the next recommended pumping window, any equipment inspection date and the provider’s contact details. Avoid using one vague reminder labeled “septic” if different jobs happen at different times.',
-        'Our schedule tool lets you calculate dates, save the plan in your browser and download a calendar reminder. Use the same device when returning to a saved browser plan. Keep a separate copy of important reports so the whole service history does not depend on browser storage.',
-        'At the next appointment, compare the old recommendation with the new report. Update the calendar immediately. If the provider says to return sooner, make that the new plan and write down why. A reminder works best when it reflects the latest information rather than becoming a date no one has reviewed.'
-      ], links: [{ href: '/my-septic-schedule', label: 'Save your septic maintenance plan and download a reminder' }] }
+      {
+        id: "pumping-frequency",
+        title: "How often should you pump a septic tank? (EPA Sizing Matrix)",
+        paragraphs: [
+          "Under official U.S. Environmental Protection Agency (EPA) guidelines, standard residential septic tanks should be inspected by a professional every 1 to 3 years and pumped out every 3 to 5 years. However, your exact pumping frequency depends on tank capacity, total household occupants, water habits, and whether you use a garbage disposal.",
+          "Use this EPA-aligned household pumping frequency planning matrix to estimate your recommended service interval:"
+        ],
+        table: {
+          headers: ["Tank size (gal)", "1–2 occupants", "3–4 occupants", "5–6 occupants", "With garbage disposal"],
+          rows: [
+            ["1,000 gallons", "4.0 – 5.0 years", "2.5 – 3.5 years", "1.5 – 2.0 years", "1.5 – 2.5 years"],
+            ["1,250 gallons", "4.5 – 5.0 years", "3.0 – 4.0 years", "2.0 – 2.5 years", "2.0 – 3.0 years"],
+            ["1,500 gallons", "5.0 years", "3.5 – 4.5 years", "2.5 – 3.0 years", "2.5 – 3.5 years"]
+          ]
+        },
+        links: [
+          { href: "/tools/septic-pumping-frequency-calculator", label: "Calculate your exact service window" },
+          { href: "/my-septic-schedule", label: "Save your maintenance schedule in browser" }
+        ]
+      },
+      {
+        id: "epa-solids-thresholds",
+        title: "EPA 'Pump-Now' solids measurement thresholds",
+        paragraphs: [
+          "A licensed septic inspector does not guess when to pump based on a calendar date alone. Instead, they use specialized measuring tools (such as a 'Sludge Judge') to physically measure solid layers inside the tank. According to EPA and university extension standards, pump your tank immediately if:",
+          "• The bottom of the floating scum layer is within 6 inches of the bottom of the outlet baffle or tee.",
+          "• The top of the settled sludge layer is within 12 inches of the bottom of the outlet device.",
+          "• The combined thickness of sludge and scum exceeds 25% to 33% of the total liquid operating depth.",
+          "If an inspection reveals solids exceeding these thresholds, waiting for a calendar reminder risks sending solids into the drain field, which can cause thousands of dollars in permanent soil damage."
+        ]
+      },
+      {
+        id: "maintenance-checklist",
+        title: "The homeowner's practical septic maintenance checklist",
+        paragraphs: [
+          "Follow this structured maintenance routine to protect your system from premature failure:"
+        ],
+        table: {
+          headers: ["Cadence", "Homeowner task", "What to verify & record"],
+          rows: [
+            ["Everyday", "Practice strict flushing discipline", "Toilets: human waste and toilet paper only; zero wipes"],
+            ["Weekly", "Spread out laundry wash loads", "Wash 1 load per day rather than 5 loads on one weekend day"],
+            ["Monthly", "Inspect plumbing for silent leaks", "Check toilet flappers and faucets; verify drain field has no spongy spots"],
+            ["Every 6–12 months", "Clean effluent filter", "Remove and spray clean filter with garden hose over open tank"],
+            ["Every 1–3 years", "Professional septic inspection", "Measure sludge/scum; inspect baffles, pump, floats, and D-box"],
+            ["Every 3–5 years", "Complete tank pump-out", "Retain disposal manifest, gallons pumped, and condition notes"]
+          ]
+        }
+      },
+      {
+        id: "toilet-and-sink",
+        title: "What can you flush with a septic tank? The golden rules",
+        paragraphs: [
+          "A septic tank is a biological ecosystem. Beneficial bacteria digest organic human waste, but synthetic materials, non-biodegradable items, and harsh chemicals do not break down and quickly fill the tank or clog the drain field.",
+          "Post these simple rules for family members and guests:"
+        ],
+        bullets: [
+          "NEVER flush wipes: 'Flushable' wipes do NOT disintegrate in septic tanks. They form dense synthetic mats that jam pumps and clog filters.",
+          "Keep trash out: Paper towels, facial tissues, feminine hygiene products, cotton swabs, condoms, dental floss, diapers, and cigarette butts belong in the trash can.",
+          "Never pour cooking grease down the sink: Fats, oils, and grease (FOG) solidify in the tank, expand the scum layer, and can wash into the drain field.",
+          "Avoid excessive harsh cleaners: Concentrated bleach, chemical drain openers, paint thinners, and antibacterial soaps kill beneficial bacteria."
+        ]
+      },
+      {
+        id: "water-and-laundry",
+        title: "Water efficiency, laundry habits, and hydraulic overload",
+        paragraphs: [
+          "Hydraulic overload occurs when excessive water rushes through the tank too quickly. When this happens, wastewater does not remain in the tank long enough for solids to settle by gravity. Unsettled solids wash straight out the outlet into the drain field, sealing soil pores.",
+          "Install low-flow showerheads and dual-flush toilets, spread laundry across the week, and immediately replace leaking toilet flappers, which can silently waste 200 gallons of water per day."
+        ]
+      },
+      {
+        id: "drain-field-protection",
+        title: "How to protect your septic drain field",
+        paragraphs: [
+          "The drain field is the most expensive component of your septic system to replace ($5,000 to $20,000+). Protect it with these strict rules:",
+          "• Never drive or park vehicles, trailers, RVs, or construction equipment over the drain field or reserved replacement area. Heavy weight crushes PVC pipes and compacts soil.",
+          "• Plant only lawn grass over the field. Avoid trees and deep-rooted shrubs within 30 feet, as roots penetrate perforations and shatter pipes.",
+          "• Divert all surface drainage: Ensure roof gutter downspouts, sump pump discharge, and driveway runoff flow completely away from the drain field to prevent waterlogging."
+        ]
+      },
+      {
+        id: "effluent-filter-care",
+        title: "Annual effluent filter inspection and cleaning",
+        paragraphs: [
+          "If your septic tank was installed or updated in the last 20 years, it likely contains an effluent filter inside the outlet tee. This cylindrical filter catches hair, lint, and suspended solids before they can enter the drain field.",
+          "Effluent filters should be pulled and sprayed clean with a garden hose every 6 to 12 months. When cleaning, always hold the filter directly over the open tank riser so that dislodged debris washes right back into the tank."
+        ],
+        links: [{ href: "/guides/septic-tank-filter-cleaning", label: "Read our step-by-step filter cleaning guide" }]
+      },
+      {
+        id: "service-records-log",
+        title: "Building a permanent septic service record folder",
+        paragraphs: [
+          "Keep a dedicated physical or digital septic folder containing: the original county permit and as-built installation drawing, all pumping and inspection receipts, licensed contractor contact numbers, and notes on household occupancy changes.",
+          "Documenting a consistent maintenance history increases home resale value and gives technicians vital baseline data when diagnosing issues."
+        ]
+      },
+      {
+        id: "warning-signs",
+        title: "Warning signs requiring immediate emergency service",
+        paragraphs: [
+          "Do not wait for a calendar reminder if you observe emergency warning signs: sewage backing up into basement drains or bathtubs, gurgling plumbing across multiple rooms, foul sewage odors, spongy wet grass over the drain field, or an audible high-water alarm.",
+          "If sewage is backing up or surfacing, cut water use immediately, keep children and pets away from contaminated areas, and contact a licensed septic contractor."
+        ],
+        links: [{ href: "/tools/septic-troubleshooter", label: "Diagnose symptoms with our troubleshooter" }]
+      }
     ],
     faqs: [
-      { question: 'How often should a septic tank be pumped for a family of four?', answer: 'Household size is one factor, but the tank, water use and accumulated solids also matter. Use the service provider’s recommendation; EPA’s typical household pumping range is three to five years.' },
-      { question: 'Can I maintain a septic system myself?', answer: 'You can manage water habits, keep records, protect the drain field and schedule service. Leave tank access, pumping, electrical work and system diagnosis to qualified professionals.' },
-      { question: 'What if I do not know when my septic tank was last pumped?', answer: 'Look for receipts and ask the previous owner or service company. If the history remains unknown, arrange a professional assessment and start a documented schedule.' },
-      { question: 'Is septic tank cleaning the same as pumping?', answer: 'Companies may use the terms differently. Ask what will be removed, which tanks are included, whether inspection is included and what appears on the service report.' },
-      { question: 'Do I need to pump an unused septic tank every year?', answer: 'A calendar rule alone does not answer every unused-property situation. Tell the provider how the property is used and follow the system’s inspection and maintenance requirements.' }
+      { question: "How often should a septic tank be pumped for a family of four?", answer: "Under typical water use, a 1,000-gallon septic tank for a family of four should be pumped every 2.5 to 3.5 years. If the home has a 1,500-gallon tank, the interval is typically 3.5 to 4.5 years." },
+      { question: "Do septic tank additives eliminate the need for pumping?", answer: "No. The EPA and independent university testing confirm that commercial additives, bacteria packs, and yeast do not eliminate the need for routine pumping. Accumulated inorganic solids and mineral sludge must be physically removed." },
+      { question: "What should I do if I don't know when the tank was last pumped?", answer: "Schedule a professional septic inspection. The technician can measure sludge and scum depth with a measuring probe to determine whether immediate pumping is required and establish a fresh service record." },
+      { question: "Can a garbage disposal damage a septic system?", answer: "Yes. Garbage disposals grind food waste into fine particles that take longer to settle, increasing solids accumulation in the tank by 30% to 50% and requiring more frequent pumping." },
+      { question: "How can I protect my drain field in the winter?", answer: "Let grass grow a bit longer in the fall to act as natural insulation, fix all plumbing leaks to prevent continuous trickle freezing, and never drive snowmobiles or vehicles over the field." }
     ],
-    related: [{ href: '/guides/how-septic-system-works', label: 'Understand how your septic system works' }, { href: '/problems', label: 'Recognize septic problems before the next service date' }, { href: '/tools/septic-pumping-frequency-calculator', label: 'Calculate the next pumping window' }]
+    related: [
+      { href: "/my-septic-schedule", label: "Set up and save your septic schedule" },
+      { href: "/tools/septic-pumping-frequency-calculator", label: "Calculate your next pumping date" },
+      { href: "/tools/septic-pumping-cost-calculator", label: "Compare septic pumping quotes" },
+      { href: "/guides/how-septic-system-works", label: "Understand how your septic system works" }
+    ]
   },
-  problems: {
-    title: 'Septic Tank Problems: Smells, Slow Drains, Backups & Alarms',
-    description: 'Find the next step for septic tank smells, gurgling toilets, slow drains, sewage backups, wet yards and septic alarms, with a clear homeowner checklist.',
-    summary: 'Start with what you can observe: which drains are affected, where the smell is, whether an alarm is sounding and whether wastewater is backing up. Sewage indoors or surfacing outside needs prompt professional attention.',
-    keywords: ['septic tank problems', 'septic tank smells', 'signs septic tank is full', 'septic tank backing up', 'septic alarm going off', 'gurgling toilet septic tank'],
-    sourceIds: ['epa-failure', 'epa-faq', 'umn-care'],
+
+  'problems': {
+    title: "Septic Tank Problems: Smells, Slow Drains, Backups & Alarms",
+    description: "Find the next step for septic tank smells, gurgling toilets, slow drains, sewage backups, wet yards and septic alarms, with a clear homeowner checklist.",
+    summary: "Start with what you can observe: which drains are affected, where the smell is, whether an alarm is sounding and whether wastewater is backing up. Sewage indoors or surfacing outside needs prompt professional attention.",
+    keywords: ["septic tank problems", "septic tank smells", "signs septic tank is full", "septic tank backing up", "septic alarm going off", "gurgling toilet septic tank", "septic tank smells in house"],
+    sourceIds: ["epa-failure", "epa-faq", "umn-care", "clemson-rain"],
     sections: [
-      { id: 'first-steps', title: 'Septic tank problems: what should you do first?', paragraphs: [
-        'When something goes wrong, start by describing the symptom rather than deciding which part has failed. “Both downstairs drains are slow” is more useful than “the septic tank is broken.” “There is a sewage smell near the back patio” is more useful than “the whole system needs replacing.” Specific observations give the service company a better starting point.',
-        'If sewage is backing up indoors or appears to be surfacing outside, reduce wastewater use, keep people and pets away and arrange prompt professional help. Do not keep flushing toilets to test the system. Where a sewage release affects the property or nearby water, contact the local health or environmental department for guidance.',
-        'For other symptoms, note when they started and whether they happen at one fixture or across the home. Keep the last service report nearby. Our septic troubleshooter can organize those observations and suggest a next step, while a service visit identifies what is happening at the property.'
-      ], links: [{ href: '/tools/septic-troubleshooter', label: 'Check septic symptoms with the troubleshooter' }] },
-      { id: 'symptom-table', title: 'Common septic problems at a glance', paragraphs: [
-        'Use the table to decide what information to collect and how to explain it during a call. These symptoms can overlap. A slow sink and a wet yard on the same day deserve to be reported together, rather than treated as two unrelated problems.',
-        'The last column is a next action, not a parts-shopping list. You do not need to know whether a baffle, pump or pipe is responsible before asking for help. The service provider can decide which checks are appropriate once the situation is clear.'
-      ], table: { headers: ['What you notice', 'What to tell the provider', 'Next step'], rows: [
-        ['Sewage backing up indoors', 'Which fixtures are affected and when it began', 'Reduce water use and arrange prompt help'],
-        ['Possible sewage in the yard', 'Location and whether the area is accessible safely', 'Keep people away and contact a septic professional'],
-        ['Septic alarm sounding', 'Visible light, display or label; time it started', 'Contact the equipment service provider'],
-        ['Several slow drains', 'Whether toilets, showers and sinks are all affected', 'Arrange inspection if persistent'],
-        ['Recurring sewage smell', 'Indoor or outdoor location and any other symptoms', 'Contact a plumber or septic provider'],
-        ['Gurgling toilet', 'When it happens and which other fixtures are running', 'Report persistent or combined symptoms'],
-        ['Problem after heavy rain', 'Rain timing, wet areas and changes in drain behavior', 'Discuss ground conditions and system checks']
-      ] } },
-      { id: 'septic-smell', title: 'Why does my septic tank smell outside or inside the house?', paragraphs: [
-        'A sewage smell does not automatically prove that the drain field has failed. Plumbing ventilation and wastewater-system issues can both be relevant. The location of the smell and any accompanying symptoms help a professional decide what to check.',
-        'When calling, say whether the smell is strongest in a bathroom, near a particular drain, near the tank area or around the drain field. Mention whether it is occasional or persistent. Also report slow drainage, gurgling, alarms or wet ground if you have noticed them.',
-        'Do not climb onto a roof, open a tank or buy a chemical treatment simply because the smell seems to point in that direction. Ask a plumber or septic provider to evaluate the situation. A useful request is: “Please check the cause of the smell and tell me whether this is a plumbing issue, a septic service issue or something that needs further investigation.”',
-        'Keep a short symptom log if the smell comes and goes. For example, record that it appeared after laundry on Saturday and again near the patio on Monday. A pattern is useful context, but you do not need to create a theory about wind, tank levels or soil before arranging the visit.'
-      ] },
-      { id: 'slow-drains', title: 'Slow drains with a septic system: one fixture or the whole house?', paragraphs: [
-        'Start with the number of fixtures affected. A single slow bathroom sink is a different observation from toilets, showers and kitchen drains all struggling together. Tell the person you call which situation you have. Mention if the problem follows a particular activity, such as doing several loads of laundry.',
-        'Do not treat every slow drain as proof that the tank needs pumping. The blockage may be in house plumbing, or the issue may require septic checks. Asking for the correct evaluation is more useful than booking a specific repair before the cause is known.',
-        'If sewage begins backing up, the priority changes. Stop using the affected fixtures, reduce other wastewater use and arrange prompt help. Avoid repeatedly running water to see if the problem has gone away. Keep the observation short and let the provider guide the next step.'
-      ] },
-      { id: 'gurgling', title: 'Why is my toilet gurgling when I have a septic tank?', paragraphs: [
-        'Gurgling is a symptom to describe, not a diagnosis by itself. Note which toilet or drain makes the sound and what is happening elsewhere in the home. Does it happen when the washing machine drains, when a shower runs or when another toilet flushes?',
-        'A short description makes the service call easier: “The downstairs toilet gurgles when the washing machine empties, and the shower has been slow for two days.” This gives more useful context than “the toilet makes a strange noise.” If there is an alarm or sewage smell as well, include that in the same call.',
-        'For a persistent sound or several affected fixtures, arrange a plumbing or septic assessment. If wastewater comes back through a drain, use the backup steps immediately. Do not let a familiar noise become something everyone ignores simply because it has happened before.'
-      ] },
-      { id: 'backup', title: 'Septic tank backing up into the house: act promptly', paragraphs: [
-        'A sewage backup needs prompt attention. Reduce water use and keep people away from the affected area. Call a septic service provider or plumber and clearly say that wastewater is backing up indoors. That wording helps the company assess the urgency instead of treating the call as routine maintenance.',
-        'Tell the provider when it started, which fixtures are affected and whether you have an alarm or outdoor wet area. Have the last pumping and repair reports ready if they are easy to reach. You do not need to locate or uncover the tank before making the call.',
-        'Ask about both restoring the system and handling contamination. Cleanup and septic repair are separate tasks, and one company may not perform both. Local health guidance can help where sewage has entered living areas or affected the property. Do not mix household chemicals while trying to manage a contaminated area.',
-        'After the urgent visit, get a written explanation of what was found and what follow-up remains. “Working now” is the immediate result; the report should also tell you whether there is a repair recommendation or a revised service schedule. File it where you can find it before the next appointment.'
-      ] },
-      { id: 'alarm', title: 'Septic alarm going off: what information should you collect?', paragraphs: [
-        'An alarm is a reason to contact the service provider for the installed equipment. Read the visible label, display or indicator without opening an electrical enclosure. Record the time it started and whether household drains are working normally.',
-        'Keep the alarm instructions beside the service number. If the manual provides a homeowner action, follow those instructions rather than advice for a different model found online. Silencing a sound is not the same as solving the underlying issue, so make the call even if the noise stops.',
-        'Do not bypass controls, reset breakers repeatedly or handle exposed wiring. Explain any recent power interruption to the provider. Ask when the system can be used normally and whether a written follow-up report will be provided. This gives the household a clear plan while the equipment is being checked.'
-      ] },
-      { id: 'wet-yard-and-rain', title: 'Wet ground over the drain field or septic problems after heavy rain', paragraphs: [
-        'Report an unusual wet or spongy area near the septic system, especially if it appears with smells, alarms or drainage trouble. Keep people and pets away if wastewater may be present. Observe from a safe position rather than walking through the area to investigate.',
-        'Tell the provider about recent rain or flooding, but do not assume rain explains every symptom. A useful description includes when the wet area appeared, where it is compared with the layout, and whether the home’s drainage changed at the same time. Let the professional assess the system and ground conditions together.',
-        'Do not book pumping solely because the yard is wet after a flood. Discuss the conditions first so the company can decide on the appropriate response. Keep heavy vehicles out of the area and avoid digging, covering the patch or rerouting water as an improvised repair.'
-      ] },
-      { id: 'full-tank-signs', title: 'What are the signs a septic tank is full?', paragraphs: [
-        'People often use “full septic tank” to describe any septic trouble. A tank normally contains liquid, so the phrase can be confusing. Excess solids, a plumbing blockage, equipment trouble and drainage problems are different possibilities that need different checks.',
-        'Slow drains, recurring smells, gurgling or backups can be reasons to arrange an assessment, but they do not tell you the cause on their own. Check the last service date and report the symptoms. Do not use the calendar to dismiss a current problem just because pumping was done recently.',
-        'The most useful answer comes from a service report identifying what was found. Ask whether pumping is needed, whether another component requires work and what would happen if the recommended repair is delayed. You should be able to describe the next task clearly after the visit.'
-      ], links: [{ href: '/tools/septic-pumping-frequency-calculator', label: 'Review your next planned pumping date' }] },
-      { id: 'after-pumping', title: 'Septic problems after pumping: what should you ask?', paragraphs: [
-        'If the original problem continues after pumping, contact the provider and explain what remains. Give the service date and describe whether the symptom improved briefly, changed or stayed exactly the same. Keep the invoice and report available during the call.',
-        'Do not assume another pumping visit is the only answer. Ask what was checked at the first visit and whether the next step is a plumbing check, equipment inspection or broader system assessment. A precise follow-up request is: “The shower is still backing up after yesterday’s pumping. What should be checked next?”',
-        'If sewage is backing up or surfacing, continue to treat it as urgent even though the tank was recently serviced. Once the immediate issue is addressed, request a written summary of the findings and keep it with the maintenance records.'
-      ] },
-      { id: 'service-call', title: 'A simple checklist before you call for septic help', paragraphs: [
-        'Keep the call focused on observations, history and access. You can use the questions below as a note on your phone. Gather only what is safe and readily available; an urgent call should not wait while you search for every old receipt.',
-        'Ask the company what the initial visit includes and how additional work will be quoted. If a price is offered, separate the call-out or inspection charge from pumping and repairs. Our cost calculator helps total a pumping quote, while repairs should have their own written scope.'
-      ], bullets: ['What started happening, and when?', 'Is one drain affected, or are several fixtures involved?', 'Is wastewater backing up or possibly surfacing?', 'Is an alarm sounding, and what does the visible label show?', 'When was the last pumping or repair visit?', 'Has household water use, occupancy or weather changed?', 'What work and charges are included in the initial visit?', 'Who will provide the report and arrange follow-up?'], links: [{ href: '/tools/septic-pumping-cost-calculator', label: 'Check the total of a quoted pumping service' }] }
+      {
+        id: "first-steps",
+        title: "Septic tank problems: what should you do first?",
+        paragraphs: [
+          "When a plumbing or septic issue appears, start by gathering concrete observations rather than guessing which component failed. Knowing whether multiple fixtures are affected, where odors are strongest, and whether symptoms began after heavy rain helps your contractor diagnose the issue faster.",
+          "If raw wastewater is backing up into living areas or surfacing on the lawn, treat it as a biohazard: stop running all water, keep children and pets away, and contact a licensed septic professional immediately."
+        ],
+        links: [{ href: "/tools/septic-troubleshooter", label: "Check septic symptoms with the troubleshooter" }]
+      },
+      {
+        id: "symptom-table",
+        title: "Common septic problems at a glance",
+        paragraphs: [
+          "Use this symptom matrix to match what you observe with the appropriate professional response:"
+        ],
+        table: {
+          headers: ["What you notice", "Probable cause", "Urgency & next step"],
+          rows: [
+            ["Sewage backing up into shower/sink", "Main line clog, full tank, or saturated field", "URGENT: Stop water; call emergency pumper"],
+            ["Wastewater pooling in yard", "Effluent surfacing due to field failure or rain", "URGENT: Keep pets away; call septic contractor"],
+            ["High-water alarm horn/beacon active", "Pump chamber high water, failed float or pump", "PROMPT: Silence buzzer; cut water; call technician"],
+            ["Multiple slow drains across house", "Main drain restriction, full tank, or clogged filter", "PROMPT: Arrange inspection and filter cleaning"],
+            ["Persistent sewage odor indoors", "Dry P-trap, failed toilet wax ring, or vent clog", "CHECK: Fill traps; check wax rings; call plumber"],
+            ["Toilets gurgling when washer drains", "Negative venting pressure or sewer line restriction", "CHECK: Check roof vent stack; inspect main sewer"]
+          ]
+        }
+      },
+      {
+        id: "septic-smell",
+        title: "Why does my septic tank smell outside or inside the house?",
+        paragraphs: [
+          "A sewage or rotten-egg odor is caused by hydrogen sulfide and methane gases. The location of the smell indicates the probable cause:",
+          "• Smells indoors: Often caused by a dry plumbing P-trap in an unused shower or floor drain (run water for 60 seconds to refill the water seal), a broken wax ring seal under a toilet (replace wax ring), or a plumbing vent stack blocked by leaves or bird nests on the roof.",
+          "• Smells outdoors near tank: Often caused by unsealed or cracked access lids, or a loose inspection port. In windy weather, downdrafts can also push vent pipe gases down toward the ground.",
+          "• Smells outdoors over drain field: May indicate that effluent is ponding underground or surfacing due to biomat clogging, saturated soil, or crushed pipes."
+        ]
+      },
+      {
+        id: "slow-drains",
+        title: "Slow drains: one fixture or the whole house?",
+        paragraphs: [
+          "If only one bathroom sink drains slowly, the clog is local to that fixture's P-trap or pop-up drain. Clear it mechanically with a small drain snake.",
+          "If multiple fixtures across different rooms or floors drain sluggishly at the same time, the restriction is in the shared building sewer, a clogged effluent filter at the tank outlet, a full septic tank, or a failing drain field."
+        ]
+      },
+      {
+        id: "gurgling",
+        title: "Why is my toilet gurgling when I have a septic tank?",
+        paragraphs: [
+          "Gurgling sounds indicate that air is being pulled through water traps due to negative pressure or trapped sewer gas. If a toilet gurgles when the washing machine empties or bathtub drains, wastewater cannot move freely downstream.",
+          "Check whether the plumbing vent on your roof is clear. If venting is unobstructed, the gurgling points to a restriction in the sewer line or high liquid in the septic tank."
+        ]
+      },
+      {
+        id: "backup",
+        title: "Septic tank backing up into the house: act promptly",
+        paragraphs: [
+          "Raw sewage backing up into bathtubs, showers, or floor drains requires immediate action. Stop running all water fixtures in the house.",
+          "Wear protective rubber boots and waterproof gloves. Do not allow children or pets near contaminated areas. Contact an emergency septic pumping contractor and a professional water damage/biohazard remediation service."
+        ]
+      },
+      {
+        id: "wet-yard-and-rain",
+        title: "Septic problems after heavy rain or storms",
+        paragraphs: [
+          "When severe rain saturates the soil, the drain field temporarily loses its ability to absorb liquid effluent. This can cause wastewater to back up into the house or pond on the lawn surface.",
+          "CRITICAL WARNING: NEVER pump a septic tank while the surrounding yard is submerged or heavily saturated with rain. An empty tank in saturated soil can float out of the ground due to hydrostatic pressure, destroying underground pipes."
+        ],
+        links: [{ href: "/guides/septic-tank-backing-up-after-rain", label: "Read our heavy rain septic backup guide" }]
+      }
     ],
     faqs: [
-      { question: 'Does a septic smell mean the tank needs pumping?', answer: 'Not always. Describe where the smell is and whether there are slow drains, wet ground or other symptoms. A plumber or septic provider can determine what checks and service are needed.' },
-      { question: 'Will pumping fix a septic backup?', answer: 'Pumping may be part of the response, but a backup can require other plumbing or system work. Ask the provider what caused the problem and what follow-up is needed.' },
-      { question: 'Can I use water while the septic alarm is going off?', answer: 'Reduce wastewater use and contact the equipment service provider for instructions. Follow the manual for your system and do not bypass the alarm or controls.' },
-      { question: 'Why are my drains still slow after septic pumping?', answer: 'The remaining symptom needs follow-up. Tell the provider which drains are affected and when pumping was completed so they can decide whether plumbing, equipment or field checks are required.' },
-      { question: 'Who should I call for septic problems?', answer: 'A local septic service provider is a starting point for system issues. A plumber may handle house drainage, and the local health or environmental department can advise on sewage releases and local requirements.' }
+      { question: "Why does my bathroom smell like sewer after a shower?", answer: "Hot water rushing down the drain can push air past a dried-out P-trap, a compromised toilet wax seal, or an obstructed roof plumbing vent stack." },
+      { question: "Can a clogged septic filter cause sewage to back up?", answer: "Yes. An effluent filter completely caked with hair and lint prevents wastewater from exiting the tank, causing water levels to rise and back up into the house." },
+      { question: "What should I do if raw sewage spills into my yard?", answer: "Fence off the area to keep people and pets away, avoid touching the wastewater, contact a licensed septic contractor to resolve the source, and contact your local health department for disinfection guidance (such as applying agricultural lime)." }
     ],
-    related: [{ href: '/tools/septic-troubleshooter', label: 'Get a next step for your septic symptoms' }, { href: '/maintenance', label: 'Build a septic maintenance routine' }, { href: '/guides/how-septic-system-works', label: 'Learn what each part of the system does' }]
+    related: [
+      { href: "/tools/septic-troubleshooter", label: "Use the septic symptom checker" },
+      { href: "/maintenance", label: "Septic maintenance checklist and pumping plan" },
+      { href: "/guides/septic-tank-alarm-going-off", label: "What to do when your septic alarm sounds" }
+    ]
+  },
+
+  'guides/septic-tank-pumping-cost': {
+    title: "How Much Does Septic Tank Pumping Cost? Price Guide & Quotes",
+    description: "Understand septic tank pumping costs ($350–$650), price per gallon, lid digging fees, dumping surcharges and how to compare contractor quotes.",
+    summary: "Septic tank pumping typically costs between $350 and $650 for a standard 1,000-gallon residential tank with accessible lids. Costs can reach $700 to $900+ if lids are buried deep, if extra hose length is required, or if emergency after-hours dispatch is requested.",
+    keywords: ["septic tank pumping cost", "how much does septic pumping cost", "septic tank pumping price", "cost to pump 1000 gallon septic tank", "septic pumping quote"],
+    sourceIds: ["epa-care", "epa-faq"],
+    sections: [
+      {
+        id: "average-pumping-cost",
+        title: "How much does septic tank pumping cost on average?",
+        paragraphs: [
+          "Nationwide in the United States, pumping a standard 1,000-gallon septic tank costs between $350 and $650 under normal conditions with surface-accessible lids. For larger tanks (1,250 to 1,500 gallons), routine pumping generally runs between $450 and $750.",
+          "Prices vary based on local labor costs, distance from the pumper's base, and municipal septage disposal fees charged by local wastewater treatment plants. A written quote detailing line items is the only reliable way to know your exact out-of-pocket cost."
+        ]
+      },
+      {
+        id: "costs-by-tank-size",
+        title: "Septic tank pumping cost breakdown by tank capacity",
+        paragraphs: [
+          "Most septic pumping companies price routine service based on total tank gallonage. Standard pricing benchmarks include:"
+        ],
+        table: {
+          headers: ["Tank capacity", "Typical routine cost", "Typical home size", "Pumping frequency"],
+          rows: [
+            ["750 – 900 gallons", "$300 – $475", "1 – 2 bedrooms", "Every 2 – 3 years"],
+            ["1,000 gallons", "$350 – $550", "3 bedrooms", "Every 3 – 4 years"],
+            ["1,250 gallons", "$400 – $650", "3 – 4 bedrooms", "Every 3 – 4 years"],
+            ["1,500 gallons", "$475 – $750", "4 – 5 bedrooms", "Every 3 – 5 years"],
+            ["2,000+ gallons", "$600 – $950+", "5+ bedrooms / large family", "Every 3 – 5 years"]
+          ]
+        }
+      },
+      {
+        id: "itemized-cost-factors",
+        title: "Seven line items that change your septic pumping bill",
+        paragraphs: [
+          "When comparing quotes from local septic companies, look beyond the advertised headline rate. Contractors frequently charge separately for these common line items:"
+        ],
+        table: {
+          headers: ["Line item", "Typical fee range", "When it applies"],
+          rows: [
+            ["Base pumping service", "$350 – $550", "Covers truck trip, labor, and pumping up to 1,000 gal"],
+            ["Lid locating & digging fee", "$50 – $175", "Billed when access lids are buried under dirt/grass"],
+            ["Municipal disposal fee", "$40 – $120", "Fee charged by treatment plant to accept hauled waste"],
+            ["Extended hose surcharge", "$50 – $100", "Billed if truck must park >75–100 feet from tank"],
+            ["Effluent filter cleaning", "$25 – $50", "Pulling and spraying clean the outlet baffle filter"],
+            ["Heavy sludge agitation", "$50 – $100", "Required when neglected sludge is hardened/crusted"],
+            ["Emergency dispatch fee", "$150 – $350", "Same-day, evening, weekend, or holiday emergency calls"]
+          ]
+        }
+      },
+      {
+        id: "extra-charges-to-watch",
+        title: "Hidden fees to ask about before booking septic pumping",
+        paragraphs: [
+          "Beware of low 'teaser' rates advertised online (such as '$199 septic pumping'). These cheap rates often cover only the first 500 or 750 gallons, then bill $0.35 to $0.60 for every additional gallon.",
+          "Always confirm that the quoted price includes pumping BOTH compartments of a dual-compartment tank through their respective lids. Pumping only one compartment leaves half the sludge behind."
+        ]
+      },
+      {
+        id: "questions-to-ask-pumper",
+        title: "Checklist: What to ask before hiring a septic contractor",
+        paragraphs: [
+          "Ask these practical questions before authorizing work:"
+        ],
+        bullets: [
+          "Are you licensed, bonded, and insured with the county/state health department?",
+          "Does your base price include municipal waste disposal and environmental dumping fees?",
+          "Are you pumping both compartments through both access lids?",
+          "Will you inspect and rinse the effluent filter as part of the service?",
+          "Do you provide a written receipt documenting gallons pumped, tank structural condition, and next recommended inspection date?"
+        ],
+        links: [{ href: "/tools/septic-pumping-cost-calculator", label: "Add up your quote with our pumping cost calculator" }]
+      }
+    ],
+    faqs: [
+      { question: "How long does a septic pumping appointment take?", answer: "A routine pumping appointment for an accessible 1,000-gallon tank typically takes 30 to 60 minutes. If lids must be located and dug up by hand, add 30 to 45 minutes." },
+      { question: "How can I avoid paying digging fees every time I pump?", answer: "Install permanent septic tank risers with heavy-duty, child-safe lids brought flush with ground level. Risers cost $300 to $600 to install once and eliminate digging charges forever." },
+      { question: "Does homeowners insurance pay for septic tank pumping?", answer: "No. Insurance policies classify septic pumping as routine homeowner maintenance and exclude it from standard coverage." },
+      { question: "Should a contractor leave a little sludge to 'seed' the tank?", answer: "No. This is an outdated myth. Complete removal of settled sludge and scum is the entire goal of pumping. Healthy digestive bacteria naturally re-establish within days of normal household use." }
+    ],
+    related: [
+      { href: "/tools/septic-pumping-cost-calculator", label: "Calculate itemized pumping quotes" },
+      { href: "/maintenance", label: "Septic maintenance checklist and frequency guide" },
+      { href: "/tools/septic-pumping-frequency-calculator", label: "Plan your next pumping service window" },
+      { href: "/guides/septic-drain-field-replacement-cost", label: "Compare drain field replacement costs" }
+    ]
+  },
+
+  'guides/septic-system-installation-cost': {
+    title: "How Much Does a New Septic System Cost? Installation & Replacement",
+    description: "Compare new septic system installation and replacement costs ($5,000–$25,000+), soil perc testing, permits, conventional vs mound systems and labor.",
+    summary: "Installing a new septic system typically costs between $5,000 and $12,000 for a conventional gravity gravel or chamber system, and $12,000 to $25,000+ for an engineered mound or alternative system on challenging soils. Replacing an existing system may add decommissioning and removal costs.",
+    keywords: ["septic system installation cost", "how much does a new septic system cost", "septic tank replacement cost", "cost to install septic tank and drain field", "new septic system cost"],
+    sourceIds: ["epa-types", "epa-works", "epa-faq"],
+    sections: [
+      {
+        id: "installation-cost-overview",
+        title: "How much does a new septic system cost?",
+        paragraphs: [
+          "In the United States, installing a complete new septic system (tank, distribution network, and drain field) typically costs between $5,000 and $12,000 for a standard conventional gravity system in permeable soil. However, if your lot has slow-draining clay, high seasonal groundwater, or steep slopes, health codes will mandate an engineered mound, aerobic treatment unit (ATU), or sand filter system, which typically costs $12,000 to $25,000 or more.",
+          "If you only need to replace a damaged or deteriorating septic tank while retaining an intact, approved drain field, tank-only replacement typically costs between $3,500 and $7,000 including excavation and permits."
+        ]
+      },
+      {
+        id: "component-cost-breakdown",
+        title: "Itemized septic installation cost breakdown",
+        paragraphs: [
+          "A complete septic installation involves engineering, regulatory approvals, heavy excavation, and specialized materials. Typical price ranges by project stage include:"
+        ],
+        table: {
+          headers: ["Project stage", "Typical price range", "What is included"],
+          rows: [
+            ["Soil testing & perc test", "$400 – $1,500", "Deep hole soil profile & percolation rate analysis"],
+            ["Engineering & site plan", "$800 – $2,500", "Certified engineered layout and system specifications"],
+            ["County health department permits", "$300 – $1,500", "Permit application, review, and inspection fees"],
+            ["Site excavation & earthmoving", "$2,000 – $5,000", "Clearing trees, digging tank hole and absorption trenches"],
+            ["Septic tank purchase & setting", "$1,500 – $4,000", "1,000–1,500 gal concrete, poly, or fiberglass tank"],
+            ["Drain field piping & media", "$3,500 – $10,000", "Perforated pipe, washed gravel, or plastic chamber modules"],
+            ["Electrical wiring & pump (if needed)", "$1,000 – $2,500", "Dosing pump, control panel, alarm, and conduit"],
+            ["Backfill, compaction & grading", "$1,000 – $2,500", "Covering system, establishing drainage slope, reseeding"]
+          ]
+        }
+      },
+      {
+        id: "system-types-comparison",
+        title: "Cost comparison by septic system type",
+        paragraphs: [
+          "Your soil percolation test and county sanitary code determine which system type is legally permitted for your property:"
+        ],
+        table: {
+          headers: ["System type", "Average installed cost", "Soil & site requirements", "Maintenance profile"],
+          rows: [
+            ["Conventional Gravity", "$5,000 – $10,000", "Deep, permeable, well-draining soil with low water table", "Lowest maintenance; pump every 3–5 yrs"],
+            ["Plastic Chamber System", "$6,000 – $12,000", "Permeable soil; 25–40% smaller footprint than gravel", "Low maintenance; pump every 3–5 yrs"],
+            ["Engineered Mound System", "$12,000 – $25,000", "High groundwater table, shallow bedrock, or heavy clay", "Requires dosing pump and annual inspection"],
+            ["Aerobic Treatment Unit (ATU)", "$10,000 – $22,000", "Small lots or sensitive environmental watersheds", "Requires electric aerator & ongoing service contract"],
+            ["Drip Distribution System", "$14,000 – $26,000", "Steep slopes, shallow soil, or wooded lots", "Requires pre-filters and pressurized pump dosing"]
+          ]
+        }
+      },
+      {
+        id: "replacement-vs-new",
+        title: "Replacing an existing septic system vs new construction",
+        paragraphs: [
+          "Replacing an old, failed septic system often costs 15% to 30% more than installing a system on raw, undeveloped land. Extra replacement costs include:",
+          "• Decommissioning the old tank: Pumping dry, crushing or removing the old concrete tank, and backfilling with clean sand ($500 to $1,500).",
+          "• Property access constraints: Established driveways, fences, mature trees, and buried utility lines limit machine maneuvering.",
+          "• Installing in the designated reserve area: If the original drain field failed, the new field must be excavated in the property's pre-approved replacement area."
+        ]
+      },
+      {
+        id: "vetting-contractors",
+        title: "How to compare contractor proposals and protect your budget",
+        paragraphs: [
+          "Obtain at least two or three written proposals from licensed, bonded installers. Require that all bids specify the exact tank manufacturer and material (concrete vs polyethylene), drain field dimensions, trench depth, warranty terms, and responsibility for final grading and lawn restoration.",
+          "Ensure your contract specifies payment milestones tied to official county health department inspection sign-offs."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "How long does it take to install a new septic system?", answer: "The physical excavation and installation typically take 3 to 7 working days. However, the entire process—including soil testing, engineering design, and county permit issuance—usually takes 4 to 8 weeks." },
+      { question: "Is a concrete septic tank better than a plastic (polyethylene) tank?", answer: "Concrete tanks are heavier and resist floating in high water tables, but require heavy crane trucks to set. Poly tanks are corrosion-resistant, lighter, and easier to install in tight, wooded locations." },
+      { question: "Can I install my own septic system to save money?", answer: "In almost all US jurisdictions, septic system installation legally requires a licensed and certified septic contractor. DIY installation without permits violates local sanitary codes and will prevent home resale or title transfer." }
+    ],
+    related: [
+      { href: "/guides/septic-drain-field-replacement-cost", label: "Drain field replacement cost guide" },
+      { href: "/guides/septic-tank-pumping-cost", label: "Septic tank pumping cost breakdown" },
+      { href: "/tools/septic-tank-size-calculator", label: "Size your septic tank by bedroom count" }
+    ]
+  },
+
+  'guides/septic-tank-filter-cleaning': {
+    title: "How to Clean a Septic Tank Filter: Step-by-Step DIY Guide",
+    description: "Learn how to locate, remove, clean and inspect your septic tank effluent filter safely. Step-by-step instructions, tools needed, frequency and safety rules.",
+    summary: "An effluent filter protects your septic drain field by catching suspended solids before liquid leaves the tank. Clean your filter every 6 to 12 months with a garden hose directly over the open tank riser. Wear waterproof gloves and eye protection.",
+    keywords: ["how to clean septic tank filter", "septic tank filter cleaning", "how often to clean septic filter", "septic effluent filter maintenance", "clogged septic filter signs"],
+    sourceIds: ["purdue-filter", "epa-care", "epa-works"],
+    sections: [
+      {
+        id: "what-is-filter",
+        title: "What is a septic tank effluent filter and what does it do?",
+        paragraphs: [
+          "An effluent filter (or septic tank filter) is a cylindrical slotted plastic cartridge inserted inside the outlet tee of your septic tank. Its critical job is to act as a physical strainer, trapping suspended hair, lint, and fine solid particles before wastewater flows into your drain field.",
+          "Without an effluent filter, fine solids gradually migrate out into the underground absorption trenches, forming a waterproof biomat layer that clogs soil pores and causes thousands of dollars in premature drain field failure."
+        ]
+      },
+      {
+        id: "how-often-to-clean",
+        title: "How often should you clean an effluent filter?",
+        paragraphs: [
+          "Most wastewater engineers and manufacturers (such as Polylok, Zabel, or Sim/Tech) recommend cleaning your effluent filter every 6 to 12 months for a standard single-family home.",
+          "Clean it more frequently (every 3 to 6 months) if you have a large family, wash heavy loads of laundry, or use a kitchen garbage disposal. At an absolute minimum, ensure your septic pumper pulls and washes the filter during every routine 3- to 5-year pumping service."
+        ]
+      },
+      {
+        id: "tools-and-safety",
+        title: "Required tools and critical safety precautions",
+        paragraphs: [
+          "Cleaning an effluent filter is a straightforward 15-minute DIY task, but because you are handling raw wastewater, observe strict hygiene precautions:"
+        ],
+        bullets: [
+          "Wear heavy-duty waterproof rubber gloves (elbow length preferred) and safety goggles.",
+          "Wear old clothes or coveralls and wash your hands thoroughly with soap afterward.",
+          "Never lean into or enter the septic tank. Lethal sewer gases (hydrogen sulfide, methane) can cause immediate loss of consciousness.",
+          "Keep children and pets away from open risers at all times.",
+          "Have a garden hose with an adjustable spray nozzle ready beside the tank before opening the lid."
+        ]
+      },
+      {
+        id: "step-by-step-instructions",
+        title: "Step-by-step instructions: How to clean your septic filter",
+        paragraphs: [
+          "Follow these step-by-step directions:"
+        ],
+        steps: [
+          "1. Locate and remove the outlet riser lid: Find the access cover positioned directly over the outlet end of your tank (the side closest to the drain field). Unscrew or unbolt the safety lid.",
+          "2. Check the operating liquid level: Shine a flashlight into the riser. The wastewater level should be resting at or below the bottom of the outlet pipe. If liquid is sitting high above the filter, the filter is completely clogged—be prepared for liquid to surge down as you lift it.",
+          "3. Turn off effluent pump power (if equipped): If your system uses a secondary pump chamber, switch off its breaker so the pump does not dry-cycle while servicing.",
+          "4. Pull the filter straight up: Grip the filter handle or pull-rod and pull the filter straight up out of the outlet tee. CRUCIAL RULE: Keep the filter positioned directly over the open septic tank opening while lifting.",
+          "5. Spray clean with a garden hose: Holding the filter over the open hatch, spray it thoroughly with the garden hose from top to bottom. Wash all dislodged sludge, hair, and scum directly back into the tank where it belongs. Never spray the filter over your lawn or driveway.",
+          "6. Inspect the cartridge: Look through the plastic bristles or mesh slots. Verify there are no tears, warped fins, or broken bypass seals. If damaged, replace the filter immediately.",
+          "7. Reseat the filter firmly: Lower the clean filter back into the outlet tee. Ensure any alignment arrows or 'TOP' markings point upward, and push it firmly into place so wastewater cannot bypass the mesh.",
+          "8. Fasten the access lid securely: Replace the riser cover and tighten all safety bolts to prevent accidental child or pet entry."
+        ]
+      },
+      {
+        id: "signs-of-clogged-filter",
+        title: "Signs of a clogged septic effluent filter",
+        paragraphs: [
+          "When an effluent filter becomes completely plugged with debris, wastewater cannot exit the tank. This produces clear warning signs:",
+          "• Slow drainage or gurgling in ground-floor toilets and showers.",
+          "• High liquid levels in the primary septic tank.",
+          "• High-water alarm sounding (on systems equipped with an effluent filter alarm float).",
+          "If your drains suddenly slow down across the entire house, checking and rinsing your effluent filter is the fastest, cheapest troubleshooting step before calling an emergency plumber."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Where is the septic tank filter located?", answer: "The effluent filter is located inside the outlet tee (the exit pipe) of the septic tank, under the access riser lid closest to the drain field." },
+      { question: "Can I run my septic system without an effluent filter?", answer: "Never remove a filter and leave the outlet open. Doing so allows suspended solids to flow directly into your drain field, leading to rapid and permanent soil clogging." },
+      { question: "How much does a replacement septic filter cost?", answer: "Standard residential replacement effluent filter cartridges cost between $35 and $85 online or from local plumbing supply houses." }
+    ],
+    related: [
+      { href: "/maintenance", label: "Complete septic maintenance checklist" },
+      { href: "/guides/how-septic-system-works", label: "Learn how septic tanks and baffles work" },
+      { href: "/guides/clogged-septic-drain-field", label: "Signs of a clogged septic drain field" }
+    ]
+  },
+
+  'guides/septic-tank-backing-up-after-rain': {
+    title: "Septic Tank Backing Up After Heavy Rain: Causes & Immediate Steps",
+    description: "Why is your septic system backing up after rain? Learn what to do immediately, why you must NOT pump a flooded tank, and how to protect your drain field.",
+    summary: "When heavy rain saturates the drain field, wastewater cannot percolate into the soil and backs up into household drains. Cut indoor water use immediately and do NOT pump your septic tank while the ground is flooded, as an empty tank can float and snap pipes.",
+    keywords: ["septic tank backing up after rain", "septic tank flooding heavy rain", "drains slow after heavy rain septic", "septic system backup after storm", "can you pump a flooded septic tank"],
+    sourceIds: ["clemson-rain", "epa-failure", "epa-care"],
+    sections: [
+      {
+        id: "why-rain-causes-backups",
+        title: "Why does heavy rain cause septic tanks to back up?",
+        paragraphs: [
+          "A septic drain field relies on unsaturated soil pores to accept and biologically filter wastewater. During heavy rainfall, prolonged storms, or rapid snowmelt, the surrounding soil becomes completely saturated with rainwater.",
+          "Because saturated soil cannot absorb additional liquid, effluent has nowhere to go. It ponds inside the absorption trenches and backs up through the outlet pipe into the septic tank. Once the tank fills to capacity, wastewater backs up through the main sewer line into your home's lowest plumbing fixtures (basement floor drains, utility sinks, and ground-floor toilets).",
+          "Additionally, rainwater can flood into the tank directly if access riser lids are unsealed, inspection port caps are cracked, or roof downspouts discharge near the tank."
+        ]
+      },
+      {
+        id: "immediate-emergency-actions",
+        title: "Immediate emergency actions: What to do right now",
+        paragraphs: [
+          "If your drains are sluggish or sewage is backing up during or immediately after a storm, take these immediate actions:"
+        ],
+        bullets: [
+          "Reduce household water use by 90%: Immediately stop running laundry machines and dishwashers. Take quick sponge baths and avoid running faucets.",
+          "Silence audible alarms: If your pump control box is sounding, press the external silence button to mute the horn while keeping the red warning light active.",
+          "Avoid direct contact with wastewater: Raw sewage contains dangerous pathogens and bacteria. Wear waterproof rubber boots and heavy gloves if walking in contaminated areas.",
+          "Keep people and pets off the drain field: Walking on waterlogged soil compacts the earth and pushes water into surfacing pools.",
+          "Inspect the lowest house fixtures: Check basement floor drains and lower showers; plug them if safe to prevent rising backups."
+        ]
+      },
+      {
+        id: "critical-dont-pump-warning",
+        title: "CRITICAL WARNING: Why you must NOT pump a flooded septic tank",
+        paragraphs: [
+          "Many homeowners instinctively call an emergency pumper to pump out their tank during a flood. However, the EPA, state environmental protection departments, and university cooperative extensions explicitly warn:",
+          "DO NOT pump your septic tank while the ground surrounding the system is flooded or heavily saturated.",
+          "Here is why: an empty septic tank buried in water-saturated soil acts like a hollow boat hull. Enormous hydrostatic groundwater pressure pushes upward against the tank. If the weight of the wastewater is pumped out, the tank can literally pop or float right out of the ground, shearing inlet and outlet PVC pipes and causing catastrophic structural damage costing $10,000+ to repair.",
+          "Furthermore, pumping a submerged tank draws waterlogged mud, silt, and sand backwards from the drain field into the tank, permanently clogging gravel trenches. Wait until floodwaters recede and ground soil dries before scheduling service."
+        ]
+      },
+      {
+        id: "temporary-vs-permanent-failure",
+        title: "Is your drain field failing permanently or just saturated?",
+        paragraphs: [
+          "Once the storm passes and sunny weather returns, monitor your plumbing over 3 to 7 dry days as the local water table recedes.",
+          "If your toilets, showers, and sinks return to normal drainage once the yard dries out, your system experienced temporary weather-induced hydraulic saturation. However, if slow drains, gurgling plumbing, and foul sewage odors persist after the ground is thoroughly dry, your drain field has likely suffered permanent biomat clogging or structural compaction and requires a professional evaluation."
+        ]
+      },
+      {
+        id: "long-term-drainage-fixes",
+        title: "Long-term fixes to prevent rain backups",
+        paragraphs: [
+          "To protect your septic system from future heavy storms, implement these property drainage improvements:",
+          "• Reroute roof gutter downspouts: Extend downspouts so they discharge at least 15 to 20 feet away from both the septic tank and the drain field.",
+          "• Regrade yard slopes: Ensure the surface topography slopes away from the absorption field so stormwater runoff does not pool over trenches.",
+          "• Install curtain drains (French drains): A shallow gravel-and-pipe curtain drain installed upslope of the drain field intercepts subsurface stormwater before it can saturate your absorption trenches.",
+          "• Install watertight riser gaskets: Seal tank access lids with watertight rubber gaskets to prevent stormwater from entering the tank."
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Can heavy rain ruin a septic drain field?", answer: "Temporary rain saturation will not ruin a healthy drain field once the water table recedes. However, driving heavy vehicles over waterlogged soil or pumping a flooded tank can cause permanent structural destruction." },
+      { question: "Why does my toilet gurgle only when it rains?", answer: "Rainwater saturating your drain field prevents wastewater from displacing air freely in the pipes, forcing trapped air backwards through your toilet traps and causing audible gurgling." },
+      { question: "How long after heavy rain does a septic system take to recover?", answer: "Depending on your soil composition and the severity of the storm, permeable sandy soil typically recovers within 24 to 48 hours, while dense clay or silt soil may take 4 to 7 days to dry out." }
+    ],
+    related: [
+      { href: "/problems", label: "Troubleshoot common septic problems" },
+      { href: "/tools/septic-troubleshooter", label: "Use the septic symptom checker" },
+      { href: "/guides/septic-tank-alarm-going-off", label: "What to do when your septic alarm sounds" },
+      { href: "/guides/clogged-septic-drain-field", label: "Signs of a clogged septic drain field" }
+    ]
   }
 };
