@@ -9,7 +9,7 @@ import PageHead from '@/components/PageHead';
 import SourceList from '@/components/SourceList';
 
 export function articleWordCount(article: Article) {
-  return [article.summary, ...article.sections.flatMap(s => [s.title, ...s.paragraphs, ...(s.bullets || []), ...(s.table?.rows.flat() || [])]), ...article.faqs.flatMap(f => [f.question, f.answer])].join(' ').split(/\s+/).length;
+  return [article.summary, ...article.sections.flatMap(s => [s.title, ...s.paragraphs, ...(s.bullets || []), ...(s.steps || []), ...(s.table?.rows.flat() || [])]), ...article.faqs.flatMap(f => [f.question, f.answer])].join(' ').split(/\s+/).length;
 }
 
 export default function HomeownerArticle({ path }: { path: string }) {
@@ -17,15 +17,16 @@ export default function HomeownerArticle({ path }: { path: string }) {
   const feature = articleImages[path];
   const url = origin + '/' + path;
   const wordCount = articleWordCount(article);
-  const isNewGuide = ["guides/signs-septic-tank-is-full","guides/how-to-fix-septic-drain-field","guides/septic-drain-field-replacement-cost","guides/septic-inspection-cost","guides/septic-tank-alarm-going-off","guides/clogged-septic-drain-field"].includes(path);
-  const publishDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
-  const modifiedDate = isNewGuide ? '2026-10-10T00:00:00Z' : '2026-10-06T00:00:00Z';
+  const batch3Guides = ["guides/septic-tank-pumping-cost","guides/septic-system-installation-cost","guides/septic-tank-filter-cleaning","guides/septic-tank-backing-up-after-rain"];
+  const batch2Guides = ["guides/signs-septic-tank-is-full","guides/how-to-fix-septic-drain-field","guides/septic-drain-field-replacement-cost","guides/septic-inspection-cost","guides/septic-tank-alarm-going-off","guides/clogged-septic-drain-field"];
+  const publishDate = batch3Guides.includes(path) ? '2026-10-20T00:00:00Z' : batch2Guides.includes(path) ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
+  const modifiedDate = '2026-10-20T00:00:00Z';
   const breadcrumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, ...(path.startsWith('guides/') ? [{ '@type': 'ListItem', position: 2, name: 'Septic guides', item: origin + '/guides' }] : []), { '@type': 'ListItem', position: path.startsWith('guides/') ? 3 : 2, name: article.title, item: url }];
   return <>
     <PageHead title={article.title} description={article.description} />
     <div className="container page-body article-shell">
       <article className="article rich-article">
-        <p className="article-meta">By <Link href="/about">SepticHow editorial team</Link> · Updated {isNewGuide ? 'October 10, 2026' : 'October 6, 2026'} · {Math.ceil(wordCount / 220)} min read</p>
+        <p className="article-meta">By <Link href="/about">SepticHow editorial team</Link> · Updated October 20, 2026 · {Math.ceil(wordCount / 220)} min read</p>
         <figure className="article-feature"><img src={feature.src} alt={feature.alt} width={1200} height={630} fetchPriority="high" /><figcaption>{feature.caption}</figcaption></figure>
         <ShareButtons title={article.title} url={url} />
         <div className="quick-answer"><strong>The quick answer</strong><p>{article.summary}</p></div>
@@ -35,6 +36,7 @@ export default function HomeownerArticle({ path }: { path: string }) {
           <h2>{section.title}</h2>
           {section.paragraphs.map((text, index) => <p key={index}>{text}</p>)}
           {section.bullets && <ul>{section.bullets.map(text => <li key={text}>{text}</li>)}</ul>}
+          {section.steps && <ol>{section.steps.map(text => <li key={text}>{text}</li>)}</ol>}
           {section.table && <div className="article-table" tabIndex={0} role="region" aria-label={section.title + ' table'}><table><caption>{section.title}</caption><thead><tr>{section.table.headers.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, column) => column === 0 ? <th key={column} scope="row">{cell}</th> : <td key={column}>{cell}</td>)}</tr>)}</tbody></table></div>}
           {section.links && <div className="article-next">{section.links.map(link => <Link key={link.href} href={link.href}>{link.label} →</Link>)}</div>}
           {sectionIndex === 2 && article.related.length > 0 && <nav className="article-next" aria-label="Helpful related septic resources">{article.related.slice(0, 2).map(link => <Link key={link.href} href={link.href}>{link.label} →</Link>)}</nav>}
