@@ -20,13 +20,14 @@ export default function HomeownerArticle({ path }: { path: string }) {
   const batch3Guides = ["guides/septic-tank-pumping-cost","guides/septic-system-installation-cost","guides/septic-tank-filter-cleaning","guides/septic-tank-backing-up-after-rain"];
   const batch2Guides = ["guides/signs-septic-tank-is-full","guides/how-to-fix-septic-drain-field","guides/septic-drain-field-replacement-cost","guides/septic-inspection-cost","guides/septic-tank-alarm-going-off","guides/clogged-septic-drain-field"];
   const publishDate = batch3Guides.includes(path) ? '2026-10-20T00:00:00Z' : batch2Guides.includes(path) ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
-  const modifiedDate = '2026-10-20T00:00:00Z';
+  const wasUpdatedNov14 = path === 'maintenance' || path === 'guides/septic-tank-pumping-cost';
+  const modifiedDate = wasUpdatedNov14 ? '2026-11-14T00:00:00Z' : '2026-10-20T00:00:00Z';
   const breadcrumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, ...(path.startsWith('guides/') ? [{ '@type': 'ListItem', position: 2, name: 'Septic guides', item: origin + '/guides' }] : []), { '@type': 'ListItem', position: path.startsWith('guides/') ? 3 : 2, name: article.title, item: url }];
   return <>
     <PageHead title={article.title} description={article.description} />
     <div className="container page-body article-shell">
       <article className="article rich-article">
-        <p className="article-meta">By <Link href="/about">SepticHow editorial team</Link> · Updated October 20, 2026 · {Math.ceil(wordCount / 220)} min read</p>
+        <p className="article-meta">Published by <Link href="/about">Daniel L. Murray</Link>, Publisher · Updated {wasUpdatedNov14 ? 'November 14, 2026' : 'October 20, 2026'} · {Math.ceil(wordCount / 220)} min read</p>
         <figure className="article-feature"><img src={feature.src} alt={feature.alt} width={1200} height={630} fetchPriority="high" /><figcaption>{feature.caption}</figcaption></figure>
         <ShareButtons title={article.title} url={url} />
         <div className="quick-answer"><strong>The quick answer</strong><p>{article.summary}</p></div>

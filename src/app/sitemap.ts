@@ -5,7 +5,9 @@ import { origin } from '@/lib/sources';
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/tools', '/guides', '/sources', '/my-septic-schedule'];
   const toolRoutes = tools.map(t => '/tools/' + t.slug);
-  const pageRoutes = Object.keys(pages).map(s => '/' + s);
+  // State and tank reference shells stay crawlable to users but out of the
+  // index until each contains verified jurisdiction/model-specific facts.
+  const pageRoutes = Object.keys(pages).filter(s => !s.startsWith('states/') && !s.startsWith('tanks/')).map(s => '/' + s);
 
   const allPaths = Array.from(new Set([...staticRoutes, ...toolRoutes, ...pageRoutes]));
 

@@ -627,24 +627,29 @@ export const articles: Record<string, HomeownerArticle> = {
 
   'maintenance': {
     title: "Septic Tank Maintenance Plan & Checklist: How Often to Pump",
-    description: "Complete homeowner septic system maintenance plan. Practical inspection checklist, EPA 3–5 year pumping schedule, record-keeping guide and warning signs.",
-    summary: "A reliable septic maintenance plan combines routine 3- to 5-year pumping with regular inspections, mindful water habits, and drain field protection. Never wait for sewage to back up before scheduling service.",
+    description: "Build a septic maintenance plan with inspection guidance, a clearly labeled tank-size and household interval estimate, service records and warning signs.",
+    summary: "A useful septic plan combines professional inspections, pumping based on measured solids and local requirements, mindful water use, and drain-field protection. Never wait for sewage to back up before arranging service.",
     keywords: ["septic maintenance plan", "septic system maintenance plan", "septic tank maintenance checklist", "how often to pump septic tank", "septic system maintenance schedule", "how to maintain a septic tank"],
-    sourceIds: ["epa-care", "umn-care", "epa-faq", "purdue-filter"],
+    sourceIds: ["epa-care", "umn-care", "epa-faq", "purdue-filter", "psu-pumping", "epa-pumping-matrix"],
     sections: [
       {
         id: "pumping-frequency",
-        title: "How often should you pump a septic tank? (EPA Sizing Matrix)",
+        title: "How often should you pump a septic tank? (Estimate and inspect)",
         paragraphs: [
-          "Under official U.S. Environmental Protection Agency (EPA) guidelines, standard residential septic tanks should be inspected by a professional every 1 to 3 years and pumped out every 3 to 5 years. However, your exact pumping frequency depends on tank capacity, total household occupants, water habits, and whether you use a garbage disposal.",
-          "Use this EPA-aligned household pumping frequency planning matrix to estimate your recommended service interval:"
+          "The EPA generally recommends professional septic system inspections every 1 to 3 years and pumping every 3 to 5 years. Actual pumping need depends on tank capacity, household size, water use, solids accumulation, and local rules. A professional can measure sludge and scum and advise whether to pump sooner.",
+          "This historical EPA technical table gives suggested intervals by tank capacity and household size. Its source data date to 1991; use the values only as a rough planning comparison, not as a current EPA schedule, legal requirement, or reason to delay inspection.",
+          "The table has no garbage-disposal multiplier. Food waste can increase solids loading, but a fixed interval reduction is not an EPA or Penn State rule. The calculator’s optional 30% shorter interval is a separately labeled SepticHow planning heuristic. Follow measured inspection results and local requirements."
         ],
         table: {
-          headers: ["Tank size (gal)", "1–2 occupants", "3–4 occupants", "5–6 occupants", "With garbage disposal"],
+          headers: ["Tank size", "2 people", "4 people", "6 people", "8 people", "10 people"],
           rows: [
-            ["1,000 gallons", "4.0 – 5.0 years", "2.5 – 3.5 years", "1.5 – 2.0 years", "1.5 – 2.5 years"],
-            ["1,250 gallons", "4.5 – 5.0 years", "3.0 – 4.0 years", "2.0 – 2.5 years", "2.0 – 3.0 years"],
-            ["1,500 gallons", "5.0 years", "3.5 – 4.5 years", "2.5 – 3.0 years", "2.5 – 3.5 years"]
+            ["500 gal", "2.6 yr", "1.0 yr", "0.4 yr", "0.2 yr", "—"],
+            ["750 gal", "4.2 yr", "1.8 yr", "1.0 yr", "0.6 yr", "0.3 yr"],
+            ["1,000 gal", "5.9 yr", "2.6 yr", "1.5 yr", "1.0 yr", "0.7 yr"],
+            ["1,250 gal", "7.5 yr", "3.4 yr", "2.0 yr", "1.4 yr", "1.0 yr"],
+            ["1,500 gal", "9.1 yr", "4.2 yr", "2.6 yr", "1.8 yr", "1.3 yr"],
+            ["2,000 gal", "12.4 yr", "5.9 yr", "3.7 yr", "2.6 yr", "2.0 yr"],
+            ["2,500 gal", "15.6 yr", "7.5 yr", "4.8 yr", "4.0 yr", "2.6 yr"]
           ]
         },
         links: [
@@ -741,10 +746,10 @@ export const articles: Record<string, HomeownerArticle> = {
       }
     ],
     faqs: [
-      { question: "How often should a septic tank be pumped for a family of four?", answer: "Under typical water use, a 1,000-gallon septic tank for a family of four should be pumped every 2.5 to 3.5 years. If the home has a 1,500-gallon tank, the interval is typically 3.5 to 4.5 years." },
+      { question: "How often should a septic tank be pumped for a family of four?", answer: "EPA commonly recommends pumping every 3 to 5 years, but the exact timing depends on inspection findings, tank capacity, household use and local rules. A historical EPA table estimated about 2.6 years for four people using a 1,000-gallon tank and 4.2 years for a 1,500-gallon tank; these are rough estimates, not a schedule to follow without inspection." },
       { question: "Do septic tank additives eliminate the need for pumping?", answer: "No. The EPA and independent university testing confirm that commercial additives, bacteria packs, and yeast do not eliminate the need for routine pumping. Accumulated inorganic solids and mineral sludge must be physically removed." },
       { question: "What should I do if I don't know when the tank was last pumped?", answer: "Schedule a professional septic inspection. The technician can measure sludge and scum depth with a measuring probe to determine whether immediate pumping is required and establish a fresh service record." },
-      { question: "Can a garbage disposal damage a septic system?", answer: "Yes. Garbage disposals grind food waste into fine particles that take longer to settle, increasing solids accumulation in the tank by 30% to 50% and requiring more frequent pumping." },
+      { question: "Does a garbage disposal change pumping frequency?", answer: "Food waste can increase solids loading and may mean more frequent inspection or pumping. There is no universal fixed percentage or interval multiplier; ask your septic professional to base the schedule on inspection measurements and local rules." },
       { question: "How can I protect my drain field in the winter?", answer: "Let grass grow a bit longer in the fall to act as natural insulation, fix all plumbing leaks to prevent continuous trickle freezing, and never drive snowmobiles or vehicles over the field." }
     ],
     related: [
@@ -847,33 +852,33 @@ export const articles: Record<string, HomeownerArticle> = {
 
   'guides/septic-tank-pumping-cost': {
     title: "How Much Does Septic Tank Pumping Cost? Price Guide & Quotes",
-    description: "Understand septic tank pumping costs ($350–$650), price per gallon, lid digging fees, dumping surcharges and how to compare contractor quotes.",
-    summary: "Septic tank pumping typically costs between $350 and $650 for a standard 1,000-gallon residential tank with accessible lids. Costs can reach $700 to $900+ if lids are buried deep, if extra hose length is required, or if emergency after-hours dispatch is requested.",
+    description: "Compare broad septic pumping price ranges, lid digging fees, access charges and written contractor quotes for your area.",
+    summary: "Published septic pumping prices vary by tank size, location, access and service scope. Use national price guides only for rough planning, then compare itemized written quotes from local providers.",
     keywords: ["septic tank pumping cost", "how much does septic pumping cost", "septic tank pumping price", "cost to pump 1000 gallon septic tank", "septic pumping quote"],
-    sourceIds: ["epa-care", "epa-faq"],
+    sourceIds: ["epa-care", "epa-faq", "angi-pumping-cost"],
     sections: [
       {
         id: "average-pumping-cost",
         title: "How much does septic tank pumping cost on average?",
         paragraphs: [
-          "Homeowners commonly encounter routine septic pumping estimates between $300 and $650 for a standard 1,000-gallon tank with accessible surface lids. For larger tanks (1,250 to 1,500 gallons), illustrative quotes typically span $400 to $750+. These figures represent illustrative planning estimates rather than nationwide averages or fixed pricing; actual quotes vary widely based on municipal septage disposal fees, travel distances, and local labor markets.",
-          "Prices vary based on local labor costs, distance from the pumper's base, and municipal septage disposal fees charged by local wastewater treatment plants. A written quote detailing line items is the only reliable way to know your exact out-of-pocket cost."
+          "Angi’s 2026 consumer cost guide reports a national average of $428 and a broad range from about $250 for a small tank to $700 or more for a 2,000-gallon tank. Other cost guides use different samples and methods, so these figures are not a local price or a guaranteed range.",
+          "Prices vary with local labor, tank size and condition, distance, access, disposal charges, and service scope. A written quote from a local provider is the best way to know your out-of-pocket cost."
         ]
       },
       {
         id: "costs-by-tank-size",
         title: "Septic tank pumping cost breakdown by tank capacity",
         paragraphs: [
-          "Most septic pumping companies price routine service based on total tank gallonage. Standard pricing benchmarks include:"
+          "Published national cost guides show broad ranges by tank capacity. These are planning references, not statistically comparable quotes for every size or market:"
         ],
         table: {
-          headers: ["Tank capacity", "Illustrative routine cost", "Typical home size reference", "Typical planning frequency"],
+          headers: ["Tank capacity", "Broad published price range", "Bedroom count varies by local code", "Pumping timing depends on inspection"],
           rows: [
-            ["750 – 900 gallons", "$300 – $475", "1 – 2 bedrooms", "Every 2 – 3 years"],
-            ["1,000 gallons", "$350 – $550", "3 bedrooms", "Every 3 – 4 years"],
-            ["1,250 gallons", "$400 – $650", "3 – 4 bedrooms", "Every 3 – 4 years"],
-            ["1,500 gallons", "$475 – $750", "4 – 5 bedrooms", "Every 3 – 5 years"],
-            ["2,000+ gallons", "$600 – $950+", "5+ bedrooms / large family", "Every 3 – 5 years"]
+            ["750 – 900 gallons", "$250 – $550", "Confirm with permitting authority", "Use inspection findings and local rules"],
+            ["1,000 gallons", "$250 – $700", "Confirm with permitting authority", "Use inspection findings and local rules"],
+            ["1,250 gallons", "$300 – $850 (planning estimate)", "Confirm with permitting authority", "Use inspection findings and local rules"],
+            ["1,500 gallons", "$450 – $1,100", "Confirm with permitting authority", "Use inspection findings and local rules"],
+            ["2,000+ gallons", "$700+", "Confirm with permitting authority", "Use inspection findings and local rules"]
           ]
         }
       },
@@ -1052,7 +1057,7 @@ export const articles: Record<string, HomeownerArticle> = {
           "Several household factors accelerate solids loading and require more frequent servicing (every 3 to 6 months):",
           "• Large household occupancy or frequent houseguests generating elevated daily wastewater volumes.",
           "• Heavy weekly laundry use, which sheds millions of non-biodegradable synthetic textile microfibers.",
-          "• Kitchen garbage disposal use, which introduces ground organic food scraps that do not settle readily and increase solids loading by 30% to 50%.",
+          "• Kitchen garbage disposal use, which can add food solids and may lead to more frequent inspection or filter service. Ask your technician to set the schedule from measured conditions rather than a fixed percentage.",
           "At an absolute minimum, homeowners must ensure their service contractor pulls, evaluates, and thoroughly cleans the effluent filter during every routine 3- to 5-year septic tank pumping service."
         ]
       },
