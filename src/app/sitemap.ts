@@ -11,8 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const allPaths = Array.from(new Set([...staticRoutes, ...toolRoutes, ...pageRoutes]));
   const modifiedNovember14 = new Set([
+    '/',
     '/tools',
     '/guides',
+    '/sources',
     '/maintenance',
     '/about',
     '/contact',
