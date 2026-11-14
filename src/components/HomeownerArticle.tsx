@@ -7,6 +7,7 @@ import Diagram from '@/components/Diagram';
 import JsonLd from '@/components/JsonLd';
 import PageHead from '@/components/PageHead';
 import SourceList from '@/components/SourceList';
+import { buildArticleJsonLd, type BreadcrumbItem } from '@/lib/schema';
 
 export function articleWordCount(article: Article) {
   return [article.summary, ...article.sections.flatMap(s => [s.title, ...s.paragraphs, ...(s.bullets || []), ...(s.steps || []), ...(s.table?.rows.flat() || [])]), ...article.faqs.flatMap(f => [f.question, f.answer])].join(' ').split(/\s+/).length;
@@ -22,7 +23,7 @@ export default function HomeownerArticle({ path }: { path: string }) {
   const publishDate = batch3Guides.includes(path) ? '2026-10-20T00:00:00Z' : batch2Guides.includes(path) ? '2026-10-10T00:00:00Z' : '2026-10-04T00:00:00Z';
   const wasUpdatedNov14 = path === 'maintenance' || path === 'guides/septic-tank-pumping-cost';
   const modifiedDate = wasUpdatedNov14 ? '2026-11-14T00:00:00Z' : '2026-10-20T00:00:00Z';
-  const breadcrumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, ...(path.startsWith('guides/') ? [{ '@type': 'ListItem', position: 2, name: 'Septic guides', item: origin + '/guides' }] : []), { '@type': 'ListItem', position: path.startsWith('guides/') ? 3 : 2, name: article.title, item: url }];
+  const breadcrumbs: BreadcrumbItem[] = [{ name: 'Home', path: '/' }, ...(path.startsWith('guides/') ? [{ name: 'Septic guides', path: '/guides' }] : []), { name: article.title, path: `/${path}` }];
   return <>
     <PageHead title={article.title} description={article.description} />
     <div className="container page-body article-shell">
@@ -47,8 +48,19 @@ export default function HomeownerArticle({ path }: { path: string }) {
         <SourceList ids={article.sourceIds} />
       </article>
     </div>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Article', '@id': url + '#article', headline: article.title, description: article.description, datePublished: publishDate, dateModified: modifiedDate, image: { '@type': 'ImageObject', url: origin + feature.src, width: 1200, height: 630 }, author: { '@type': 'Person', '@id': origin + '/about#publisher', name: 'Daniel L. Murray', url: origin + '/about', jobTitle: 'Publisher', worksFor: { '@id': origin + '/#organization' } }, publisher: { '@type': 'Organization', '@id': origin + '/#organization', name: 'SepticHow', url: origin }, mainEntityOfPage: { '@type': 'WebPage', '@id': url }, inLanguage: 'en-US', isAccessibleForFree: true, wordCount, keywords: article.keywords.join(', '), articleSection: article.sections.map(s => s.title), citation: sources.filter(s => article.sourceIds.includes(s.id)).map(s => s.url) }} />
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbs }} />
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', '@id': url + '#faq', mainEntity: article.faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }} />
+    <JsonLd data={buildArticleJsonLd({
+      path: `/${path}`,
+      headline: article.title,
+      description: article.description,
+      datePublished: publishDate,
+      dateModified: modifiedDate,
+      imageUrl: feature.src,
+      section: article.sections.map(section => section.title),
+      citations: sources.filter(s => article.sourceIds.includes(s.id)).map(s => s.url),
+      breadcrumbs,
+      faqs: article.faqs,
+      wordCount,
+      keywords: article.keywords,
+    })} />
   </>;
 }
