@@ -6,6 +6,7 @@ export type StateTankRuleResult = {
 };
 
 const sources: Record<string, { url: string; label: string }> = {
+  florida: { url: 'https://flrules.org/gateway/ruleNo.asp?id=62-6.008', label: 'Florida Administrative Code 62-6.008, Table II' },
   georgia: { url: 'https://rules.sos.ga.gov/GAC/511-3-1', label: 'Georgia Rule 511-3-1-.05' },
   massachusetts: { url: 'https://www.mass.gov/doc/310-cmr-15000-title-5-of-the-state-environmental-code/download', label: '310 CMR 15.223' },
   'new-york': { url: 'https://regs.health.ny.gov/content/appendix-75-a6-septic-tanks', label: 'New York Appendix 75-A.6' },
@@ -34,6 +35,15 @@ export function stateTankRule(
   let note = 'No bedroom-based minimum is computed for this state here. Ask the local permitting authority to confirm applicable requirements.';
 
   switch (state) {
+    case 'florida': {
+      const flow = approvedDesignFlow;
+      const table: Array<[number, number]> = [[200, 900], [300, 900], [400, 1050], [500, 1200], [600, 1350], [700, 1500], [800, 1650], [1000, 1900], [1250, 2200], [1750, 2700], [2500, 3200], [3000, 3700], [3500, 4300], [4000, 4800], [4500, 5300], [5000, 5800]];
+      if (flow && flow > 0 && flow <= 5000) gallons = table.find(([maxFlow]) => flow <= maxFlow)?.[1] ?? null;
+      note = flow && flow > 5000
+        ? 'Florida Table II does not provide a capacity tier above 5,000 GPD in this tool. Have the county health department and designer confirm the required system.'
+        : 'Florida Table II bases minimum effective septic tank capacity on average sewage flow, not bedrooms. This estimate uses the approved design flow; tank compartments, filters, site conditions, and county approval also apply.';
+      break;
+    }
     case 'georgia':
       gallons = 1000 + Math.max(0, bedroomCount - 4) * 250;
       if (garbageGrinder) gallons = Math.ceil(gallons * 1.5);

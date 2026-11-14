@@ -23,5 +23,6 @@ export const sources = [
   ,{id:'pa-tank-rule',name:'Pennsylvania 25 Pa. Code § 73.31 — Standards for septic tanks',url:'https://www.pacodeandbulletin.gov/display/pacode?d=reduce&file=%2Fsecure%2Fpacode%2Fdata%2F025%2Fchapter73%2Fs73.31.html',scope:'Pennsylvania single-family design-flow assumptions and capacity formula',checked:'2026-11-14'}
   ,{id:'sc-tank-rule',name:'South Carolina Regulation 61-56 § 201.1 — Septic tanks',url:'https://des.sc.gov/sites/des/files/Library/Regulations/R.61-56.pdf',scope:'South Carolina minimum tank capacity and bedroom increment',checked:'2026-11-14'}
   ,{id:'va-tank-rule',name:'Virginia 12VAC5-610-815 — Septic tank design',url:'https://law.lis.virginia.gov/admincode/title12/agency5/chapter610/section815/',scope:'Virginia dwelling unit tank capacities by bedroom count',checked:'2026-11-14'}
+  ,{id:'fl-tank-rule',name:'Florida Administrative Code 62-6.008 — System size determinations',url:'https://flrules.org/gateway/ruleNo.asp?id=62-6.008',scope:'Florida minimum effective septic tank capacity by average sewage flow (Table II)',checked:'2026-11-14'}
 ];
 export const origin = process.env.NEXT_PUBLIC_SITE_URL || 'https://septichow.com';
