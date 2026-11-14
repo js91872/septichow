@@ -9,6 +9,7 @@ import Calculator, { Kind } from '@/components/Calculator';
 import PageHead from '@/components/PageHead';
 import SourceList from '@/components/SourceList';
 import JsonLd from '@/components/JsonLd';
+import { buildToolJsonLd } from '@/lib/schema';
 
 export function generateStaticParams() { return tools.map(t => ({ slug: t.slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -32,8 +33,18 @@ export default async function Tool({ params }: { params: Promise<{ slug: string 
         <details className="calculation-details"><summary>Calculation details and sources</summary><p>{tool.method}</p>{tool.sources.length > 0 && <SourceList ids={tool.sources} />}</details>
       </div>
     </section>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'SoftwareApplication', '@id': url + '#tool', name: tool.title, url, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web browser', browserRequirements: 'JavaScript enabled', description: tool.description, inLanguage: 'en-US', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, author: { '@type': 'Person', '@id': origin + '/about#publisher', name: 'Daniel L. Murray', url: origin + '/about', jobTitle: 'Publisher', worksFor: { '@id': origin + '/#organization' } }, publisher: { '@type': 'Organization', '@id': origin + '/#organization', name: 'SepticHow', url: origin }, citation: sources.filter(s => (tool.sources as readonly string[]).includes(s.id)).map(s => s.url) }} />
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin }, { '@type': 'ListItem', position: 2, name: 'Septic tools', item: origin + '/tools' }, { '@type': 'ListItem', position: 3, name: tool.title, item: url }] }} />
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: guidance.faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }} />
+    <JsonLd data={buildToolJsonLd({
+      path: `/tools/${slug}`,
+      name: tool.title,
+      description: tool.description,
+      applicationSubCategory: tool.kind,
+      breadcrumbs: [
+        { name: 'Home', path: '/' },
+        { name: 'Septic tools', path: '/tools' },
+        { name: tool.title, path: `/tools/${slug}` },
+      ],
+      faqs: guidance.faqs,
+      citations: sources.filter(s => (tool.sources as readonly string[]).includes(s.id)).map(s => s.url),
+    })} />
   </>;
 }
