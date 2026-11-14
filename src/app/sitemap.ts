@@ -10,6 +10,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pageRoutes = Object.keys(pages).filter(s => !s.startsWith('states/') && !s.startsWith('tanks/')).map(s => '/' + s);
 
   const allPaths = Array.from(new Set([...staticRoutes, ...toolRoutes, ...pageRoutes]));
+  const modifiedNovember14 = new Set([
+    '/tools',
+    '/guides',
+    '/maintenance',
+    '/about',
+    '/contact',
+    '/privacy',
+    '/privacy-choices',
+    '/terms',
+    '/editorial-policy',
+    '/methodology',
+    '/corrections',
+    ...toolRoutes,
+    ...pageRoutes.filter(path => path.startsWith('/guides/')),
+  ]);
 
   return allPaths.map(path => {
     const isRoot = path === '';
@@ -23,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return {
       url: origin + path,
-      lastModified: new Date('2026-10-20T00:00:00Z'),
+      lastModified: new Date(modifiedNovember14.has(path) ? '2026-11-14T00:00:00Z' : '2026-10-20T00:00:00Z'),
       changeFrequency: (isRoot || isTool ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
       priority
     };
